@@ -48,6 +48,10 @@ const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<nu
 }
 
 
+
+
+const runSingleSimulation = (userInputs: UserInputs): void =>{
+  // This will still alter userInputs, I think.
 // One run through of simulation
 while ( userInputs.playerCounts.attackerCount > 0 && userInputs.playerCounts.defenderCount > 0 ){
   
@@ -91,5 +95,5 @@ else if (userInputs.playerCounts.defenderCount === 0){
   console.log('attacker occupies!')
   // results.attackerOccupies ++
 }
-
+}
 }
