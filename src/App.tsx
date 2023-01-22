@@ -1,3 +1,5 @@
+// TODO: Refactor, particularly make the simulation more DRY and figure out how to best replicate userInputs in runSingleSimulation
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +19,10 @@ type PlayerCounts = {
 type Results = {
   attackerOccupies: number;
   defenderHolds: number;
+  // averageUnitsLeft: {
+  //   attackers: number;
+  //   defenders: number;
+  // }
 }
 
 type UserInputs = {
@@ -31,7 +37,7 @@ const userInputs: UserInputs = {
    defenderCount: 20
   },
   numSimulations: 10000
-} as const
+} 
 
 const results: Results = {
   attackerOccupies: 0,
