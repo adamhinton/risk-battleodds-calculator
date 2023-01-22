@@ -56,7 +56,7 @@ function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
   // this is stupid but it makes the copy of the object. Need to refactor.
   const myUserInputs: UserInputs = {
     playerCounts: {
-      ... userInputs.playerCounts
+      ...userInputs.playerCounts
     }
   }
 
@@ -65,7 +65,7 @@ function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
 // One run through of simulation
 while ( myUserInputs.playerCounts.attackerCount > 0 && myUserInputs.playerCounts.defenderCount > 0 ){
   
-  console.log('playerCounts:', myUserInputs.playerCounts)
+console.log('playerCounts:', myUserInputs.playerCounts)
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
