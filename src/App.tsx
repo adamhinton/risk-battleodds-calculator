@@ -31,7 +31,7 @@ const userInputs: UserInputs = {
    defenderCount: 10
   },
   // numSimulations: 20
-}
+} as const
 
 const results: Results = {
   attackerOccupies: 0,
@@ -47,15 +47,25 @@ const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<nu
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
+runSingleSimulation( userInputs )
 
+console.log('userInputs:', userInputs)
 
+function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
 
-const runSingleSimulation = (userInputs: UserInputs): void =>{
-  // This will still alter userInputs, I think.
+  // this is stupid but it makes the copy of the object. Need to refactor.
+  const myUserInputs: UserInputs = {
+    playerCounts: {
+      ... userInputs.playerCounts
+    }
+  }
+
+  console.log('myUserInputs === userInputs:', myUserInputs === userInputs)
+// This will still alter userInputs, hmm
 // One run through of simulation
-while ( userInputs.playerCounts.attackerCount > 0 && userInputs.playerCounts.defenderCount > 0 ){
+while ( myUserInputs.playerCounts.attackerCount > 0 && myUserInputs.playerCounts.defenderCount > 0 ){
   
-  console.log('playerCounts:', userInputs.playerCounts)
+  console.log('playerCounts:', myUserInputs.playerCounts)
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
@@ -71,27 +81,27 @@ const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
 
 // Now for the attack 
 if(attackerRolls[0] > defenderRolls[0]){
-  userInputs.playerCounts.defenderCount --
+  myUserInputs.playerCounts.defenderCount --
 }
 else {
-  userInputs.playerCounts.attackerCount --
+  myUserInputs.playerCounts.attackerCount --
 }
 
-if(userInputs.playerCounts.attackerCount > 1 && userInputs.playerCounts.defenderCount > 1 ){
+if(myUserInputs.playerCounts.attackerCount > 1 && myUserInputs.playerCounts.defenderCount > 1 ){
   if(attackerRolls[1] > defenderRolls[1]){
-  userInputs.playerCounts.defenderCount --
+  myUserInputs.playerCounts.defenderCount --
 }
   else {
-  userInputs.playerCounts.attackerCount --
+  myUserInputs.playerCounts.attackerCount --
    }
 }
 
 // results
-if(userInputs.playerCounts.attackerCount === 0){
+if(myUserInputs.playerCounts.attackerCount === 0){
   console.log('defender holds!')
   // results.defenderHolds ++
 }
-else if (userInputs.playerCounts.defenderCount === 0){
+else if (myUserInputs.playerCounts.defenderCount === 0){
   console.log('attacker occupies!')
   // results.attackerOccupies ++
 }
