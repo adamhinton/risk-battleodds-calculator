@@ -48,4 +48,14 @@ const randomIntFromInterval = (min: number, max: number) =>{ // min and max incl
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-while ( attackerCount > 0 && defenderCount > 0 ){}
+// One run through of simulation
+while ( attackerCount > 0 && defenderCount > 0 ){
+const attackerRollOne = randomIntFromInterval(1, 6)
+const attackerRollTwo = randomIntFromInterval(1, 6)
+const attackerRollThree = randomIntFromInterval(1, 6)
+
+
+const defenderRollOne = randomIntFromInterval(1, 6)
+const defenderRollTwo = randomIntFromInterval(1, 6)
+
+}
