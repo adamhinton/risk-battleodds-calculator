@@ -21,16 +21,16 @@ type Results = {
 
 type UserInputs = {
   playerCounts: PlayerCounts;
-  // numSimulations: number;
+  numSimulations: number;
 }
 
 // USEFUL VARIABLES
 const userInputs: UserInputs = {
   playerCounts: {
-   attackerCount: 15,
-   defenderCount: 10
+   attackerCount: 20,
+   defenderCount: 20
   },
-  // numSimulations: 20
+  numSimulations: 1000
 } as const
 
 const results: Results = {
@@ -47,25 +47,26 @@ const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<nu
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
-runSingleSimulation( userInputs )
+for(let i=0; i<userInputs.numSimulations; i++){
+  runSingleSimulation( userInputs )
+}
+console.log('results:', results)
 
 console.log('userInputs:', userInputs)
 
 function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
 
   // this is stupid but it makes the copy of the object. Need to refactor.
-  const myUserInputs: UserInputs = {
-    playerCounts: {
-      ...userInputs.playerCounts
-    }
+  const myUserInputs: PlayerCounts = {
+    ...userInputs.playerCounts
   }
 
-  console.log('myUserInputs === userInputs:', myUserInputs === userInputs)
+  // console.log('myUserInputs === userInputs:', myUserInputs === userInputs)
 // This will still alter userInputs, hmm
 // One run through of simulation
-while ( myUserInputs.playerCounts.attackerCount > 0 && myUserInputs.playerCounts.defenderCount > 0 ){
+while ( myUserInputs.attackerCount > 0 && myUserInputs.defenderCount > 0 ){
   
-console.log('playerCounts:', myUserInputs.playerCounts)
+// console.log('playerCounts:', myUserInputs)
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
@@ -81,29 +82,29 @@ const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
 
 // Now for the attack 
 if(attackerRolls[0] > defenderRolls[0]){
-  myUserInputs.playerCounts.defenderCount --
+  myUserInputs.defenderCount --
 }
 else {
-  myUserInputs.playerCounts.attackerCount --
+  myUserInputs.attackerCount --
 }
 
-if(myUserInputs.playerCounts.attackerCount > 1 && myUserInputs.playerCounts.defenderCount > 1 ){
+if(myUserInputs.attackerCount > 1 && myUserInputs.defenderCount > 1 ){
   if(attackerRolls[1] > defenderRolls[1]){
-  myUserInputs.playerCounts.defenderCount --
+  myUserInputs.defenderCount --
 }
   else {
-  myUserInputs.playerCounts.attackerCount --
+  myUserInputs.attackerCount --
    }
 }
 
 // results
-if(myUserInputs.playerCounts.attackerCount === 0){
-  console.log('defender holds!')
-  // results.defenderHolds ++
+if(myUserInputs.attackerCount === 0){
+  // console.log('defender holds!')
+  results.defenderHolds ++
 }
-else if (myUserInputs.playerCounts.defenderCount === 0){
-  console.log('attacker occupies!')
-  // results.attackerOccupies ++
+else if (myUserInputs.defenderCount === 0){
+  // console.log('attacker occupies!')
+  results.attackerOccupies ++
 }
 }
 }
