@@ -8,12 +8,17 @@ function App() {
 
 export default App;
 
+type PlayerCounts = {
+  attackerCount: number;
+  defenderCount: number;
+}
+
+const playerCounts: PlayerCounts = {
+  attackerCount: 15,
+  defenderCount: 10
+} 
+
 
 const randomIntFromInterval = (min: number, max: number) =>{ // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
-console.log('randomIntFromInterval(1, 6):', randomIntFromInterval(1, 6))
-console.log('randomIntFromInterval(1, 6):', randomIntFromInterval(1, 6))
-console.log('randomIntFromInterval(1, 6):', randomIntFromInterval(1, 6))
-console.log('randomIntFromInterval(1, 6):', randomIntFromInterval(1, 6))
