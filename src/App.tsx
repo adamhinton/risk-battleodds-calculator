@@ -13,10 +13,17 @@ type PlayerCounts = {
   defenderCount: number;
 }
 
+type Results = {
+  attackerOccupies: number;
+  defenderHolds: number;
+}
+
 const playerCounts: PlayerCounts = {
   attackerCount: 15,
   defenderCount: 10
 } 
+
+
 
 const results = {
   attackerOccupies: 0,
