@@ -35,6 +35,9 @@ const userInputs: UserInputs = {
   // numSimulations: 20
 }
 
+const {playerCounts} = userInputs
+const {attackerCount, defenderCount} = playerCounts
+
 const results: Results = {
   attackerOccupies: 0,
   defenderHolds: 0
@@ -44,3 +47,5 @@ const results: Results = {
 const randomIntFromInterval = (min: number, max: number) =>{ // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+while ( attackerCount > 0 && defenderCount > 0 ){}
