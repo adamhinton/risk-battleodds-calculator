@@ -30,7 +30,7 @@ const userInputs: UserInputs = {
    attackerCount: 20,
    defenderCount: 20
   },
-  numSimulations: 1000
+  numSimulations: 10000
 } as const
 
 const results: Results = {
@@ -47,11 +47,12 @@ const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<nu
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
+console.time('a')
 for(let i=0; i<userInputs.numSimulations; i++){
   runSingleSimulation( userInputs )
 }
 console.log('results:', results)
-
+console.timeEnd('a')
 console.log('userInputs:', userInputs)
 
 function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
@@ -61,12 +62,9 @@ function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
     ...userInputs.playerCounts
   }
 
-  // console.log('myUserInputs === userInputs:', myUserInputs === userInputs)
-// This will still alter userInputs, hmm
 // One run through of simulation
 while ( myUserInputs.attackerCount > 0 && myUserInputs.defenderCount > 0 ){
   
-// console.log('playerCounts:', myUserInputs)
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
@@ -77,8 +75,6 @@ const defenderSecondRoll = randomIntFromInterval(1, 6)
 
 const attackerRolls = sortPlayerRolls([attackerFirstRoll, attackerSecondRoll, attackerThirdRoll])
 const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
-// console.log('attackerRolls:', attackerRolls)
-// console.log('defenderRolls:', defenderRolls)
 
 // Now for the attack 
 if(attackerRolls[0] > defenderRolls[0]){
@@ -99,11 +95,9 @@ if(myUserInputs.attackerCount > 1 && myUserInputs.defenderCount > 1 ){
 
 // results
 if(myUserInputs.attackerCount === 0){
-  // console.log('defender holds!')
   results.defenderHolds ++
 }
 else if (myUserInputs.defenderCount === 0){
-  // console.log('attacker occupies!')
   results.attackerOccupies ++
 }
 }
