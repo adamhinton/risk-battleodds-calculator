@@ -1,5 +1,3 @@
-import { ResourceLimits } from 'worker_threads';
-
 function App() {
   return (
     <div className="App">
@@ -36,7 +34,7 @@ const userInputs: UserInputs = {
 }
 
 const {playerCounts} = userInputs
-const {attackerCount, defenderCount} = playerCounts
+let {attackerCount, defenderCount} = playerCounts
 
 const results: Results = {
   attackerOccupies: 0,
@@ -48,6 +46,11 @@ const randomIntFromInterval = (min: number, max: number) =>{ // min and max incl
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+const sortPlayerRolls = (rolls: [rollOne: number, rollTwo: number, rollThree? : number]) =>{
+  return rolls.sort((a , b ) =>{ return b!  - a! })
+}
+
+
 // One run through of simulation
 while ( attackerCount > 0 && defenderCount > 0 ){
 const attackerFirstRoll= randomIntFromInterval(1, 6)
@@ -58,11 +61,12 @@ const attackerThirdRoll = randomIntFromInterval(1, 6)
 const defenderFirstRoll = randomIntFromInterval(1, 6)
 const defenderSecondRoll = randomIntFromInterval(1, 6)
 
+const attackerRolls = sortPlayerRolls([attackerFirstRoll, attackerSecondRoll, attackerThirdRoll])
+const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
+console.log('attackerRolls:', attackerRolls)
+console.log('defenderRolls:', defenderRolls)
+
+// just to keep the loop moving for now
+attackerCount --
+defenderCount -- 
 }
-
-
-const sortPlayerRolls = (rolls: [rollOne: number, rollTwo: number, rollThree? : number]) =>{
-  return rolls.sort((a , b ) =>{ return b!  - a! })
-}
-
-
