@@ -18,11 +18,18 @@ type Results = {
   defenderHolds: number;
 }
 
-const playerCounts: PlayerCounts = {
-  attackerCount: 15,
-  defenderCount: 10
-} 
+type UserInputs = {
+  playerCounts: PlayerCounts;
+  numSimulations: number;
+}
 
+const userInputs: UserInputs = {
+  playerCounts: {
+   attackerCount: 15,
+   defenderCount: 10
+  },
+  numSimulations: 20
+}
 
 
 const results = {
