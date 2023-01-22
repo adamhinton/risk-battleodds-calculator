@@ -50,12 +50,19 @@ const randomIntFromInterval = (min: number, max: number) =>{ // min and max incl
 
 // One run through of simulation
 while ( attackerCount > 0 && defenderCount > 0 ){
-const attackerRollOne = randomIntFromInterval(1, 6)
-const attackerRollTwo = randomIntFromInterval(1, 6)
-const attackerRollThree = randomIntFromInterval(1, 6)
+const attackerFirstRoll= randomIntFromInterval(1, 6)
+const attackerSecondRoll = randomIntFromInterval(1, 6)
+const attackerThirdRoll = randomIntFromInterval(1, 6)
 
 
-const defenderRollOne = randomIntFromInterval(1, 6)
-const defenderRollTwo = randomIntFromInterval(1, 6)
+const defenderFirstRoll = randomIntFromInterval(1, 6)
+const defenderSecondRoll = randomIntFromInterval(1, 6)
 
 }
+
+
+const sortPlayerRolls = (rolls: [rollOne: number, rollTwo: number, rollThree? : number]) =>{
+  return rolls.sort((a , b ) =>{ return b!  - a! })
+}
+
+
