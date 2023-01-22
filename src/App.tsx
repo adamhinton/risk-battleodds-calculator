@@ -33,9 +33,6 @@ const userInputs: UserInputs = {
   // numSimulations: 20
 }
 
-const {playerCounts} = userInputs
-let {attackerCount, defenderCount} = playerCounts
-
 const results: Results = {
   attackerOccupies: 0,
   defenderHolds: 0
@@ -52,7 +49,9 @@ const sortPlayerRolls = (rolls: [rollOne: number, rollTwo: number, rollThree? : 
 
 
 // One run through of simulation
-while ( attackerCount > 0 && defenderCount > 0 ){
+while ( userInputs.playerCounts.attackerCount > 0 && userInputs.playerCounts.defenderCount > 0 ){
+  
+  console.log('playerCounts:', userInputs.playerCounts)
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
@@ -63,10 +62,34 @@ const defenderSecondRoll = randomIntFromInterval(1, 6)
 
 const attackerRolls = sortPlayerRolls([attackerFirstRoll, attackerSecondRoll, attackerThirdRoll])
 const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
-console.log('attackerRolls:', attackerRolls)
-console.log('defenderRolls:', defenderRolls)
+// console.log('attackerRolls:', attackerRolls)
+// console.log('defenderRolls:', defenderRolls)
 
-// just to keep the loop moving for now
-attackerCount --
-defenderCount -- 
+// Now for the attack 
+if(attackerRolls[0] > defenderRolls[0]){
+  userInputs.playerCounts.defenderCount --
+}
+else {
+  userInputs.playerCounts.attackerCount --
+}
+
+if(userInputs.playerCounts.attackerCount > 1 && userInputs.playerCounts.defenderCount > 1 ){
+  if(attackerRolls[1] > defenderRolls[1]){
+  userInputs.playerCounts.defenderCount --
+}
+  else {
+  userInputs.playerCounts.attackerCount --
+   }
+}
+
+// results
+if(userInputs.playerCounts.attackerCount === 0){
+  console.log('defender holds!')
+  // results.defenderHolds ++
+}
+else if (userInputs.playerCounts.defenderCount === 0){
+  console.log('attacker occupies!')
+  // results.attackerOccupies ++
+}
+
 }
