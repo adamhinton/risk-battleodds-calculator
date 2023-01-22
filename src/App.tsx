@@ -39,11 +39,11 @@ const results: Results = {
 }
 
 // UTILS
-const randomIntFromInterval = (min: number, max: number) =>{ // min and max included 
+const randomIntFromInterval = (min: Readonly<number>, max: Readonly<number>) =>{ // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const sortPlayerRolls = (rolls: [rollOne: number, rollTwo: number, rollThree? : number]) =>{
+const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<number>, rollThree? : Readonly<number>]) =>{
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
