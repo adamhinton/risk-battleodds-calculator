@@ -55,21 +55,17 @@ const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<nu
 
 console.time('a')
 for(let i=0; i<userInputs.numSimulations; i++){
-  runSingleSimulation( userInputs )
+  runSingleSimulation( {...userInputs.playerCounts })
 }
+
 console.log('results:', results)
 console.timeEnd('a')
 console.log('userInputs:', userInputs)
 
-function runSingleSimulation (userInputs: Readonly<UserInputs>): void {
-
-  // this is stupid but it makes the copy of the object. Need to refactor.
-  const myUserInputs: PlayerCounts = {
-    ...userInputs.playerCounts
-  }
-
+function runSingleSimulation (playerCounts: PlayerCounts): void {
+  
 // One run through of simulation
-while ( myUserInputs.attackerCount > 0 && myUserInputs.defenderCount > 0 ){
+while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
   
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
@@ -84,26 +80,26 @@ const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
 
 // Now for the attack 
 if(attackerRolls[0] > defenderRolls[0]){
-  myUserInputs.defenderCount --
+  playerCounts.defenderCount --
 }
 else {
-  myUserInputs.attackerCount --
+  playerCounts.attackerCount --
 }
 
-if(myUserInputs.attackerCount > 1 && myUserInputs.defenderCount > 1 ){
+if(playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1 ){
   if(attackerRolls[1] > defenderRolls[1]){
-  myUserInputs.defenderCount --
+  playerCounts.defenderCount --
 }
   else {
-  myUserInputs.attackerCount --
+  playerCounts.attackerCount --
    }
 }
 
 // results
-if(myUserInputs.attackerCount === 0){
+if(playerCounts.attackerCount === 0){
   results.defenderHolds ++
 }
-else if (myUserInputs.defenderCount === 0){
+else if (playerCounts.defenderCount === 0){
   results.attackerOccupies ++
 }
 }
