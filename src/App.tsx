@@ -36,7 +36,7 @@ const userInputs: UserInputs = {
    attackerCount: 20,
    defenderCount: 20
   },
-  numSimulations: 10000
+  numSimulations: 1000
 } 
 
 const results: Results = {
