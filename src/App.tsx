@@ -67,22 +67,18 @@ function runSingleSimulation (playerCounts: PlayerCounts): void {
 // One run through of simulation
 while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
   
-type AttackerRolls = [number, number?, number?]
-type DefenderRolls = [number, number?]
+type AttackerRolls = [number, number, number]
+type DefenderRolls = [number, number]
 type PlayerRolls = AttackerRolls | DefenderRolls
 
-const attackerFirstRoll= randomIntFromInterval(1, 6)
-const attackerSecondRoll = randomIntFromInterval(1, 6)
-const attackerThirdRoll = randomIntFromInterval(1, 6)
+const attackerRolls : AttackerRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
+const defenderRolls: DefenderRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
 
-const defenderFirstRoll = randomIntFromInterval(1, 6)
-const defenderSecondRoll = randomIntFromInterval(1, 6)
-
-const attackerRolls = sortPlayerRolls([attackerFirstRoll, attackerSecondRoll, attackerThirdRoll])
-const defenderRolls = sortPlayerRolls([defenderFirstRoll, defenderSecondRoll])
+const attackerRollsSorted = sortPlayerRolls(attackerRolls)
+const defenderRollsSorted = sortPlayerRolls(defenderRolls)
 
 // Now for the attack 
-if(attackerRolls[0] > defenderRolls[0]){
+if(attackerRollsSorted[0] > defenderRollsSorted[0]){
   playerCounts.defenderCount --
 }
 else {
@@ -90,7 +86,7 @@ else {
 }
 
 if(playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1 ){
-  if(attackerRolls[1] > defenderRolls[1]){
+  if(attackerRollsSorted[1] > defenderRollsSorted[1]){
   playerCounts.defenderCount --
 }
   else {
