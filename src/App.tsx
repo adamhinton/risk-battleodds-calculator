@@ -79,11 +79,14 @@ const defenderRolls: DefenderRolls = [randomIntFromInterval(1, 6), randomIntFrom
 const attackerRollsSorted = sortPlayerRolls(attackerRolls)
 const defenderRollsSorted = sortPlayerRolls(defenderRolls)
 
-const generateSortedRolls = () : PlayerRolls =>{
-  
-  // placeholder
-  return [1, 1, 1]
-}
+// interface GenerateSortedRolls {
+//   (playerType: 'attacker'): AttackerRolls;
+//   (playerType: 'defender'): DefenderRolls
+// }
+
+// const generateSortedRolls: GenerateSortedRolls = (playerType: PlayerType) =>{
+//   return [1, 1]
+// }
 
 // Now for the attack 
 if(attackerRollsSorted[0] > defenderRollsSorted[0]){
