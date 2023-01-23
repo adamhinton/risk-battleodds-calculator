@@ -67,6 +67,10 @@ function runSingleSimulation (playerCounts: PlayerCounts): void {
 // One run through of simulation
 while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
   
+type AttackerRolls = [number, number?, number?]
+type DefenderRolls = [number, number?]
+type PlayerRolls = AttackerRolls | DefenderRolls
+
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
