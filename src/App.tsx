@@ -30,6 +30,8 @@ type UserInputs = {
   numSimulations: number;
 }
 
+type PlayerType = 'attacker' | 'defender'
+
 // USEFUL VARIABLES
 const userInputs: UserInputs = {
   playerCounts: {
