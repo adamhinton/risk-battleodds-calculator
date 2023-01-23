@@ -63,14 +63,13 @@ console.timeEnd('a')
 console.log('userInputs:', userInputs)
 
 function runSingleSimulation (playerCounts: PlayerCounts): void {
-  
+
 // One run through of simulation
 while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
   
 const attackerFirstRoll= randomIntFromInterval(1, 6)
 const attackerSecondRoll = randomIntFromInterval(1, 6)
 const attackerThirdRoll = randomIntFromInterval(1, 6)
-
 
 const defenderFirstRoll = randomIntFromInterval(1, 6)
 const defenderSecondRoll = randomIntFromInterval(1, 6)
