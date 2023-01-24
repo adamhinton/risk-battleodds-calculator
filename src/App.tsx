@@ -32,6 +32,10 @@ type UserInputs = {
 
 type PlayerType = 'attacker' | 'defender'
 
+type AttackerRolls = [number, number? , number?]
+type DefenderRolls = [number, number?]
+type PlayerRolls = AttackerRolls | DefenderRolls
+
 // USEFUL VARIABLES
 const userInputs: UserInputs = {
   playerCounts: {
@@ -51,13 +55,13 @@ const randomIntFromInterval = (min: Readonly<number>, max: Readonly<number>) =>{
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const sortPlayerRolls = (rolls: [rollOne: Readonly<number>, rollTwo: Readonly<number>, rollThree? : Readonly<number>]) =>{
+const sortPlayerRolls = (rolls: PlayerRolls) =>{
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
 console.time('a')
 for(let i=0; i<userInputs.numSimulations; i++){
-  runSingleSimulation( {...userInputs.playerCounts })
+  runSingleSimulation( {...userInputs.playerCounts } )
 }
 
 console.log('results:', results)
@@ -68,10 +72,6 @@ function runSingleSimulation (playerCounts: PlayerCounts): void {
 
 // One run through of simulation
 while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
-  
-type AttackerRolls = [number, number, number]
-type DefenderRolls = [number, number]
-type PlayerRolls = AttackerRolls | DefenderRolls
 
 const attackerRolls : AttackerRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
 const defenderRolls: DefenderRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
@@ -81,12 +81,35 @@ const defenderRollsSorted = sortPlayerRolls(defenderRolls)
 
 // interface GenerateSortedRolls {
 //   (playerType: 'attacker'): AttackerRolls;
-//   (playerType: 'defender'): DefenderRolls
+//   (playerType: 'defender'): DefenderRolls;
 // }
 
-// const generateSortedRolls: GenerateSortedRolls = (playerType: PlayerType) =>{
-//   return [1, 1]
-// }
+// function generateSortedRolls(playerType: 'attacker'): AttackerRolls;
+// function generateSortedRolls(playerType: 'defender'): DefenderRolls
+
+
+const generateSortedRolls = (playerType: PlayerType, numUnits: number): PlayerRolls =>{
+  const generateUnsortedRolls = (numUnits: 1 | 2 | 3): PlayerRolls =>{
+    const solution = []
+    for(let i=0; i<numUnits; i++){
+      solution.push(randomIntFromInterval(1, 6))
+    }
+    return solution;
+  }
+
+  // if one unit, doesn't matter if attacker or defender, they get one dice roll
+  if(numUnits === 1){
+    return generateUnsortedRolls(1)
+  }
+
+  // They're a defender and we already know they don't have one unit, so they get two dice rolls
+  if(playerType === 'defender'){
+    return generateUnsortedRolls(2)
+  }
+
+  // We know they're an attacker now. So if they have two units they get two rolls, otherwise they get three rolls
+  return numUnits === 2? generateUnsortedRolls(2) : generateUnsortedRolls(3)
+}
 
 // Now for the attack 
 if(attackerRollsSorted[0] > defenderRollsSorted[0]){
@@ -97,7 +120,7 @@ else {
 }
 
 if(playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1 ){
-  if(attackerRollsSorted[1] > defenderRollsSorted[1]){
+  if(attackerRollsSorted[1]! > defenderRollsSorted[1]!){
   playerCounts.defenderCount --
 }
   else {
