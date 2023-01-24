@@ -90,11 +90,12 @@ const defenderRollsSorted = sortPlayerRolls(defenderRolls)
 
 const generateSortedRolls = (playerType: PlayerType, numUnits: number): PlayerRolls =>{
   const generateUnsortedRolls = (numUnits: 1 | 2 | 3): PlayerRolls =>{
-    const solution = []
+    const solution = [] 
     for(let i=0; i<numUnits; i++){
       solution.push(randomIntFromInterval(1, 6))
     }
-    return solution;
+    // TODO: Refactor this, I shouldn't need this type assertion
+    return (solution.length === 1? solution : sortPlayerRolls(solution as PlayerRolls)) as PlayerRolls;
   }
 
   // if one unit, doesn't matter if attacker or defender, they get one dice roll
