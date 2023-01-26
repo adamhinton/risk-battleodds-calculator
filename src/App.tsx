@@ -15,7 +15,7 @@ function generatePlayerRolls (playerType: PlayerType, diceRolls: 1 | 2 | number)
       solution.push(randomIntFromInterval(1, 6))
     }
     // TODO: Refactor this, I shouldn't need this type assertion
-   return sortPlayerRolls(solution)
+   return sortPlayerRolls(solution as PlayerRolls)
   }
 
   // if one unit, doesn't matter if attacker or defender, they get one dice roll
@@ -79,7 +79,7 @@ const randomIntFromInterval = (min: Readonly<number>, max: Readonly<number>) =>{
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-const sortPlayerRolls = (rolls: PlayerRolls) =>{
+const sortPlayerRolls = (rolls: PlayerRolls): PlayerRolls =>{
   return rolls.sort((a , b ) =>{ return b!  - a! })
 }
 
