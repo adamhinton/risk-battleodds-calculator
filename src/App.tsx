@@ -8,6 +8,30 @@ function App() {
   );
 }
 
+function generatePlayerRolls (playerType: PlayerType, diceRolls: 1 | 2 | number): PlayerRolls {
+  const generateSortedRolls = (diceRolls: 1 | 2 | 3): PlayerRolls =>{
+    const solution = [] 
+    for(let i=0; i<diceRolls; i++){
+      solution.push(randomIntFromInterval(1, 6))
+    }
+    // TODO: Refactor this, I shouldn't need this type assertion
+   return sortPlayerRolls(solution)
+  }
+
+  // if one unit, doesn't matter if attacker or defender, they get one dice roll
+  if(diceRolls === 1){
+    return generateSortedRolls(1)
+  }
+
+  // They're a defender and we already know they don't have one unit, so they get two dice rolls
+  if(playerType === 'defender'){
+    return generateSortedRolls(2)
+  }
+
+  // We know they're an attacker now. So if they have two units they get two rolls, otherwise they get three rolls
+  return diceRolls === 2? generateSortedRolls(2) : generateSortedRolls(3)
+}
+
 export default App;
 
 // TYPE DEFINITIONS
@@ -42,7 +66,7 @@ const userInputs: UserInputs = {
    attackerCount: 20,
    defenderCount: 20
   },
-  numSimulations: 1000
+  numSimulations: 1
 } 
 
 const results: Results = {
@@ -73,47 +97,19 @@ function runSingleSimulation (playerCounts: PlayerCounts): void {
 // One run through of simulation
 while ( playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0 ){
 
-const attackerRolls : AttackerRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
-const defenderRolls: DefenderRolls = [randomIntFromInterval(1, 6), randomIntFromInterval(1, 6)]
+const attackerRolls = generatePlayerRolls('attacker', playerCounts.attackerCount)
+const defenderRolls = generatePlayerRolls('defender', playerCounts.defenderCount)
 
-const attackerRollsSorted = sortPlayerRolls(attackerRolls)
-const defenderRollsSorted = sortPlayerRolls(defenderRolls)
+console.log('attackerRolls, defenderRolls:', attackerRolls, defenderRolls)
 
-// interface GenerateSortedRolls {
-//   (playerType: 'attacker'): AttackerRolls;
-//   (playerType: 'defender'): DefenderRolls;
-// }
+// const attackerRolls = sortPlayerRolls(attackerRolls)
+// const defenderRollsSorted = sortPlayerRolls(defenderRolls)
 
-// function generateSortedRolls(playerType: 'attacker'): AttackerRolls;
-// function generateSortedRolls(playerType: 'defender'): DefenderRolls
+// if diceRolls is 1 or 2 then follow certain logic. If more than 2 (aka its type is number) then follow other logic.
 
-
-const generatePlayerRolls = (playerType: PlayerType, diceRolls: 1 | 2 | 3): PlayerRolls =>{
-  const generateSortedRolls = (diceRolls: 1 | 2 | 3): PlayerRolls =>{
-    const solution = [] 
-    for(let i=0; i<diceRolls; i++){
-      solution.push(randomIntFromInterval(1, 6))
-    }
-    // TODO: Refactor this, I shouldn't need this type assertion
-   return sortPlayerRolls(solution as PlayerRolls)
-  }
-
-  // if one unit, doesn't matter if attacker or defender, they get one dice roll
-  if(diceRolls === 1){
-    return generateSortedRolls(1)
-  }
-
-  // They're a defender and we already know they don't have one unit, so they get two dice rolls
-  if(playerType === 'defender'){
-    return generateSortedRolls(2)
-  }
-
-  // We know they're an attacker now. So if they have two units they get two rolls, otherwise they get three rolls
-  return diceRolls === 2? generateSortedRolls(2) : generateSortedRolls(3)
-}
 
 // Now for the attack 
-if(attackerRollsSorted[0] > defenderRollsSorted[0]){
+if(attackerRolls[0] > defenderRolls[0]){
   playerCounts.defenderCount --
 }
 else {
@@ -121,7 +117,7 @@ else {
 }
 
 if(playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1 ){
-  if(attackerRollsSorted[1]! > defenderRollsSorted[1]!){
+  if(attackerRolls[1]! > defenderRolls[1]!){
   playerCounts.defenderCount --
 }
   else {
