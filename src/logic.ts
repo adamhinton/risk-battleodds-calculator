@@ -1,114 +1,12 @@
-// I stole this from Google, don't hate me if it's buggy
+// things are a little messy right now 1.24. I'm working on generateSortedRolls which is mostly good but messy,  and I also have the redundant sortPlayerRolls fxn which is used currently --- generateSortedRolls isn't used yet.
 
+// Average troops left tracking planning
+// Have runSingleSimulation return an object or tuple with num troops left for each player
+// Add those values to troopsLeft object of some sort
+// At end, iterate over object to calc average troops left
+// I feel like there's a better way. Recursion? 
 
-export function randomIntFromInterval(min: number, max: number) { // min and max included 
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-type PlayerCounts = {
-  attackerCount: number;
-  defenderCount: number;
-}
-
-const playerCounts: PlayerCounts = {
-  attackerCount: 15,
-  defenderCount: 10
-} 
-
-const results = {
-  attackerOccupies: 0,
-  defenderHolds: 0
-}
-
-
-while(playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0){
-  console.time('a')
-
-const attackerRollOne = randomIntFromInterval(1, 6)
-const attackerRollTwo = randomIntFromInterval(1, 6)
-const attackerRollThree = randomIntFromInterval(1, 6)
-
-
-const defenderRollOne = randomIntFromInterval(1, 6)
-const defenderRollTwo = randomIntFromInterval(1, 6)
-
-const attackerRolls = [attackerRollOne, attackerRollTwo, attackerRollThree].sort(
-  (a, b) =>{ return b - a })
-
-  const defenderRolls = [defenderRollOne, defenderRollTwo].sort(
-  (a, b) =>{ return b - a })
-
-console.log({
-  attackerRollOne,
-  attackerRollTwo,
-  attackerRollThree,
-  defenderRollOne,
-  defenderRollTwo
-})
-
-// console.log('attackerRolls sorted:', attackerRolls)
-// console.log('defenderRolls sorted:', defenderRolls)
-
-if(attackerRolls[0] > defenderRolls[0]){
-  playerCounts.defenderCount --
-}
-else {
-  playerCounts.attackerCount --
-}
-
-if(playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1 ){
-  if(attackerRolls[1] > defenderRolls[1]){
-  playerCounts.defenderCount --
-}
-  else {
-  playerCounts.attackerCount --
-   }
-}
-
-console.log("playerCounts:", playerCounts)
-
-  console.timeEnd('a')
-
-}
-
-if(playerCounts.attackerCount === 0){
-  console.log('defender holds!')
-  results.defenderHolds ++
-}
-else if (playerCounts.defenderCount === 0){
-  console.log('attacker occupies!')
-  results.attackerOccupies ++
-}
-
-console.log('results:', results)
-
-console.timeEnd()
-
-
-
-// NEED:
-
-//INPUTS
-// Attacker Count
-// Defender Count
-  // STRETCH: multiple defending territories
-// num of times to run scenario
-// STRETCH:
-// Dice sides
-// Number of attackers used per turn (not always 3)
-
-// LOGIC
-// Generate Dice Roll - check
-// Compare top A to top D, loser -- 
-  // repeat with second A and second D
-  // Do this by sorting both arrays. then compare att[0] to def[0] and att[1] to def[1]
-
-// for (scenarioCount){
-    // while (attackerCount > stopWhen) {
-      // if topA > top B dCount -- , else aCount --
-      // if secondTopA > secondTopB dcount--, else aCount --
-// }
-// }
+export const a = 'I need to export something'
 
 
 // REPORTING
@@ -124,3 +22,4 @@ console.timeEnd()
     // attackerOccupies: number;
     // defenderHolds: number;
   // }
+
