@@ -2,6 +2,14 @@
 
 import Form from "./components/Form";
 
+// PLAN
+// COMPONENT STRUCTURE:
+// <App>
+// <Header/>
+// <Form/>
+// <Results/>
+// </App>
+
 function App() {
   return (
     <div className="App">
@@ -72,7 +80,7 @@ const userInputs: UserInputs = {
     attackerCount: 20,
     defenderCount: 20,
   },
-  numSimulations: 1,
+  numSimulations: 1000,
 };
 
 const results: Results = {
