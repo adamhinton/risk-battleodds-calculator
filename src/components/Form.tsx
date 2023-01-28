@@ -21,12 +21,17 @@ const Form = (props: Props): ReactElement => {
     numSimulations: 10,
   };
 
-  const [formValues, setFormValues] = useState<FormValues>();
+  const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
 
   return (
     <form>
       <label htmlFor="attackers">Attackers:</label>
-      <input id="attackers" type="number" min="1"></input>
+      <input
+        id="attackers"
+        type="number"
+        min="1"
+        value={formValues.playerCounts.attackerCount}
+      ></input>
     </form>
   );
 };
