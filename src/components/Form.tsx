@@ -31,6 +31,16 @@ const Form = (props: Props): ReactElement => {
         type="number"
         min="1"
         value={formValues.playerCounts.attackerCount}
+        // I feel like there should be a less-wordy way to do this
+        onChange={(e) => {
+          setFormValues({
+            ...formValues,
+            playerCounts: {
+              ...formValues.playerCounts,
+              attackerCount: Number(e.target.value),
+            },
+          });
+        }}
       ></input>
     </form>
   );
