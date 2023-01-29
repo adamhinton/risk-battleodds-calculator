@@ -17,4 +17,7 @@ test("[2] Renders three user input fields as expected", () => {
   expect(simulationsInput).toBeVisible();
 });
 
-test("[3] Matches screenshot from 1.29.2023", () => {});
+test("[3] Matches screenshot from 1.29.2023", () => {
+  const tree = renderer.create(<Form></Form>).toJSON();
+  expect(tree).toMatchSnapshot();
+});
