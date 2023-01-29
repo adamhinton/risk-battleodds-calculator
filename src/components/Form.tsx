@@ -40,6 +40,7 @@ const Form = (props: Props): ReactElement => {
           name="attackerCount"
           value={formValues.attackerCount}
           onChange={handleChange}
+          data-testid="attackers-input"
         ></input>
       </div>
 
@@ -52,6 +53,7 @@ const Form = (props: Props): ReactElement => {
           name="defenderCount"
           value={formValues.defenderCount}
           onChange={(e) => handleChange(e)}
+          data-testid="defenders-input"
         ></input>
       </div>
 
@@ -64,6 +66,7 @@ const Form = (props: Props): ReactElement => {
           name="numSimulations"
           value={formValues.numSimulations}
           onChange={handleChange}
+          data-testid="numsimulations-input"
         ></input>
       </div>
     </form>
