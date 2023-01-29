@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import Form from "../Form";
+import Form from "../components/Form";
 
 test("[1] renders without errors", () => {
   render(<Form />);
