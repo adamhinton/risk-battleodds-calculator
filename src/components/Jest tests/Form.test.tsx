@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import Form from "../Form";
 
 test("[1] renders without errors", () => {
@@ -15,3 +16,5 @@ test("[2] Renders three user input fields as expected", () => {
   expect(defenderInput).toBeVisible();
   expect(simulationsInput).toBeVisible();
 });
+
+test("[3] Matches screenshot from 1.29.2023", () => {});
