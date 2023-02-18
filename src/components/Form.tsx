@@ -24,9 +24,7 @@ const Form = (props: Props): ReactElement<Props> => {
   console.log("formValues:", formValues);
 
   function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
-    console.log("typeof evt:", typeof evt);
     const value = evt.target.value;
-    console.log("evt.target.name:", evt.target.name);
     setFormValues({
       ...formValues,
       [evt.target.name]: Number(value),
@@ -34,7 +32,11 @@ const Form = (props: Props): ReactElement<Props> => {
   }
 
   return (
-    <form>
+    <form
+      onSubmit={() => {
+        setUserInputs({ ...formValues });
+      }}
+    >
       <div>
         <label htmlFor="attackers">Attackers:</label>
         <input
@@ -75,7 +77,8 @@ const Form = (props: Props): ReactElement<Props> => {
       </div>
 
       <div>
-        <label htmlFor="submit">Submit</label>
+        {/* <label htmlFor="submit">Submit</label> */}
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
