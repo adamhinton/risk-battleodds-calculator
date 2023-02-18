@@ -21,8 +21,6 @@ const Form = (props: Props): ReactElement<Props> => {
 
   const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
 
-  console.log("formValues:", formValues);
-
   function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const value = evt.target.value;
     setFormValues({
@@ -33,7 +31,8 @@ const Form = (props: Props): ReactElement<Props> => {
 
   return (
     <form
-      onSubmit={() => {
+      onSubmit={(e) => {
+        e.preventDefault();
         setUserInputs({ ...formValues });
       }}
     >
