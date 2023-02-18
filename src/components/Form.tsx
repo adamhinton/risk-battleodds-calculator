@@ -1,6 +1,8 @@
 import { ReactElement, useState } from "react";
 
-type Props = {};
+type Props = {
+  setUserInputs: Function;
+};
 
 type FormValues = {
   attackerCount: number;
@@ -8,7 +10,9 @@ type FormValues = {
   numSimulations: number;
 };
 
-const Form = (props: Props): ReactElement => {
+const Form = (props: Props): ReactElement<Props> => {
+  const { setUserInputs } = props;
+
   const initialFormValues: FormValues = {
     attackerCount: 10,
     defenderCount: 10,
@@ -68,6 +72,10 @@ const Form = (props: Props): ReactElement => {
           onChange={handleChange}
           data-testid="numsimulations-input"
         ></input>
+      </div>
+
+      <div>
+        <label htmlFor="submit">Submit</label>
       </div>
     </form>
   );
