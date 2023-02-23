@@ -1,4 +1,5 @@
 import { ReactElement, useState } from "react";
+import generateResults from "../utils/results";
 
 type Props = {
   setUserInputs: Function;
@@ -34,6 +35,10 @@ const Form = (props: Props): ReactElement<Props> => {
       onSubmit={(e) => {
         e.preventDefault();
         setUserInputs({ ...formValues });
+        console.log(
+          "generateResults(formValues):",
+          generateResults(formValues)
+        );
       }}
     >
       <div>

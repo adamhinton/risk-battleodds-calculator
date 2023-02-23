@@ -13,7 +13,7 @@ type Results = {
   // }
 };
 
-type UserInputs = {
+export type UserInputs = {
   attackerCount: number;
   defenderCount: number;
   numSimulations: number;
@@ -81,6 +81,8 @@ const generateResults = (userInputs: UserInputs) => {
       }
     }
   }
+
+  return results;
 };
 
 function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {

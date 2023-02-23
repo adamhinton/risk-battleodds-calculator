@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Form from "./components/Form";
+import { UserInputs } from "./utils/results";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -13,10 +14,8 @@ import Form from "./components/Form";
 
 function App() {
   const [userInputs, setUserInputs] = useState<UserInputs>({
-    playerCounts: {
-      attackerCount: 0,
-      defenderCount: 0,
-    },
+    attackerCount: 0,
+    defenderCount: 0,
     numSimulations: 0,
   });
 
