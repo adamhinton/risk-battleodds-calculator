@@ -20,6 +20,8 @@ function App() {
     numSimulations: 0,
   });
 
+  console.log("userInputs in App:", userInputs);
+
   return (
     <div className="App">
       <h1>Adam Hinton</h1>
