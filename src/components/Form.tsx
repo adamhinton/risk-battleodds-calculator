@@ -2,7 +2,13 @@ import { ReactElement, useState } from "react";
 import generateResults from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 
-const Form = (): ReactElement => {
+type FormProps = {
+  setResults: Function;
+};
+
+const Form = (props: FormProps): ReactElement<FormProps> => {
+  const { setResults } = props;
+
   const [userInputs, setUserInputs] = useState<UserInputs>({
     attackerCount: 10,
     defenderCount: 10,
@@ -21,11 +27,8 @@ const Form = (): ReactElement => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        setUserInputs({ ...userInputs });
-        console.log(
-          "generateResults(userInputs):",
-          generateResults(userInputs)
-        );
+        const results = generateResults(userInputs);
+        setResults(results);
       }}
     >
       <div>
