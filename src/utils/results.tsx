@@ -4,7 +4,7 @@ type PlayerCounts = {
   defenderCount: number;
 };
 
-type Results = {
+export type Results = {
   attackerOccupies: number;
   defenderHolds: number;
   // averageUnitsLeft: {

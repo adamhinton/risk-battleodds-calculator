@@ -1,9 +1,10 @@
 import { ReactElement, useState } from "react";
 import generateResults from "../utils/results";
+import { UserInputs } from "../utils/results";
 
-type Props = {
-  setUserInputs: Function;
-};
+// type Props = {
+//   setUserInputs: Function;
+// };
 
 type FormValues = {
   attackerCount: number;
@@ -11,8 +12,12 @@ type FormValues = {
   numSimulations: number;
 };
 
-const Form = (props: Props): ReactElement<Props> => {
-  const { setUserInputs } = props;
+const Form = (): ReactElement => {
+  const [userInputs, setUserInputs] = useState<UserInputs>({
+    attackerCount: 0,
+    defenderCount: 0,
+    numSimulations: 0,
+  });
 
   const initialFormValues: FormValues = {
     attackerCount: 10,
