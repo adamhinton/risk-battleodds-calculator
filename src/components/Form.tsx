@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
-import generateResults from "../utils/results";
-import { UserInputs } from "../utils/results";
+import generateResults from "../utils/resultsCalculator";
+import { UserInputs } from "../utils/resultsCalculator";
 
 const Form = (): ReactElement => {
   const [userInputs, setUserInputs] = useState<UserInputs>({
