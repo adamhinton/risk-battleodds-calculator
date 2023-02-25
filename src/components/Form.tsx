@@ -68,7 +68,6 @@ const Form = (): ReactElement => {
       </div>
 
       <div>
-        {/* <label htmlFor="submit">Submit</label> */}
         <button type="submit">Submit</button>
       </div>
     </form>
