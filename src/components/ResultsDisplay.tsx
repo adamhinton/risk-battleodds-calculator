@@ -4,7 +4,7 @@ type ResultsDisplayProps = {
   results: Results;
 };
 
-const ResultsDisplay = () => {
+const ResultsDisplay = (props: ResultsDisplayProps) => {
   return <div></div>;
 };
 

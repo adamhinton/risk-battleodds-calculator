@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import generateResults from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 
@@ -6,7 +6,7 @@ type FormProps = {
   setResults: Function;
 };
 
-const Form = (props: FormProps): ReactElement<FormProps> => {
+const Form = (props: FormProps) => {
   const { setResults } = props;
 
   const [userInputs, setUserInputs] = useState<UserInputs>({
