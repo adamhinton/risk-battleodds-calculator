@@ -5,7 +5,27 @@ type ResultsDisplayProps = {
 };
 
 const ResultsDisplay = (props: ResultsDisplayProps) => {
-  return <div></div>;
+  const { results } = props;
+  const { attackerOccupies, defenderHolds } = results;
+  const totalSimulations = attackerOccupies + defenderHolds;
+
+  const attackerWinPercent = attackerOccupies / totalSimulations;
+  const defenderWinPercent = defenderHolds / totalSimulations;
+
+  console.log("results:", results);
+
+  return (
+    <section>
+      <div>
+        Attacker Occupies: {attackerOccupies} / {totalSimulations} times,{" "}
+        {attackerWinPercent}%
+      </div>
+      <div>
+        Defender Holds: {defenderHolds} / {totalSimulations} times,{" "}
+        {defenderWinPercent}%
+      </div>
+    </section>
+  );
 };
 
 export default ResultsDisplay;
