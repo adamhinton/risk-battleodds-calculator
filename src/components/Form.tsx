@@ -1,36 +1,36 @@
-import { ReactElement, useState } from "react";
+import { useState } from "react";
+import generateResults from "../utils/resultsCalculator";
+import { UserInputs } from "../utils/resultsCalculator";
 
-type Props = {};
-
-type FormValues = {
-  attackerCount: number;
-  defenderCount: number;
-  numSimulations: number;
+type FormProps = {
+  setResults: Function;
 };
 
-const Form = (props: Props): ReactElement => {
-  const initialFormValues: FormValues = {
+const Form = (props: FormProps) => {
+  const { setResults } = props;
+
+  const [userInputs, setUserInputs] = useState<UserInputs>({
     attackerCount: 10,
     defenderCount: 10,
-    numSimulations: 10,
-  };
-
-  const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
-
-  console.log("formValues:", formValues);
+    numSimulations: 1000,
+  });
 
   function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
-    console.log("typeof evt:", typeof evt);
     const value = evt.target.value;
-    console.log("evt.target.name:", evt.target.name);
-    setFormValues({
-      ...formValues,
+    setUserInputs({
+      ...userInputs,
       [evt.target.name]: Number(value),
     });
   }
 
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        const results = generateResults(userInputs);
+        setResults(results);
+      }}
+    >
       <div>
         <label htmlFor="attackers">Attackers:</label>
         <input
@@ -38,7 +38,7 @@ const Form = (props: Props): ReactElement => {
           type="number"
           min="1"
           name="attackerCount"
-          value={formValues.attackerCount}
+          value={userInputs.attackerCount}
           onChange={handleChange}
           data-testid="attackers-input"
         ></input>
@@ -51,7 +51,7 @@ const Form = (props: Props): ReactElement => {
           type="number"
           min="1"
           name="defenderCount"
-          value={formValues.defenderCount}
+          value={userInputs.defenderCount}
           onChange={(e) => handleChange(e)}
           data-testid="defenders-input"
         ></input>
@@ -64,10 +64,14 @@ const Form = (props: Props): ReactElement => {
           type="number"
           min="1"
           name="numSimulations"
-          value={formValues.numSimulations}
+          value={userInputs.numSimulations}
           onChange={handleChange}
           data-testid="numsimulations-input"
         ></input>
+      </div>
+
+      <div>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
