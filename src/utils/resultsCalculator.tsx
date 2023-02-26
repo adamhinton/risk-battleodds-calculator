@@ -7,8 +7,8 @@ type PlayerCounts = {
 export type Results = {
   attackerOccupies: number;
   defenderHolds: number;
-  averageAttackersLeft?: number;
-  averageDefendersLeft?: number;
+  averageAttackersLeft?: number | null;
+  averageDefendersLeft?: number | null;
 };
 
 export type UserInputs = {
@@ -30,6 +30,8 @@ const generateResults = (userInputs: UserInputs) => {
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
+    averageAttackersLeft: null,
+    averageDefendersLeft: null,
   };
 
   let totalAttackersLeft = 0;
