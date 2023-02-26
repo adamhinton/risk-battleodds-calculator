@@ -32,6 +32,9 @@ const generateResults = (userInputs: UserInputs) => {
     defenderHolds: 0,
   };
 
+  let totalAttackersLeft = 0;
+  let totalDefendersLeft = 0;
+
   // UTILS
 
   console.time("a");
@@ -76,10 +79,14 @@ const generateResults = (userInputs: UserInputs) => {
       // results
       if (playerCounts.attackerCount === 0) {
         results.defenderHolds++;
+        totalDefendersLeft += playerCounts.defenderCount;
       } else if (playerCounts.defenderCount === 0) {
         results.attackerOccupies++;
+        totalAttackersLeft += playerCounts.attackerCount;
       }
     }
+    // console.log("totalAttackersLeft:", totalAttackersLeft);
+    // console.log("totalDefendersLeft:", totalDefendersLeft);
   }
 
   return results;
