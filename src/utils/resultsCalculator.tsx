@@ -17,8 +17,6 @@ export type UserInputs = {
   numSimulations: number;
 };
 
-console.log("don't forget to make all items in Results required");
-
 type PlayerType = "attacker" | "defender";
 
 type AttackerRolls = [number, number?, number?];
