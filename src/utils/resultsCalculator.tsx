@@ -85,8 +85,6 @@ const generateResults = (userInputs: UserInputs) => {
         totalAttackersLeft += playerCounts.attackerCount;
       }
     }
-    // console.log("totalAttackersLeft:", totalAttackersLeft);
-    // console.log("totalDefendersLeft:", totalDefendersLeft);
   }
   results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
   results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
