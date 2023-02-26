@@ -16,6 +16,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 
   return (
     <section>
+      <h2>Results</h2>
       <div>
         Attacker Occupies: {attackerOccupies} / {totalSimulations} times,{" "}
         {attackerWinPercent}%
