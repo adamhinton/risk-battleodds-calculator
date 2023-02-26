@@ -7,10 +7,8 @@ type PlayerCounts = {
 export type Results = {
   attackerOccupies: number;
   defenderHolds: number;
-  // averageUnitsLeft: {
-  //   attackers: number;
-  //   defenders: number;
-  // }
+  averageAttackersLeft?: number;
+  averageDefendersLeft?: number;
 };
 
 export type UserInputs = {
@@ -18,6 +16,8 @@ export type UserInputs = {
   defenderCount: number;
   numSimulations: number;
 };
+
+console.log("don't forget to make all items in Results required");
 
 type PlayerType = "attacker" | "defender";
 
