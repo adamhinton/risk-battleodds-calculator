@@ -14,7 +14,7 @@ import { Results } from "./utils/resultsCalculator";
 // </App>
 
 function App() {
-  const [results, setResults] = useState<Results | undefined>(undefined);
+  const [results, setResults] = useState<Results | null>(null);
 
   return (
     <div className="App">
