@@ -12,14 +12,14 @@ exports[`[3] Matches screenshot from 3.1.2023 1`] = `
       data-testid="results-attacker-occupies"
     >
       Attacker Occupies: 
-      45.45454545454545
+      47.9
       %
     </p>
     <p
       data-testid="results-avg-attackers-left"
     >
       Average Attackers Left: 
-      9.8
+      19.0
     </p>
   </div>
   <div>
@@ -27,14 +27,14 @@ exports[`[3] Matches screenshot from 3.1.2023 1`] = `
       data-testid="results-defenderholds"
     >
       Defender Holds: 
-      54.54545454545454
+      52.1
       %
     </p>
     <p
       data-testid="results-avg-defenders-left"
     >
       Average Defenders Left: 
-      20.4
+      28.5
     </p>
   </div>
 </section>

@@ -4,10 +4,10 @@ import ResultsDisplay from "../components/ResultsDisplay";
 import { Results } from "../utils/resultsCalculator";
 
 const fakeResults: Results = {
-  attackerOccupies: 100,
-  defenderHolds: 120,
-  averageAttackersLeft: 9.758,
-  averageDefendersLeft: 20.382,
+  attackerOccupies: 1234,
+  defenderHolds: 1343,
+  averageAttackersLeft: 18.9545,
+  averageDefendersLeft: 28.5454,
 };
 
 test("[1] Renders without errors", () => {
@@ -19,10 +19,15 @@ test("[2] Displays text of results as expected", () => {
 
   const h2 = screen.getByTestId("results-h2");
   const attackerOccupies = screen.getByTestId("results-attacker-occupies");
-  const avgAttackersLeft = 1;
+  const avgAttackersLeft = screen.getByTestId("results-avg-attackers-left");
   const defenderHolds = screen.getByTestId("results-defenderholds");
+  const avgDefendersLeft = screen.getByTestId("results-avg-defenders-left");
 
   expect(h2).toHaveTextContent("Results");
+  expect(attackerOccupies).toHaveTextContent("Attacker Occupies: 47.9%");
+  expect(avgAttackersLeft).toHaveTextContent("Average Attackers Left: 19.0");
+  expect(defenderHolds).toHaveTextContent("Defender Holds: 52.1%");
+  expect(avgDefendersLeft).toHaveTextContent("Average Defenders Left: 28.5");
 });
 
 test("[3] Matches screenshot from 3.1.2023", () => {
