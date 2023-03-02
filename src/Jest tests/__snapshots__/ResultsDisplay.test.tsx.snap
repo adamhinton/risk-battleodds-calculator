@@ -39,3 +39,43 @@ exports[`[3] Matches screenshot from 3.1.2023 1`] = `
   </div>
 </section>
 `;
+
+exports[`[4] Matches screenshot from 3.1.2023 1`] = `
+<section>
+  <h2
+    data-testid="results-h2"
+  >
+    Results
+  </h2>
+  <div>
+    <p
+      data-testid="results-attacker-occupies"
+    >
+      Attacker Occupies: 
+      47.9
+      %
+    </p>
+    <p
+      data-testid="results-avg-attackers-left"
+    >
+      Average Attackers Left: 
+      19.0
+    </p>
+  </div>
+  <div>
+    <p
+      data-testid="results-defenderholds"
+    >
+      Defender Holds: 
+      52.1
+      %
+    </p>
+    <p
+      data-testid="results-avg-defenders-left"
+    >
+      Average Defenders Left: 
+      28.5
+    </p>
+  </div>
+</section>
+`;

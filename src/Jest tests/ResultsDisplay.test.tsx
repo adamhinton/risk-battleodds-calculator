@@ -10,6 +10,13 @@ const fakeResults: Results = {
   averageDefendersLeft: 28.5454,
 };
 
+const secondFakeResults: Results = {
+  attackerOccupies: 100,
+  defenderHolds: 100,
+  averageAttackersLeft: 16,
+  averageDefendersLeft: 8,
+};
+
 test("[1] Renders without errors", () => {
   render(<ResultsDisplay results={fakeResults} />);
 });
@@ -30,7 +37,19 @@ test("[2] Displays text of results as expected", () => {
   expect(avgDefendersLeft).toHaveTextContent("Average Defenders Left: 28.5");
 });
 
-test("[3] Matches screenshot from 3.1.2023", () => {
+test("[3] Updates when passed new props", () => {
+  const { rerender } = render(<ResultsDisplay results={fakeResults} />);
+
+  rerender(<ResultsDisplay results={secondFakeResults} />);
+
+  const avgAttackersLeft = screen.getByTestId("results-avg-attackers-left");
+  expect(avgAttackersLeft).toHaveTextContent("Average Attackers Left: 16.0");
+  expect(avgAttackersLeft).not.toHaveTextContent(
+    "Average Attackers Left: 19.0"
+  );
+});
+
+test("[4] Matches screenshot from 3.1.2023", () => {
   const tree = renderer
     .create(<ResultsDisplay results={fakeResults} />)
     .toJSON();
