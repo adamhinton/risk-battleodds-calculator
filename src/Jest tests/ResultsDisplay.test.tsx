@@ -14,7 +14,7 @@ test("[1] Renders without errors", () => {
   render(<ResultsDisplay results={fakeResults} />);
 });
 
-test("[3] Matches screenshot from 1.29.2023", () => {
+test("[3] Matches screenshot from 3.1.2023", () => {
   const tree = renderer
     .create(<ResultsDisplay results={fakeResults} />)
     .toJSON();
