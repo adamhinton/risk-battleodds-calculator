@@ -1,6 +1,8 @@
 import { useState } from "react";
 import generateResults from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type FormProps = {
   setResults: Function;
