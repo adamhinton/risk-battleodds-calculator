@@ -71,7 +71,7 @@ const Form = (props: FormProps) => {
       </div>
 
       <div>
-        <button type="submit">Submit</button>
+        <button type="submit">Run Simulation</button>
       </div>
     </form>
   );

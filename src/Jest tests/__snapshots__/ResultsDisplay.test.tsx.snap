@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[3] Matches screenshot from 3.1.2023 1`] = `
+<section>
+  <h2
+    data-testid="results-h2"
+  >
+    Results
+  </h2>
+  <div
+    data-testid="results-attacker-occupies"
+  >
+    Attacker Occupies: 
+    45.45454545454545
+    %
+  </div>
+  <div
+    data-testid="results-defenderholds"
+  >
+    Defender Holds: 
+    54.54545454545454
+    %
+  </div>
+</section>
+`;
