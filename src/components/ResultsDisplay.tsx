@@ -16,9 +16,13 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 
   return (
     <section>
-      <h2>Results</h2>
-      <div>Attacker Occupies: {attackerWinPercent * 100}%</div>
-      <div>Defender Holds: {defenderWinPercent * 100}%</div>
+      <h2 data-testid="results-h2">Results</h2>
+      <div data-testid="results-attacker-occupies">
+        Attacker Occupies: {attackerWinPercent * 100}%
+      </div>
+      <div data-testid="results-defenderholds">
+        Defender Holds: {defenderWinPercent * 100}%
+      </div>
     </section>
   );
 };
