@@ -21,7 +21,7 @@ test("[2] Displays text of results as expected", () => {
   const attackerOccupies = screen.getByTestId("results-attacker-occupies");
   const defenderHolds = screen.getByTestId("results-defenderholds");
 
-  expect(h2).toHaveTextContent();
+  expect(h2).toHaveTextContent("Results");
 });
 
 test("[3] Matches screenshot from 3.1.2023", () => {
