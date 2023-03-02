@@ -3,8 +3,9 @@ import generateResults from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+//www.magicbell.com/blog/react-toast-notifications-made-easy
 
-type FormProps = {
+https: type FormProps = {
   setResults: Function;
 };
 
@@ -29,6 +30,10 @@ const Form = (props: FormProps) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+
+        const defenders = userInputs.defenderCount;
+        console.log("defenders:", defenders);
+
         const results = generateResults(userInputs);
         setResults(results);
       }}
@@ -50,7 +55,7 @@ const Form = (props: FormProps) => {
         <label htmlFor="defenders">Defenders:</label>
         <input
           id="defenders"
-          type="number"
+          type="text"
           min="1"
           name="defenderCount"
           value={userInputs.defenderCount}
