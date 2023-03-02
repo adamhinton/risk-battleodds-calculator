@@ -10,16 +10,28 @@ exports[`[3] Matches screenshot from 3.1.2023 1`] = `
   <div
     data-testid="results-attacker-occupies"
   >
-    Attacker Occupies: 
-    45.45454545454545
-    %
+    <p>
+      Attacker Occupies: 
+      45.45454545454545
+      %
+    </p>
+    <p>
+      Average Attackers Left: 
+      9.0
+    </p>
   </div>
   <div
     data-testid="results-defenderholds"
   >
-    Defender Holds: 
-    54.54545454545454
-    %
+    <p>
+      Defender Holds: 
+      54.54545454545454
+      %
+    </p>
+    <p>
+      Average Defenders Left: 
+      20.0
+    </p>
   </div>
 </section>
 `;
