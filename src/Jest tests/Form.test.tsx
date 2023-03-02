@@ -19,7 +19,7 @@ test("[2] Renders three user input fields as expected", () => {
 
   expect(attackerInput).toHaveValue(10);
   expect(defenderInput).toHaveValue(10);
-  expect(simulationsInput).toHaveValue(10);
+  expect(simulationsInput).toHaveValue(1000);
 });
 
 test("[3] Matches screenshot from 1.29.2023", () => {
