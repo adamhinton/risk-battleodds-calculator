@@ -26,5 +26,3 @@ test("[3] Matches screenshot from 1.29.2023", () => {
   const tree = renderer.create(<Form setResults={fakeSetState} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-export default {};
