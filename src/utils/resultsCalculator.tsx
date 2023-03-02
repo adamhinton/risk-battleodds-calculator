@@ -23,7 +23,7 @@ type AttackerRolls = [number, number?, number?];
 type DefenderRolls = [number, number?];
 type PlayerRolls = AttackerRolls | DefenderRolls;
 
-const generateResults = (userInputs: UserInputs) => {
+const generateResults = (userInputs: UserInputs): Results => {
   // USEFUL VARIABLES
   const results: Results = {
     attackerOccupies: 0,
@@ -37,17 +37,12 @@ const generateResults = (userInputs: UserInputs) => {
 
   // UTILS
 
-  console.time("a");
   for (let i = 0; i < userInputs.numSimulations; i++) {
     runSingleSimulation({
       attackerCount: userInputs.attackerCount,
       defenderCount: userInputs.defenderCount,
     });
   }
-
-  console.log("results:", results);
-  console.timeEnd("a");
-  console.log("userInputs:", userInputs);
 
   function runSingleSimulation(playerCounts: PlayerCounts): void {
     // One run through of simulation
