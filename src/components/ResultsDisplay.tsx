@@ -21,7 +21,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
         <p data-testid="results-attacker-occupies">
           Attacker Occupies: {attackerWinPercent * 100}%
         </p>
-        <p>
+        <p data-testid="results-avg-attackers-left">
           Average Attackers Left: {results.averageAttackersLeft?.toFixed(1)}
         </p>
       </div>
@@ -29,7 +29,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
         <p data-testid="results-defenderholds">
           Defender Holds: {defenderWinPercent * 100}%
         </p>
-        <p>
+        <p data-testid="results-avg-defenders-left">
           Average Defenders Left: {results.averageDefendersLeft?.toFixed(1)}
         </p>
       </div>
