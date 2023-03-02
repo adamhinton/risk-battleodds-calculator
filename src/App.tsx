@@ -1,5 +1,3 @@
-// TODO: Refactor, particularly make the simulation more DRY and figure out how to best replicate userInputs in runSingleSimulation
-
 import { useState } from "react";
 import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
