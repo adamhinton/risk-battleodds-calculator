@@ -7,8 +7,8 @@ type ResultsDisplayProps = {
 const ResultsDisplay = (props: ResultsDisplayProps) => {
   const { results } = props;
   const { attackerOccupies, defenderHolds } = results;
-  const totalSimulations = attackerOccupies + defenderHolds;
 
+  const totalSimulations = attackerOccupies + defenderHolds;
   const attackerWinPercent = attackerOccupies / totalSimulations;
   const defenderWinPercent = defenderHolds / totalSimulations;
 

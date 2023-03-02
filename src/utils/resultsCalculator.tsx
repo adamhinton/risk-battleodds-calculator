@@ -7,10 +7,8 @@ type PlayerCounts = {
 export type Results = {
   attackerOccupies: number;
   defenderHolds: number;
-  // averageUnitsLeft: {
-  //   attackers: number;
-  //   defenders: number;
-  // }
+  averageAttackersLeft?: number | null;
+  averageDefendersLeft?: number | null;
 };
 
 export type UserInputs = {
@@ -30,7 +28,12 @@ const generateResults = (userInputs: UserInputs) => {
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
+    averageAttackersLeft: null,
+    averageDefendersLeft: null,
   };
+
+  let totalAttackersLeft = 0;
+  let totalDefendersLeft = 0;
 
   // UTILS
 
@@ -76,12 +79,15 @@ const generateResults = (userInputs: UserInputs) => {
       // results
       if (playerCounts.attackerCount === 0) {
         results.defenderHolds++;
+        totalDefendersLeft += playerCounts.defenderCount;
       } else if (playerCounts.defenderCount === 0) {
         results.attackerOccupies++;
+        totalAttackersLeft += playerCounts.attackerCount;
       }
     }
   }
-
+  results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
+  results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
   return results;
 };
 
