@@ -7,30 +7,34 @@ exports[`[3] Matches screenshot from 3.1.2023 1`] = `
   >
     Results
   </h2>
-  <div
-    data-testid="results-attacker-occupies"
-  >
-    <p>
+  <div>
+    <p
+      data-testid="results-attacker-occupies"
+    >
       Attacker Occupies: 
       45.45454545454545
       %
     </p>
-    <p>
+    <p
+      data-testid="results-avg-attackers-left"
+    >
       Average Attackers Left: 
-      9.0
+      9.8
     </p>
   </div>
-  <div
-    data-testid="results-defenderholds"
-  >
-    <p>
+  <div>
+    <p
+      data-testid="results-defenderholds"
+    >
       Defender Holds: 
       54.54545454545454
       %
     </p>
-    <p>
+    <p
+      data-testid="results-avg-defenders-left"
+    >
       Average Defenders Left: 
-      20.0
+      20.4
     </p>
   </div>
 </section>
