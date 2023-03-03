@@ -4,8 +4,10 @@ import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //www.magicbell.com/blog/react-toast-notifications-made-easy
+// I've tested this and it seems to work
+const regEx = /^\s*\d+(\s*,\s*\d+)*\s*$/;
 
-https: type FormProps = {
+type FormProps = {
   setResults: Function;
 };
 
