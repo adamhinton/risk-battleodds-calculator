@@ -22,6 +22,13 @@ type PlayerCounts = {
   defenderCount: number[];
 };
 
+type SingleSimResults = {
+  attackersLeft: number;
+  defendersLeft: number;
+  attackerOccupies: boolean;
+  defenderHolds: boolean;
+};
+
 const newGenerateResults = (userInputs: UserInputs): Results => {
   const results: Results = {
     attackerOccupies: 0,
@@ -34,17 +41,32 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
   let totalDefendersLeft = 0;
 
   for (let i = 0; i < userInputs.numSimulations; i++) {
-    runSingleSimulation({
+    const singleSimResults: SingleSimResults = runSingleSimulation({
       attackerCount: userInputs.attackerCount,
       defenderCount: [...userInputs.defenderCount],
     });
+
+    if (singleSimResults.attackerOccupies === true) {
+      results.attackerOccupies++;
+      totalAttackersLeft += singleSimResults.attackersLeft;
+    } else if (singleSimResults.defenderHolds === true) {
+      results.defenderHolds++;
+      totalDefendersLeft += singleSimResults.defendersLeft;
+    }
   }
   results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
   results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
   return results;
 
   // UTILS
-  function runSingleSimulation(playerCounts: PlayerCounts): void {
+  function runSingleSimulation(playerCounts: PlayerCounts): SingleSimResults {
+    let singleSimResults: SingleSimResults = {
+      attackersLeft: 0,
+      defendersLeft: 0,
+      attackerOccupies: false,
+      defenderHolds: false,
+    };
+
     // loop through playerCounts.defenderCount
 
     playerCounts.defenderCount.forEach((defender: number, index) => {
@@ -78,23 +100,32 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
 
         // results
         if (playerCounts.attackerCount < 1) {
-          results.defenderHolds++;
+          singleSimResults.defenderHolds = true;
           const totalOfDefenders = playerCounts.defenderCount.reduce(
             (partialSum, a) => partialSum + a,
             0
           );
-          totalDefendersLeft += totalOfDefenders;
+          singleSimResults.defendersLeft = totalOfDefenders;
           break;
-        } else if (
+        }
+        if (
+          playerCounts.defenderCount[index] < 1 &&
+          index < playerCounts.defenderCount.length - 1
+        ) {
+          // attacker loses a troop because they have to occupy the conquered territory with one troop
+          playerCounts.attackerCount--;
+        }
+        if (
           playerCounts.defenderCount[index] === 0 &&
           index === playerCounts.defenderCount.length - 1
         ) {
-          results.attackerOccupies++;
-          totalAttackersLeft += playerCounts.attackerCount;
+          singleSimResults.attackerOccupies = true;
+          singleSimResults.attackersLeft = playerCounts.attackerCount;
         }
       }
     });
     // console.log("playerCounts at end of singleSimulation:", playerCounts);
+    return singleSimResults;
   }
 };
 
