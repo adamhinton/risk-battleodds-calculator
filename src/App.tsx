@@ -1,7 +1,8 @@
 import { useState } from "react";
 // import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
-import { Results } from "./utils/resultsCalculator";
+import newGenerateResults from "./utils/newGenerateResults";
+import generateResults, { Results } from "./utils/resultsCalculator";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -22,6 +23,12 @@ function App() {
     </div>
   );
 }
+
+newGenerateResults({
+  attackerCount: 10,
+  defenderCount: [5, 1],
+  numSimulations: 10,
+});
 
 export default App;
 

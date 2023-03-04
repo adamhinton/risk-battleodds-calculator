@@ -41,9 +41,101 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
     // });
   }
 
+  console.log(
+    "runSingleSimulation({}):",
+    runSingleSimulation({
+      attackerCount: userInputs.attackerCount,
+      defenderCount: userInputs.defenderCount,
+    })
+  );
+
   return results;
+
+  function runSingleSimulation(playerCounts: PlayerCounts): void {
+    // loop through playerCounts.defenderCount
+
+    playerCounts.defenderCount.forEach((defender: number, index) => {
+      const attackerRolls = generatePlayerRolls(
+        "attacker",
+        playerCounts.attackerCount
+      );
+      const defenderRolls = generatePlayerRolls(
+        "defender",
+        playerCounts.defenderCount[index]
+      );
+
+      // Now for the attack
+      if (attackerRolls[0] > defenderRolls[0]) {
+        playerCounts.defenderCount[index]--;
+      } else {
+        playerCounts.attackerCount--;
+      }
+
+      if (
+        playerCounts.attackerCount > 1 &&
+        playerCounts.defenderCount[index] > 1
+      ) {
+        if (attackerRolls[1]! > defenderRolls[1]!) {
+          playerCounts.defenderCount[index]--;
+        } else {
+          playerCounts.attackerCount--;
+        }
+      }
+
+      // results
+      if (playerCounts.attackerCount === 0) {
+        results.defenderHolds++;
+        totalDefendersLeft += playerCounts.defenderCount[index];
+        console.log("first");
+      } else if (
+        playerCounts.defenderCount[index] === 0 &&
+        index === playerCounts.defenderCount.length - 1
+      ) {
+        results.attackerOccupies++;
+        console.log("second");
+        totalAttackersLeft += playerCounts.attackerCount;
+      }
+    });
+    console.log("playerCounts at end of singleSimulation:", playerCounts);
+  }
 };
 
 export default newGenerateResults;
 
-function runSingleSimulation(playerCounts: PlayerCounts): void {}
+function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
+  return rolls.sort((a, b) => {
+    return b! - a!;
+  });
+}
+
+function generatePlayerRolls(
+  playerType: PlayerType,
+  diceRolls: 1 | 2 | number
+): PlayerRolls {
+  const generateSortedRolls = (diceRolls: 1 | 2 | 3): PlayerRolls => {
+    const solution = [];
+    for (let i = 0; i < diceRolls; i++) {
+      solution.push(randomIntFromInterval(1, 6));
+    }
+    // TODO: Refactor this, I shouldn't need this type assertion
+    return sortPlayerRolls(solution as PlayerRolls);
+  };
+
+  // if one unit, doesn't matter if attacker or defender, they get one dice roll
+  if (diceRolls === 1) {
+    return generateSortedRolls(1);
+  }
+
+  // They're a defender and we already know they don't have one unit, so they get two dice rolls
+  if (playerType === "defender") {
+    return generateSortedRolls(2);
+  }
+
+  // We know they're an attacker now. So if they have two units they get two rolls, otherwise they get three rolls
+  return diceRolls === 2 ? generateSortedRolls(2) : generateSortedRolls(3);
+}
