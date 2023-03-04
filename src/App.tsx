@@ -27,8 +27,8 @@ function App() {
 console.log(
   "newGenerateResults:",
   newGenerateResults({
-    attackerCount: 100,
-    defenderCount: [80, 800],
+    attackerCount: 20,
+    defenderCount: [15, 8],
     numSimulations: 100,
   })
 );

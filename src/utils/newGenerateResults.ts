@@ -34,13 +34,16 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
   let totalDefendersLeft = 0;
 
   for (let i = 0; i < userInputs.numSimulations; i++) {
-    console.log("userInputs:", userInputs);
     runSingleSimulation({
       attackerCount: userInputs.attackerCount,
       defenderCount: [...userInputs.defenderCount],
     });
   }
+  results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
+  results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
+  return results;
 
+  // UTILS
   function runSingleSimulation(playerCounts: PlayerCounts): void {
     // loop through playerCounts.defenderCount
 
@@ -81,24 +84,18 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
             0
           );
           totalDefendersLeft += totalOfDefenders;
-          console.count("defenderHolds Count");
           break;
         } else if (
           playerCounts.defenderCount[index] === 0 &&
           index === playerCounts.defenderCount.length - 1
         ) {
-          console.count("attackerOccupiesCount:");
           results.attackerOccupies++;
-          console.log("second");
           totalAttackersLeft += playerCounts.attackerCount;
         }
       }
     });
     // console.log("playerCounts at end of singleSimulation:", playerCounts);
   }
-  results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
-  results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
-  return results;
 };
 
 export default newGenerateResults;
