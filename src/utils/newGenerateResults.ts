@@ -28,6 +28,14 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
   let totalAttackersLeft = 0;
   let totalDefendersLeft = 0;
 
+  for (let i = 0; i < userInputs.numSimulations; i++) {
+    // logic
+    // runSingleSimulation({
+    //   attackerCount: userInputs.attackerCount,
+    //   defenderCount: userInputs.defenderCount,
+    // });
+  }
+
   return results;
 };
 
