@@ -28,8 +28,8 @@ console.log(
   "newGenerateResults:",
   newGenerateResults({
     attackerCount: 20,
-    defenderCount: [15, 8],
-    numSimulations: 100,
+    defenderCount: [15],
+    numSimulations: 10000,
   })
 );
 

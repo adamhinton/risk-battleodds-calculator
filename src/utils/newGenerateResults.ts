@@ -77,7 +77,7 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
         }
 
         // results
-        if (playerCounts.attackerCount === 0) {
+        if (playerCounts.attackerCount < 1) {
           results.defenderHolds++;
           const totalOfDefenders = playerCounts.defenderCount.reduce(
             (partialSum, a) => partialSum + a,
