@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
 
@@ -17,10 +17,22 @@ function App() {
   return (
     <div className="App">
       <h1>Adam Hinton</h1>
-      <Form setResults={setResults} />
+      {/* <Form setResults={setResults} /> */}
       {results && <ResultsDisplay results={results} />}
     </div>
   );
 }
 
 export default App;
+
+// PLAN
+// take in userInputs:
+//attackerCount,
+// defenderCount: number[],
+// numSimulations
+
+// while attackerCount < 0 ,
+// loop through defenderCount.
+// for each: run single simulation with attackerCount and defenderCount. The original version of runSingleSimulation.
+// Will need to tweak rSS() a bit to make this happen
+// wrap rSS() in a broader function to help tabulate the results
