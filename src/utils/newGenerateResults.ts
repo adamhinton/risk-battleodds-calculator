@@ -25,6 +25,9 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
     averageDefendersLeft: null,
   };
 
+  let totalAttackersLeft = 0;
+  let totalDefendersLeft = 0;
+
   return results;
 };
 
