@@ -24,11 +24,14 @@ function App() {
   );
 }
 
-newGenerateResults({
-  attackerCount: 10,
-  defenderCount: [5, 1],
-  numSimulations: 10,
-});
+console.log(
+  "newGenerateResults:",
+  newGenerateResults({
+    attackerCount: 100,
+    defenderCount: [80, 800],
+    numSimulations: 100,
+  })
+);
 
 export default App;
 

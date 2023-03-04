@@ -34,70 +34,71 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
   let totalDefendersLeft = 0;
 
   for (let i = 0; i < userInputs.numSimulations; i++) {
-    // logic
-    // runSingleSimulation({
-    //   attackerCount: userInputs.attackerCount,
-    //   defenderCount: userInputs.defenderCount,
-    // });
-  }
-
-  console.log(
-    "runSingleSimulation({}):",
+    console.log("userInputs:", userInputs);
     runSingleSimulation({
       attackerCount: userInputs.attackerCount,
-      defenderCount: userInputs.defenderCount,
-    })
-  );
-
-  return results;
+      defenderCount: [...userInputs.defenderCount],
+    });
+  }
 
   function runSingleSimulation(playerCounts: PlayerCounts): void {
     // loop through playerCounts.defenderCount
 
     playerCounts.defenderCount.forEach((defender: number, index) => {
-      const attackerRolls = generatePlayerRolls(
-        "attacker",
-        playerCounts.attackerCount
-      );
-      const defenderRolls = generatePlayerRolls(
-        "defender",
-        playerCounts.defenderCount[index]
-      );
+      while (playerCounts.defenderCount[index] > 0) {
+        const attackerRolls = generatePlayerRolls(
+          "attacker",
+          playerCounts.attackerCount
+        );
+        const defenderRolls = generatePlayerRolls(
+          "defender",
+          playerCounts.defenderCount[index]
+        );
 
-      // Now for the attack
-      if (attackerRolls[0] > defenderRolls[0]) {
-        playerCounts.defenderCount[index]--;
-      } else {
-        playerCounts.attackerCount--;
-      }
-
-      if (
-        playerCounts.attackerCount > 1 &&
-        playerCounts.defenderCount[index] > 1
-      ) {
-        if (attackerRolls[1]! > defenderRolls[1]!) {
+        // Now for the attack
+        if (attackerRolls[0] > defenderRolls[0]) {
           playerCounts.defenderCount[index]--;
         } else {
           playerCounts.attackerCount--;
         }
-      }
 
-      // results
-      if (playerCounts.attackerCount === 0) {
-        results.defenderHolds++;
-        totalDefendersLeft += playerCounts.defenderCount[index];
-        console.log("first");
-      } else if (
-        playerCounts.defenderCount[index] === 0 &&
-        index === playerCounts.defenderCount.length - 1
-      ) {
-        results.attackerOccupies++;
-        console.log("second");
-        totalAttackersLeft += playerCounts.attackerCount;
+        if (
+          playerCounts.attackerCount > 1 &&
+          playerCounts.defenderCount[index] > 1
+        ) {
+          if (attackerRolls[1]! > defenderRolls[1]!) {
+            playerCounts.defenderCount[index]--;
+          } else {
+            playerCounts.attackerCount--;
+          }
+        }
+
+        // results
+        if (playerCounts.attackerCount === 0) {
+          results.defenderHolds++;
+          const totalOfDefenders = playerCounts.defenderCount.reduce(
+            (partialSum, a) => partialSum + a,
+            0
+          );
+          totalDefendersLeft += totalOfDefenders;
+          console.count("defenderHolds Count");
+          break;
+        } else if (
+          playerCounts.defenderCount[index] === 0 &&
+          index === playerCounts.defenderCount.length - 1
+        ) {
+          console.count("attackerOccupiesCount:");
+          results.attackerOccupies++;
+          console.log("second");
+          totalAttackersLeft += playerCounts.attackerCount;
+        }
       }
     });
-    console.log("playerCounts at end of singleSimulation:", playerCounts);
+    // console.log("playerCounts at end of singleSimulation:", playerCounts);
   }
+  results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
+  results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
+  return results;
 };
 
 export default newGenerateResults;
