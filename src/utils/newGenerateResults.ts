@@ -17,6 +17,11 @@ export type Results = {
   averageDefendersLeft?: number | null;
 };
 
+type PlayerCounts = {
+  attackerCount: number;
+  defenderCount: number[];
+};
+
 const newGenerateResults = (userInputs: UserInputs): Results => {
   const results: Results = {
     attackerOccupies: 0,
@@ -40,3 +45,5 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
 };
 
 export default newGenerateResults;
+
+function runSingleSimulation(playerCounts: PlayerCounts): void {}
