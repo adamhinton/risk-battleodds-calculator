@@ -1,19 +1,6 @@
-// TYPE DEFINITIONS
-type PlayerCounts = {
-  attackerCount: number;
-  defenderCount: number;
-};
-
-export type Results = {
-  attackerOccupies: number;
-  defenderHolds: number;
-  averageAttackersLeft?: number | null;
-  averageDefendersLeft?: number | null;
-};
-
 export type UserInputs = {
   attackerCount: number;
-  defenderCount: number;
+  defenderCount: number[];
   numSimulations: number;
 };
 
@@ -23,8 +10,26 @@ type AttackerRolls = [number, number?, number?];
 type DefenderRolls = [number, number?];
 type PlayerRolls = AttackerRolls | DefenderRolls;
 
+export type Results = {
+  attackerOccupies: number;
+  defenderHolds: number;
+  averageAttackersLeft?: number | null;
+  averageDefendersLeft?: number | null;
+};
+
+type PlayerCounts = {
+  attackerCount: number;
+  defenderCount: number[];
+};
+
+type SingleSimResults = {
+  attackersLeft: number;
+  defendersLeft: number;
+  attackerOccupies: boolean;
+  defenderHolds: boolean;
+};
+
 const generateResults = (userInputs: UserInputs): Results => {
-  // USEFUL VARIABLES
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
@@ -35,56 +40,109 @@ const generateResults = (userInputs: UserInputs): Results => {
   let totalAttackersLeft = 0;
   let totalDefendersLeft = 0;
 
-  // UTILS
-
   for (let i = 0; i < userInputs.numSimulations; i++) {
-    runSingleSimulation({
+    const singleSimResults: SingleSimResults = runSingleSimulation({
       attackerCount: userInputs.attackerCount,
-      defenderCount: userInputs.defenderCount,
+      defenderCount: [...userInputs.defenderCount],
     });
-  }
 
-  function runSingleSimulation(playerCounts: PlayerCounts): void {
-    // One run through of simulation
-    while (playerCounts.attackerCount > 0 && playerCounts.defenderCount > 0) {
-      const attackerRolls = generatePlayerRolls(
-        "attacker",
-        playerCounts.attackerCount
-      );
-      const defenderRolls = generatePlayerRolls(
-        "defender",
-        playerCounts.defenderCount
-      );
-
-      // Now for the attack
-      if (attackerRolls[0] > defenderRolls[0]) {
-        playerCounts.defenderCount--;
-      } else {
-        playerCounts.attackerCount--;
-      }
-
-      if (playerCounts.attackerCount > 1 && playerCounts.defenderCount > 1) {
-        if (attackerRolls[1]! > defenderRolls[1]!) {
-          playerCounts.defenderCount--;
-        } else {
-          playerCounts.attackerCount--;
-        }
-      }
-
-      // results
-      if (playerCounts.attackerCount === 0) {
-        results.defenderHolds++;
-        totalDefendersLeft += playerCounts.defenderCount;
-      } else if (playerCounts.defenderCount === 0) {
-        results.attackerOccupies++;
-        totalAttackersLeft += playerCounts.attackerCount;
-      }
+    if (singleSimResults.attackerOccupies === true) {
+      results.attackerOccupies++;
+      totalAttackersLeft += singleSimResults.attackersLeft;
+    } else if (singleSimResults.defenderHolds === true) {
+      results.defenderHolds++;
+      totalDefendersLeft += singleSimResults.defendersLeft;
     }
   }
   results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
   results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
   return results;
+
+  // UTILS
+  function runSingleSimulation(playerCounts: PlayerCounts): SingleSimResults {
+    let singleSimResults: SingleSimResults = {
+      attackersLeft: 0,
+      defendersLeft: 0,
+      attackerOccupies: false,
+      defenderHolds: false,
+    };
+
+    // loop through playerCounts.defenderCount
+
+    playerCounts.defenderCount.forEach((defender: number, index) => {
+      while (playerCounts.defenderCount[index] > 0) {
+        const attackerRolls = generatePlayerRolls(
+          "attacker",
+          playerCounts.attackerCount
+        );
+        const defenderRolls = generatePlayerRolls(
+          "defender",
+          playerCounts.defenderCount[index]
+        );
+
+        // Now for the attack
+        // Attacker wins first dice roll
+        if (attackerRolls[0] > defenderRolls[0]) {
+          playerCounts.defenderCount[index]--;
+        }
+        // Attacker loses first dice roll
+        else {
+          playerCounts.attackerCount--;
+        }
+
+        // If there is a second dice roll
+        if (
+          attackerRolls[1] &&
+          // Found the problem. We just potentially did defendercount[index]-- so this may not be accurate. So we were overestimating defenders by doing this.
+          defenderRolls[1]
+        ) {
+          // Attacker wins second dice roll
+          if (attackerRolls[1]! > defenderRolls[1]!) {
+            playerCounts.defenderCount[index]--;
+          }
+          // Attacker loses second dice roll
+          else {
+            playerCounts.attackerCount--;
+          }
+        }
+
+        // results
+        //defender wins entire battle
+        if (playerCounts.attackerCount < 1) {
+          singleSimResults.defenderHolds = true;
+          const totalOfDefenders = playerCounts.defenderCount.reduce(
+            (partialSum, a) => partialSum + a,
+            0
+          );
+          singleSimResults.defendersLeft = totalOfDefenders;
+          break;
+        }
+        // defender occupies current territory but there are more defending territories left
+        if (
+          playerCounts.defenderCount[index] < 1 &&
+          index < playerCounts.defenderCount.length - 1
+        ) {
+          // attacker loses a troop because they have to occupy the conquered territory with one troop
+          playerCounts.attackerCount--;
+        }
+        // Attacker occupies last defending territory and wins the whole battle
+        if (
+          playerCounts.defenderCount[index] === 0 &&
+          index === playerCounts.defenderCount.length - 1
+        ) {
+          singleSimResults.attackerOccupies = true;
+          singleSimResults.attackersLeft = playerCounts.attackerCount;
+        }
+      }
+    });
+    return singleSimResults;
+  }
 };
+
+function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
   return rolls.sort((a, b) => {
@@ -92,12 +150,7 @@ function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
   });
 }
 
-function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
-  // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-export function generatePlayerRolls(
+function generatePlayerRolls(
   playerType: PlayerType,
   diceRolls: 1 | 2 | number
 ): PlayerRolls {
