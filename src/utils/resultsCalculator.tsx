@@ -97,7 +97,7 @@ function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function generatePlayerRolls(
+export function generatePlayerRolls(
   playerType: PlayerType,
   diceRolls: 1 | 2 | number
 ): PlayerRolls {

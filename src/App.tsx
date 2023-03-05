@@ -2,7 +2,10 @@ import { useState } from "react";
 // import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
 import newGenerateResults from "./utils/newGenerateResults";
-import generateResults, { Results } from "./utils/resultsCalculator";
+import generateResults, {
+  generatePlayerRolls,
+  Results,
+} from "./utils/resultsCalculator";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -27,11 +30,32 @@ function App() {
 console.log(
   "newGenerateResults:",
   newGenerateResults({
-    attackerCount: 20,
-    defenderCount: [5, 5, 5, 5],
+    attackerCount: 10,
+    defenderCount: [3, 3, 3],
     numSimulations: 10000,
   })
 );
+
+// for (let i = 0; i < 10000; i++) {
+//   const attackerRolls = generatePlayerRolls("attacker", 3);
+//   const defenderRolls = generatePlayerRolls("defender", 2);
+//   // console.log("attackerRolls:", attackerRolls);
+//   // console.log("defenderRolls:", defenderRolls);
+
+//   if (
+//     attackerRolls[0] > defenderRolls[0] &&
+//     attackerRolls[1]! > defenderRolls[1]!
+//   ) {
+//     console.count("attacker wins");
+//   } else if (
+//     defenderRolls[0] >= attackerRolls[0]! &&
+//     defenderRolls[1]! >= attackerRolls[1]!
+//   ) {
+//     console.count("defender wins");
+//   } else {
+//     console.count("tie");
+//   }
+// }
 
 export default App;
 
