@@ -11,20 +11,28 @@ type FormProps = {
   setResults: Function;
 };
 
+type FormValues = {
+  attackerCount: number;
+  defenderCount: string;
+  numSimulations: number;
+};
+
 const Form = (props: FormProps) => {
   const { setResults } = props;
 
-  const [userInputs, setUserInputs] = useState<UserInputs>({
+  const [formValues, setFormValues] = useState<FormValues>({
     attackerCount: 10,
-    defenderCount: 10,
+    defenderCount: "10",
     numSimulations: 1000,
   });
 
   function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
     const value = evt.target.value;
-    setUserInputs({
-      ...userInputs,
-      [evt.target.name]: Number(value),
+    console.log("evt.target.name:", evt.target.name);
+    setFormValues({
+      ...formValues,
+      [evt.target.name]:
+        evt.target.name === "defenderCount" ? value : Number(value),
     });
   }
 
@@ -33,8 +41,13 @@ const Form = (props: FormProps) => {
       onSubmit={(e) => {
         e.preventDefault();
 
-        const defenders = userInputs.defenderCount;
-        console.log("defenders:", defenders);
+        // Convert user's multiple defender inputs from a string to number[]
+        const userInputs: UserInputs = {
+          ...formValues,
+          defenderCount: formValues.defenderCount.split(",").map((item) => {
+            return Number(item);
+          }),
+        };
 
         const results = generateResults(userInputs);
         setResults(results);
@@ -47,7 +60,7 @@ const Form = (props: FormProps) => {
           type="number"
           min="1"
           name="attackerCount"
-          value={userInputs.attackerCount}
+          value={formValues.attackerCount}
           onChange={handleChange}
           data-testid="attackers-input"
         ></input>
@@ -60,7 +73,7 @@ const Form = (props: FormProps) => {
           type="text"
           min="1"
           name="defenderCount"
-          value={userInputs.defenderCount}
+          value={formValues.defenderCount}
           onChange={(e) => handleChange(e)}
           data-testid="defenders-input"
         ></input>
@@ -73,7 +86,7 @@ const Form = (props: FormProps) => {
           type="number"
           min="1"
           name="numSimulations"
-          value={userInputs.numSimulations}
+          value={formValues.numSimulations}
           onChange={handleChange}
           data-testid="numsimulations-input"
         ></input>
