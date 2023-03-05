@@ -41,21 +41,23 @@ const Form = (props: FormProps) => {
         e.preventDefault();
 
         const regEx = /^\s*\d+(\s*,\s*\d+)*\s*$/;
-        !formValues.defenderCount.match(regEx) &&
+        // Check to make sure defender input is a list of integers
+        if (!formValues.defenderCount.match(regEx)) {
           toast(
             "Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
           );
+        } else {
+          // Convert user's multiple defender inputs from a string to number[]
+          const userInputs: UserInputs = {
+            ...formValues,
+            defenderCount: formValues.defenderCount.split(",").map((item) => {
+              return Number(item);
+            }),
+          };
 
-        // Convert user's multiple defender inputs from a string to number[]
-        const userInputs: UserInputs = {
-          ...formValues,
-          defenderCount: formValues.defenderCount.split(",").map((item) => {
-            return Number(item);
-          }),
-        };
-
-        const results = generateResults(userInputs);
-        setResults(results);
+          const results = generateResults(userInputs);
+          setResults(results);
+        }
       }}
     >
       <div>
