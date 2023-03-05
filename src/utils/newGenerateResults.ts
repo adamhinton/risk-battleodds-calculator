@@ -81,24 +81,32 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
         );
 
         // Now for the attack
+        // Attacker wins first dice roll
         if (attackerRolls[0] > defenderRolls[0]) {
           playerCounts.defenderCount[index]--;
-        } else {
+        }
+        // Attacker loses first dice roll
+        else {
           playerCounts.attackerCount--;
         }
 
+        // If there is a second dice roll
         if (
           playerCounts.attackerCount > 1 &&
           playerCounts.defenderCount[index] > 1
         ) {
+          // Attacker wins second dice roll
           if (attackerRolls[1]! > defenderRolls[1]!) {
             playerCounts.defenderCount[index]--;
-          } else {
+          }
+          // Attacker loses second dice roll
+          else {
             playerCounts.attackerCount--;
           }
         }
 
         // results
+        //defender wins entire battle
         if (playerCounts.attackerCount < 1) {
           singleSimResults.defenderHolds = true;
           const totalOfDefenders = playerCounts.defenderCount.reduce(
@@ -108,6 +116,7 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
           singleSimResults.defendersLeft = totalOfDefenders;
           break;
         }
+        // Attacker occupies current territory but there are more defending territories left
         if (
           playerCounts.defenderCount[index] < 1 &&
           index < playerCounts.defenderCount.length - 1
@@ -115,6 +124,7 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
           // attacker loses a troop because they have to occupy the conquered territory with one troop
           playerCounts.attackerCount--;
         }
+        // Attacker occupies last defending territory and wins the whole battle
         if (
           playerCounts.defenderCount[index] === 0 &&
           index === playerCounts.defenderCount.length - 1
@@ -124,7 +134,6 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
         }
       }
     });
-    // console.log("playerCounts at end of singleSimulation:", playerCounts);
     return singleSimResults;
   }
 };
