@@ -25,13 +25,4 @@ function App() {
   );
 }
 
-console.log(
-  "newGenerateResults:",
-  newGenerateResults({
-    attackerCount: 10,
-    defenderCount: [3, 3, 3],
-    numSimulations: 10000,
-  })
-);
-
 export default App;
