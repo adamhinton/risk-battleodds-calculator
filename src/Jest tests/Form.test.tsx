@@ -18,7 +18,7 @@ test("[2] Renders three user input fields as expected", () => {
   expect(simulationsInput).toBeVisible();
 
   expect(attackerInput).toHaveValue(10);
-  expect(defenderInput).toHaveValue(10);
+  expect(defenderInput).toHaveValue("10");
   expect(simulationsInput).toHaveValue(1000);
 });
 
