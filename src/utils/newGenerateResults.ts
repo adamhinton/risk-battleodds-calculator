@@ -30,8 +30,6 @@ type SingleSimResults = {
 };
 
 const newGenerateResults = (userInputs: UserInputs): Results => {
-  console.log("start of newGenerateResults");
-  // console.log("userInputs:", userInputs);
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
@@ -62,8 +60,6 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
 
   // UTILS
   function runSingleSimulation(playerCounts: PlayerCounts): SingleSimResults {
-    // console.log("start one simulation");
-
     let singleSimResults: SingleSimResults = {
       attackersLeft: 0,
       defendersLeft: 0,
@@ -74,7 +70,6 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
     // loop through playerCounts.defenderCount
 
     playerCounts.defenderCount.forEach((defender: number, index) => {
-      // console.log("start one dice roll");
       while (playerCounts.defenderCount[index] > 0) {
         const attackerRolls = generatePlayerRolls(
           "attacker",
@@ -84,11 +79,6 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
           "defender",
           playerCounts.defenderCount[index]
         );
-        // console.log("playerCounts.attackerCount:", playerCounts.attackerCount);
-        // console.log("playerCounts.defenderCount:", playerCounts.defenderCount);
-
-        // console.log("attackerRolls:", attackerRolls);
-        // console.log("defenderRolls:", defenderRolls);
 
         // Now for the attack
         // Attacker wins first dice roll
@@ -145,8 +135,6 @@ const newGenerateResults = (userInputs: UserInputs): Results => {
         }
       }
     });
-    // console.log("playerCounts:", playerCounts);
-    // console.log("end single dice roll");
     return singleSimResults;
   }
 };
