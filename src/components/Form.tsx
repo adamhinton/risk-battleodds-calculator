@@ -5,7 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //www.magicbell.com/blog/react-toast-notifications-made-easy
 // I've tested this and it seems to work
-const regEx = /^\s*\d+(\s*,\s*\d+)*\s*$/;
 
 type FormProps = {
   setResults: Function;
@@ -40,6 +39,12 @@ const Form = (props: FormProps) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+
+        const regEx = /^\s*\d+(\s*,\s*\d+)*\s*$/;
+        !formValues.defenderCount.match(regEx) &&
+          toast(
+            "Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
+          );
 
         // Convert user's multiple defender inputs from a string to number[]
         const userInputs: UserInputs = {
