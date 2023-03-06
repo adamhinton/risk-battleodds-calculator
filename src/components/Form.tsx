@@ -1,5 +1,5 @@
 import { useState } from "react";
-import generateResults from "../utils/resultsCalculator";
+import generateResults, { Results } from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,9 +25,8 @@ const Form = (props: FormProps) => {
     numSimulations: 1000,
   });
 
-  function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
     const value = evt.target.value;
-    console.log("evt.target.name:", evt.target.name);
     setFormValues({
       ...formValues,
       [evt.target.name]:
@@ -55,7 +54,7 @@ const Form = (props: FormProps) => {
             }),
           };
 
-          const results = generateResults(userInputs);
+          const results: Results = generateResults(userInputs);
           setResults(results);
         }
       }}

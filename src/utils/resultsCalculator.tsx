@@ -29,7 +29,9 @@ type SingleSimResults = {
   defenderHolds: boolean;
 };
 
-const generateResults = (userInputs: UserInputs): Results => {
+const generateResults = (
+  userInputs: Readonly<UserInputs>
+): Readonly<Results> => {
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
@@ -59,7 +61,9 @@ const generateResults = (userInputs: UserInputs): Results => {
   return results;
 
   // UTILS
-  function runSingleSimulation(playerCounts: PlayerCounts): SingleSimResults {
+  function runSingleSimulation(
+    playerCounts: PlayerCounts
+  ): Readonly<SingleSimResults> {
     let singleSimResults: SingleSimResults = {
       attackersLeft: 0,
       defendersLeft: 0,
@@ -139,7 +143,10 @@ const generateResults = (userInputs: UserInputs): Results => {
   }
 };
 
-function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
+function randomIntFromInterval(
+  min: Readonly<number>,
+  max: Readonly<number>
+): number {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -151,10 +158,10 @@ function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
 }
 
 function generatePlayerRolls(
-  playerType: PlayerType,
-  diceRolls: 1 | 2 | number
+  playerType: Readonly<PlayerType>,
+  diceRolls: Readonly<1 | 2 | number>
 ): PlayerRolls {
-  const generateSortedRolls = (diceRolls: 1 | 2 | 3): PlayerRolls => {
+  const generateSortedRolls = (diceRolls: Readonly<1 | 2 | 3>): PlayerRolls => {
     const solution = [];
     for (let i = 0; i < diceRolls; i++) {
       solution.push(randomIntFromInterval(1, 6));
