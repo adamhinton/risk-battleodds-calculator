@@ -3,8 +3,8 @@ import generateResults from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
-// I've tested this and it seems to work
 
 type FormProps = {
   setResults: Function;
