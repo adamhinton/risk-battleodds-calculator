@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
-<form>
+<form
+  onSubmit={[Function]}
+>
   <div>
     <label
       htmlFor="attackers"
@@ -30,8 +32,8 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       min="1"
       name="defenderCount"
       onChange={[Function]}
-      type="number"
-      value={10}
+      type="text"
+      value="10"
     />
   </div>
   <div>
@@ -47,8 +49,18 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       name="numSimulations"
       onChange={[Function]}
       type="number"
-      value={10}
+      value={1000}
     />
   </div>
+  <div>
+    <button
+      type="submit"
+    >
+      Run Simulation
+    </button>
+  </div>
+  <div
+    className="Toastify"
+  />
 </form>
 `;

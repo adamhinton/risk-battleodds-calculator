@@ -1,7 +1,8 @@
 import { useState } from "react";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
+import Form from "./components/Form";
 
 // PLAN
 // COMPONENT STRUCTURE:

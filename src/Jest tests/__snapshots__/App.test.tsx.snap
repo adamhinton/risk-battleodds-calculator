@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[2] Matches snapshot from 1.29.2023 1`] = `
+exports[`[3] Matches snapshot from 1.29.2023 1`] = `
 <div
   className="App"
 >
@@ -38,8 +38,8 @@ exports[`[2] Matches snapshot from 1.29.2023 1`] = `
         min="1"
         name="defenderCount"
         onChange={[Function]}
-        type="number"
-        value={10}
+        type="text"
+        value="10"
       />
     </div>
     <div>
@@ -65,6 +65,9 @@ exports[`[2] Matches snapshot from 1.29.2023 1`] = `
         Run Simulation
       </button>
     </div>
+    <div
+      className="Toastify"
+    />
   </form>
 </div>
 `;

@@ -29,9 +29,7 @@ type SingleSimResults = {
   defenderHolds: boolean;
 };
 
-const generateResults = (
-  userInputs: Readonly<UserInputs>
-): Readonly<Results> => {
+const newGenerateResults = (userInputs: UserInputs): Results => {
   const results: Results = {
     attackerOccupies: 0,
     defenderHolds: 0,
@@ -61,9 +59,7 @@ const generateResults = (
   return results;
 
   // UTILS
-  function runSingleSimulation(
-    playerCounts: PlayerCounts
-  ): Readonly<SingleSimResults> {
+  function runSingleSimulation(playerCounts: PlayerCounts): SingleSimResults {
     let singleSimResults: SingleSimResults = {
       attackersLeft: 0,
       defendersLeft: 0,
@@ -143,10 +139,9 @@ const generateResults = (
   }
 };
 
-function randomIntFromInterval(
-  min: Readonly<number>,
-  max: Readonly<number>
-): number {
+export default newGenerateResults;
+
+function randomIntFromInterval(min: Readonly<number>, max: Readonly<number>) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -158,10 +153,10 @@ function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
 }
 
 function generatePlayerRolls(
-  playerType: Readonly<PlayerType>,
-  diceRolls: Readonly<1 | 2 | number>
+  playerType: PlayerType,
+  diceRolls: 1 | 2 | number
 ): PlayerRolls {
-  const generateSortedRolls = (diceRolls: Readonly<1 | 2 | 3>): PlayerRolls => {
+  const generateSortedRolls = (diceRolls: 1 | 2 | 3): PlayerRolls => {
     const solution = [];
     for (let i = 0; i < diceRolls; i++) {
       solution.push(randomIntFromInterval(1, 6));
@@ -183,5 +178,3 @@ function generatePlayerRolls(
   // We know they're an attacker now. So if they have two units they get two rolls, otherwise they get three rolls
   return diceRolls === 2 ? generateSortedRolls(2) : generateSortedRolls(3);
 }
-
-export default generateResults;
