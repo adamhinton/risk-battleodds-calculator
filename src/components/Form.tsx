@@ -40,9 +40,9 @@ const Form = (props: FormProps) => {
       onSubmit={(e) => {
         e.preventDefault();
 
-        const regEx = /^\s*\d+(\s*,\s*\d+)*\s*$/;
+        const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
         // Check to make sure defender input is a list of integers
-        if (!formValues.defenderCount.match(regEx)) {
+        if (!formValues.defenderCount.match(defenderValidationRegex)) {
           toast(
             "Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
           );
