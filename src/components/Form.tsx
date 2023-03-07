@@ -99,7 +99,9 @@ const Form = (props: FormProps) => {
       </div>
 
       <div>
-        <button type="submit">Run Simulation</button>
+        <button type="submit" data-testid="submit-btn">
+          Run Simulation
+        </button>
       </div>
       <ToastContainer />
     </form>

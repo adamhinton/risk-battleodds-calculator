@@ -15,7 +15,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
   console.log("results:", results);
 
   return (
-    <section>
+    <section data-testid="results-display-section">
       <h2 data-testid="results-h2">Results</h2>
       <div>
         <p data-testid="results-attacker-occupies">
