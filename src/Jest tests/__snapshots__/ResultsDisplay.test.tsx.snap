@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[4] Matches screenshot from 3.1.2023 1`] = `
-<section>
+<section
+  data-testid="results-display-section"
+>
   <h2
     data-testid="results-h2"
   >

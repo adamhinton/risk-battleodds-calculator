@@ -54,6 +54,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
   </div>
   <div>
     <button
+      data-testid="submit-btn"
       type="submit"
     >
       Run Simulation
