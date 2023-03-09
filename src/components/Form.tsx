@@ -4,6 +4,7 @@ import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@mui/material";
+import { Button } from "@mui/material";
 import styled from "styled-components";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
@@ -103,9 +104,9 @@ const Form = (props: FormProps) => {
       </div>
 
       <div>
-        <button type="submit" data-testid="submit-btn">
+        <Button type="submit" data-testid="submit-btn" variant="outlined">
           Run Simulation
-        </button>
+        </Button>
       </div>
       <ToastContainer />
     </form>
