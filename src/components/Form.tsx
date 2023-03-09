@@ -3,6 +3,8 @@ import generateResults, { Results } from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Input } from "@mui/material";
+import styled from "styled-components";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
 
@@ -61,15 +63,17 @@ const Form = (props: FormProps) => {
     >
       <div>
         <label htmlFor="attackers">Attackers:</label>
-        <input
+        <StyledInput
           id="attackers"
           type="number"
-          min="1"
+          inputComponent="input"
+          // min="1"
+          inputProps={{ min: "1" }}
           name="attackerCount"
           value={formValues.attackerCount}
           onChange={handleChange}
           data-testid="attackers-input"
-        ></input>
+        ></StyledInput>
       </div>
 
       <div>
@@ -109,3 +113,9 @@ const Form = (props: FormProps) => {
 };
 
 export default Form;
+
+const StyledInput = styled(Input)`
+  && {
+    border: 3px solid blue;
+  }
+`;
