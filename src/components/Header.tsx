@@ -2,7 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
-import Menu from "@mui/material/Menu";
 import Link from "@mui/material/Link";
 
 import styled from "styled-components";
@@ -18,8 +17,18 @@ const Header = () => {
           Author: Adam Hinton
         </Typography>
         <Toolbar>
-          <StyledLink href="https://www.google.com">Google</StyledLink>
-          <StyledLink href="https://www.google.com">Google</StyledLink>
+          <StyledLink
+            href="https://github.com/adamhinton/risk-battleodds-calculator"
+            target="_blank"
+          >
+            Source Code
+          </StyledLink>
+          <StyledLink
+            href="https://www.linkedin.com/in/adam-hinton/"
+            target="_blank"
+          >
+            LinkedIn
+          </StyledLink>
           <StyledLink href="https://www.google.com">Google</StyledLink>
         </Toolbar>
       </AppBar>
