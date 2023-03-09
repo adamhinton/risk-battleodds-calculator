@@ -3,6 +3,7 @@ import { useState } from "react";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
 import Form from "./components/Form";
+import Header from "./components/Header";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <h1>Adam Hinton</h1>
       <Form setResults={setResults} />
       {results && <ResultsDisplay results={results} />}
