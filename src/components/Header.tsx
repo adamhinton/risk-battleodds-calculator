@@ -7,15 +7,15 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <StyledBox sx={{ flexGrow: 1 }}>
+      <StyledAppBar position="static">
         <Typography variant="h4" component="h1">
           Risk Battleodds Calculator
         </Typography>
         <Typography variant="h6" component="h2">
           Author: Adam Hinton
         </Typography>
-        <Toolbar>
+        <StyledToolBar>
           <StyledLink
             href="https://github.com/adamhinton/risk-battleodds-calculator"
             target="_blank"
@@ -29,13 +29,36 @@ const Header = () => {
             LinkedIn
           </StyledLink>
           <StyledLink href="https://www.google.com">Google</StyledLink>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </StyledToolBar>
+      </StyledAppBar>
+    </StyledBox>
   );
 };
 
 export default Header;
+
+const StyledBox = styled(Box)`
+  && {
+    max-width: 950px;
+  }
+`;
+
+const StyledAppBar = styled(AppBar)`
+  && {
+    padding: 15px;
+  }
+`;
+
+const StyledToolBar = styled(Toolbar)`
+  && {
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0;
+    min-height: 30px;
+  }
+`;
 
 const StyledLink = styled(Link)`
   && {
