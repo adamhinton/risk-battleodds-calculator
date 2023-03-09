@@ -19,9 +19,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>Adam Hinton</h1>
-      <Form setResults={setResults} />
-      {results && <ResultsDisplay results={results} />}
+      <main>
+        <Form setResults={setResults} />
+        {results && <ResultsDisplay results={results} />}
+      </main>
     </div>
   );
 }

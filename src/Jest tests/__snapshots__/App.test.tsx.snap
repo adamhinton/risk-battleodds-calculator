@@ -5,10 +5,10 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
   className="App"
 >
   <div
-    className="MuiBox-root css-i9gxme"
+    className="sc-beySbM XFhRm MuiBox-root css-i9gxme"
   >
     <header
-      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic css-hip9hq-MuiPaper-root-MuiAppBar-root"
+      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-guDLRT fAxzwi css-hip9hq-MuiPaper-root-MuiAppBar-root"
     >
       <h1
         className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
@@ -21,10 +21,10 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         Author: Adam Hinton
       </h2>
       <div
-        className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-hyum1k-MuiToolbar-root"
+        className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-dmyDGi bjeQyO css-hyum1k-MuiToolbar-root"
       >
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-beySbM kzyxSV css-1ps4owl-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-hLQRIN gEsoWR css-1ps4owl-MuiTypography-root-MuiLink-root"
           href="https://github.com/adamhinton/risk-battleodds-calculator"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -33,7 +33,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           Source Code
         </a>
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-beySbM kzyxSV css-1ps4owl-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-hLQRIN gEsoWR css-1ps4owl-MuiTypography-root-MuiLink-root"
           href="https://www.linkedin.com/in/adam-hinton/"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -42,7 +42,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           LinkedIn
         </a>
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-beySbM kzyxSV css-1ps4owl-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-hLQRIN gEsoWR css-1ps4owl-MuiTypography-root-MuiLink-root"
           href="https://www.google.com"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -52,71 +52,70 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
       </div>
     </header>
   </div>
-  <h1>
-    Adam Hinton
-  </h1>
-  <form
-    onSubmit={[Function]}
-  >
-    <div>
-      <label
-        htmlFor="attackers"
-      >
-        Attackers:
-      </label>
-      <input
-        data-testid="attackers-input"
-        id="attackers"
-        min="1"
-        name="attackerCount"
-        onChange={[Function]}
-        type="number"
-        value={10}
+  <main>
+    <form
+      onSubmit={[Function]}
+    >
+      <div>
+        <label
+          htmlFor="attackers"
+        >
+          Attackers:
+        </label>
+        <input
+          data-testid="attackers-input"
+          id="attackers"
+          min="1"
+          name="attackerCount"
+          onChange={[Function]}
+          type="number"
+          value={10}
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="defenders"
+        >
+          Defenders:
+        </label>
+        <input
+          data-testid="defenders-input"
+          id="defenders"
+          min="1"
+          name="defenderCount"
+          onChange={[Function]}
+          type="text"
+          value="10"
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="simulations"
+        >
+          Number of Simulations:
+        </label>
+        <input
+          data-testid="numsimulations-input"
+          id="simulations"
+          min="1"
+          name="numSimulations"
+          onChange={[Function]}
+          type="number"
+          value={1000}
+        />
+      </div>
+      <div>
+        <button
+          data-testid="submit-btn"
+          type="submit"
+        >
+          Run Simulation
+        </button>
+      </div>
+      <div
+        className="Toastify"
       />
-    </div>
-    <div>
-      <label
-        htmlFor="defenders"
-      >
-        Defenders:
-      </label>
-      <input
-        data-testid="defenders-input"
-        id="defenders"
-        min="1"
-        name="defenderCount"
-        onChange={[Function]}
-        type="text"
-        value="10"
-      />
-    </div>
-    <div>
-      <label
-        htmlFor="simulations"
-      >
-        Number of Simulations:
-      </label>
-      <input
-        data-testid="numsimulations-input"
-        id="simulations"
-        min="1"
-        name="numSimulations"
-        onChange={[Function]}
-        type="number"
-        value={1000}
-      />
-    </div>
-    <div>
-      <button
-        data-testid="submit-btn"
-        type="submit"
-      >
-        Run Simulation
-      </button>
-    </div>
-    <div
-      className="Toastify"
-    />
-  </form>
+    </form>
+  </main>
 </div>
 `;
