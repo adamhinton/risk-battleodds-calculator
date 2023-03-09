@@ -38,5 +38,7 @@ const Header = () => {
 export default Header;
 
 const StyledLink = styled(Link)`
-  color: white;
+  && {
+    color: white;
+  }
 `;
