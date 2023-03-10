@@ -45,15 +45,207 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     >
       Number of Simulations:
     </label>
-    <input
-      className="sc-guDLRT bieFkb"
+    <span
+      className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-guDLRT gKLwQn css-1aznpnh-MuiSlider-root"
       data-testid="numsimulations-input"
-      max={100000}
-      min={1}
-      name="numSimulations"
-      onChange={[Function]}
-      value={1000}
-    />
+      onMouseDown={[Function]}
+    >
+      <span
+        className="MuiSlider-rail css-14pt78w-MuiSlider-rail"
+      />
+      <span
+        className="MuiSlider-track css-1gv0vcd-MuiSlider-track"
+        style={
+          Object {
+            "left": "0%",
+            "width": "100%",
+          }
+        }
+      />
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={0}
+        style={
+          Object {
+            "left": "0%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={0}
+        style={
+          Object {
+            "left": "0%",
+          }
+        }
+      >
+        1
+      </span>
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={1}
+        style={
+          Object {
+            "left": "20%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={1}
+        style={
+          Object {
+            "left": "20%",
+          }
+        }
+      >
+        10
+      </span>
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={2}
+        style={
+          Object {
+            "left": "40%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={2}
+        style={
+          Object {
+            "left": "40%",
+          }
+        }
+      >
+        100
+      </span>
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={3}
+        style={
+          Object {
+            "left": "60%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={3}
+        style={
+          Object {
+            "left": "60%",
+          }
+        }
+      >
+        1000
+      </span>
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={4}
+        style={
+          Object {
+            "left": "80%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={4}
+        style={
+          Object {
+            "left": "80%",
+          }
+        }
+      >
+        10000
+      </span>
+      <span
+        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        data-index={5}
+        style={
+          Object {
+            "left": "100%",
+          }
+        }
+      />
+      <span
+        aria-hidden={true}
+        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        data-index={5}
+        style={
+          Object {
+            "left": "100%",
+          }
+        }
+      >
+        100000
+      </span>
+      <span
+        className="MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary css-eg0mwd-MuiSlider-thumb"
+        data-index={0}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        style={
+          Object {
+            "left": "100%",
+            "pointerEvents": undefined,
+          }
+        }
+      >
+        <input
+          aria-orientation="horizontal"
+          aria-valuemax={100000}
+          aria-valuemin={1}
+          aria-valuenow={100000}
+          data-index={0}
+          disabled={false}
+          max={6}
+          min={1}
+          name="numSimulations"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          style={
+            Object {
+              "border": 0,
+              "clip": "rect(0 0 0 0)",
+              "direction": "ltr",
+              "height": "100%",
+              "margin": -1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "absolute",
+              "whiteSpace": "nowrap",
+              "width": "100%",
+            }
+          }
+          type="range"
+          value={6}
+        />
+        <span
+          aria-hidden={true}
+          className="MuiSlider-valueLabel css-nnid7-MuiSlider-valueLabel"
+        >
+          <span
+            className="MuiSlider-valueLabelCircle"
+          >
+            <span
+              className="MuiSlider-valueLabelLabel"
+            >
+              100000
+            </span>
+          </span>
+        </span>
+      </span>
+    </span>
   </div>
   <div>
     <button
