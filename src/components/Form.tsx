@@ -8,6 +8,7 @@ import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
+import FormLabel from "@mui/material/FormLabel";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
 
@@ -64,6 +65,7 @@ const Form = (props: FormProps) => {
         }
       }}
     >
+      <FormLabel>Inputs</FormLabel>
       <div>
         <InputLabel htmlFor="attackers">Attackers:</InputLabel>
         <StyledInput
