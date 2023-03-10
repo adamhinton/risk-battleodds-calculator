@@ -3,7 +3,7 @@ import generateResults, { Results } from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { cardActionAreaClasses, Input } from "@mui/material";
+import { Input } from "@mui/material";
 import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
