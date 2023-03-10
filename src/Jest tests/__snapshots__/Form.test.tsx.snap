@@ -27,9 +27,9 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Defenders:
     </label>
     <input
+      className="sc-beySbM iTRUCx"
       data-testid="defenders-input"
       id="defenders"
-      min="1"
       name="defenderCount"
       onChange={[Function]}
       type="text"
