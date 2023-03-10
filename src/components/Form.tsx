@@ -68,7 +68,6 @@ const Form = (props: FormProps) => {
           id="attackers"
           type="number"
           inputComponent="input"
-          // min="1"
           inputProps={{ min: "1" }}
           name="attackerCount"
           value={formValues.attackerCount}
@@ -79,15 +78,15 @@ const Form = (props: FormProps) => {
 
       <div>
         <label htmlFor="defenders">Defenders:</label>
-        <input
+        <StyledInput
           id="defenders"
           type="text"
-          min="1"
+          inputProps={{ min: 1 }}
           name="defenderCount"
           value={formValues.defenderCount}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
           data-testid="defenders-input"
-        ></input>
+        ></StyledInput>
       </div>
 
       <div>
@@ -115,7 +114,9 @@ const Form = (props: FormProps) => {
 
 export default Form;
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(Input).attrs({
+  as: "input",
+})`
   && {
     border: 3px solid blue;
   }

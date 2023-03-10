@@ -11,9 +11,9 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Attackers:
     </label>
     <input
+      className="sc-beySbM iTRUCx"
       data-testid="attackers-input"
       id="attackers"
-      min="1"
       name="attackerCount"
       onChange={[Function]}
       type="number"
@@ -54,7 +54,22 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
   </div>
   <div>
     <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
       data-testid="submit-btn"
+      disabled={false}
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
       type="submit"
     >
       Run Simulation
