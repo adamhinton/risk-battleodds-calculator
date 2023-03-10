@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@mui/material";
 import { Button } from "@mui/material";
+import { InputLabel } from "@mui/material";
 import styled from "styled-components";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
@@ -63,7 +64,7 @@ const Form = (props: FormProps) => {
       }}
     >
       <div>
-        <label htmlFor="attackers">Attackers:</label>
+        <InputLabel htmlFor="attackers">Attackers:</InputLabel>
         <StyledInput
           id="attackers"
           type="number"
@@ -77,7 +78,7 @@ const Form = (props: FormProps) => {
       </div>
 
       <div>
-        <label htmlFor="defenders">Defenders:</label>
+        <InputLabel htmlFor="defenders">Defenders:</InputLabel>
         <StyledInput
           id="defenders"
           type="text"
@@ -90,7 +91,7 @@ const Form = (props: FormProps) => {
       </div>
 
       <div>
-        <label htmlFor="simulations">Number of Simulations:</label>
+        <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
         <input
           id="simulations"
           type="number"
