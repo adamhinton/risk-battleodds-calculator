@@ -3,7 +3,7 @@ import generateResults, { Results } from "../utils/resultsCalculator";
 import { UserInputs } from "../utils/resultsCalculator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Input } from "@mui/material";
+import { cardActionAreaClasses, Input } from "@mui/material";
 import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
@@ -27,7 +27,7 @@ const Form = (props: FormProps) => {
   const [formValues, setFormValues] = useState<FormValues>({
     attackerCount: 10,
     defenderCount: "10",
-    numSimulations: 1000,
+    numSimulations: 10000,
   });
 
   function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
@@ -95,18 +95,13 @@ const Form = (props: FormProps) => {
         <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
         <Slider
           min={1}
-          max={100000}
+          max={7}
           // id="simulations"
           // type="number"
           // min="1"
           name="numSimulations"
-          marks={[
-            { value: 1, label: 1 },
-            { value: 10, label: 10 },
-            { value: 100, label: 100 },
-            { value: 10000, label: 10000 },
-            { value: 100000, label: 100000 },
-          ]}
+          marks={marks}
+          scale={calculateValue}
           value={formValues.numSimulations}
           onChange={(event, value) => {
             setFormValues({
@@ -115,6 +110,8 @@ const Form = (props: FormProps) => {
             });
           }}
           data-testid="numsimulations-input"
+          step={null}
+          valueLabelDisplay="auto"
         ></Slider>
       </div>
 
@@ -145,3 +142,25 @@ const StyledInput = styled(Input).attrs({
 //     border: 3px solid blue;
 //   }
 // `;
+
+function calculateValue(value: number): any {
+  switch (value) {
+    case 1:
+      return 1;
+    case 2:
+      return 10;
+    case 3:
+      return 100;
+    case 4:
+      return 1000;
+    case 5:
+      return 10000;
+    case 6:
+      return 100000;
+  }
+}
+
+const marks = [1, 2, 3, 4, 5, 6].map((value) => ({
+  value,
+  label: calculateValue(value),
+}));
