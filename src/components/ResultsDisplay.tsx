@@ -1,4 +1,7 @@
 import { Results } from "../utils/resultsCalculator";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import { Typography } from "@mui/material";
 
 type ResultsDisplayProps = {
   results: Results;
@@ -15,25 +18,29 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
   console.log("results:", results);
 
   return (
-    <section data-testid="results-display-section">
-      <h2 data-testid="results-h2">Results</h2>
-      <div>
-        <p data-testid="results-attacker-occupies">
-          Attacker Occupies: {(attackerWinPercent * 100).toFixed(1)}%
-        </p>
-        <p data-testid="results-avg-attackers-left">
-          Average Attackers Left: {results.averageAttackersLeft?.toFixed(1)}
-        </p>
-      </div>
-      <div>
-        <p data-testid="results-defenderholds">
-          Defender Holds: {(defenderWinPercent * 100).toFixed(1)}%
-        </p>
-        <p data-testid="results-avg-defenders-left">
-          Average Defenders Left: {results.averageDefendersLeft?.toFixed(1)}
-        </p>
-      </div>
-    </section>
+    <Card data-testid="results-display-section">
+      <CardContent>
+        <Typography data-testid="results-h2" component="h2">
+          Results
+        </Typography>
+        <div>
+          <Typography data-testid="results-attacker-occupies" component="p">
+            Attacker Occupies: {(attackerWinPercent * 100).toFixed(1)}%
+          </Typography>
+          <Typography data-testid="results-avg-attackers-left" component="p">
+            Average Attackers Left: {results.averageAttackersLeft?.toFixed(1)}
+          </Typography>
+        </div>
+        <div>
+          <Typography data-testid="results-defenderholds" component="p">
+            Defender Holds: {(defenderWinPercent * 100).toFixed(1)}%
+          </Typography>
+          <Typography data-testid="results-avg-defenders-left" component="p">
+            Average Defenders Left: {results.averageDefendersLeft?.toFixed(1)}
+          </Typography>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

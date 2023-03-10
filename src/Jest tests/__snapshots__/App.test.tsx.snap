@@ -56,6 +56,11 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
     <form
       onSubmit={[Function]}
     >
+      <label
+        className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
+      >
+        Inputs
+      </label>
       <div>
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
