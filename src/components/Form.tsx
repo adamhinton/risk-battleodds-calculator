@@ -93,9 +93,9 @@ const Form = (props: FormProps) => {
 
       <div>
         <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-        <Slider
+        <StyledSlider
           min={1}
-          max={7}
+          max={6}
           // id="simulations"
           // type="number"
           // min="1"
@@ -112,7 +112,7 @@ const Form = (props: FormProps) => {
           data-testid="numsimulations-input"
           step={null}
           valueLabelDisplay="auto"
-        ></Slider>
+        ></StyledSlider>
       </div>
 
       <div>
@@ -135,13 +135,11 @@ const StyledInput = styled(Input).attrs({
   }
 `;
 
-// const StyledSlider = styled(Slider).attrs({
-//   as: "input",
-// })`
-//   && {
-//     border: 3px solid blue;
-//   }
-// `;
+const StyledSlider = styled(Slider)`
+  && {
+    width: 350px;
+  }
+`;
 
 function calculateValue(value: number): any {
   switch (value) {
