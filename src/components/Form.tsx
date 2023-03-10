@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@mui/material";
 import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
+import Slider from "@mui/material/Slider";
 import styled from "styled-components";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
@@ -92,15 +93,29 @@ const Form = (props: FormProps) => {
 
       <div>
         <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-        <input
-          id="simulations"
-          type="number"
-          min="1"
+        <Slider
+          min={1}
+          max={100000}
+          // id="simulations"
+          // type="number"
+          // min="1"
           name="numSimulations"
+          marks={[
+            { value: 1, label: 1 },
+            { value: 10, label: 10 },
+            { value: 100, label: 100 },
+            { value: 10000, label: 10000 },
+            { value: 100000, label: 100000 },
+          ]}
           value={formValues.numSimulations}
-          onChange={handleChange}
+          onChange={(event, value) => {
+            setFormValues({
+              ...formValues,
+              numSimulations: value as number,
+            });
+          }}
           data-testid="numsimulations-input"
-        ></input>
+        ></Slider>
       </div>
 
       <div>
@@ -122,3 +137,11 @@ const StyledInput = styled(Input).attrs({
     border: 3px solid blue;
   }
 `;
+
+// const StyledSlider = styled(Slider).attrs({
+//   as: "input",
+// })`
+//   && {
+//     border: 3px solid blue;
+//   }
+// `;
