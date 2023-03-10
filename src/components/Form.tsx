@@ -93,12 +93,10 @@ const Form = (props: FormProps) => {
 
       <div>
         <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
+        {/* slider component showing values 1, 10, 100, 1000, 10000, 100000 spaced evenly apart on the screen */}
         <StyledSlider
           min={1}
           max={6}
-          // id="simulations"
-          // type="number"
-          // min="1"
           name="numSimulations"
           marks={marks}
           scale={calculateValue}
@@ -141,6 +139,7 @@ const StyledSlider = styled(Slider)`
   }
 `;
 
+// marks and calculateValues are utilities to make the Slider values space evenly
 function calculateValue(value: number): any {
   switch (value) {
     case 1:
