@@ -9,39 +9,61 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
   >
     Inputs
   </label>
-  <div>
+  <div
+    className="sc-beySbM inDFJi"
+  >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="attackers"
     >
       Attackers:
     </label>
-    <input
-      className="sc-beySbM iTRUCx"
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
-      id="attackers"
-      name="attackerCount"
-      onChange={[Function]}
-      type="number"
-      value={10}
-    />
+      onClick={[Function]}
+    >
+      <input
+        className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="attackers"
+        min="1"
+        name="attackerCount"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="number"
+        value={10}
+      />
+    </div>
   </div>
-  <div>
+  <div
+    className="sc-beySbM inDFJi"
+  >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="defenders"
     >
       Defenders:
     </label>
-    <input
-      className="sc-beySbM iTRUCx"
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
-      id="defenders"
-      name="defenderCount"
-      onChange={[Function]}
-      type="text"
-      value="10"
-    />
+      onClick={[Function]}
+    >
+      <input
+        className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+        id="defenders"
+        min={1}
+        name="defenderCount"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        type="text"
+        value="10"
+      />
+    </div>
   </div>
   <div>
     <label
@@ -272,7 +294,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       tabIndex={0}
       type="submit"
     >
-      Run Simulation
+      Run Simulations
     </button>
   </div>
   <div

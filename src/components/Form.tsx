@@ -66,9 +66,9 @@ const Form = (props: FormProps) => {
       }}
     >
       <FormLabel>Inputs</FormLabel>
-      <div>
+      <StyledInputAndLabel>
         <InputLabel htmlFor="attackers">Attackers:</InputLabel>
-        <StyledInput
+        <Input
           id="attackers"
           type="number"
           inputComponent="input"
@@ -77,21 +77,21 @@ const Form = (props: FormProps) => {
           value={formValues.attackerCount}
           onChange={handleChange}
           data-testid="attackers-input"
-        ></StyledInput>
-      </div>
+        ></Input>
+      </StyledInputAndLabel>
 
-      <div>
+      <StyledInputAndLabel>
         <InputLabel htmlFor="defenders">Defenders:</InputLabel>
-        <StyledInput
+        <Input
           id="defenders"
           type="text"
-          inputProps={{ min: 1 }}
+          inputProps={{ min: 1, max: 10000 }}
           name="defenderCount"
           value={formValues.defenderCount}
           onChange={handleChange}
           data-testid="defenders-input"
-        ></StyledInput>
-      </div>
+        ></Input>
+      </StyledInputAndLabel>
 
       <div>
         <InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
@@ -117,7 +117,7 @@ const Form = (props: FormProps) => {
 
       <div>
         <Button type="submit" data-testid="submit-btn" variant="outlined">
-          Run Simulation
+          Run Simulations
         </Button>
       </div>
       <ToastContainer />
@@ -127,12 +127,9 @@ const Form = (props: FormProps) => {
 
 export default Form;
 
-const StyledInput = styled(Input).attrs({
-  as: "input",
-})`
-  && {
-    border: 3px solid blue;
-  }
+const StyledInputAndLabel = styled("div")`
+  margin: 10px 0;
+  display: flex;
 `;
 
 const StyledSlider = styled(Slider)`

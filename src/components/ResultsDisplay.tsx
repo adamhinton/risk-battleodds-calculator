@@ -21,7 +21,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
     <Card data-testid="results-display-section">
       <CardContent>
         <Typography data-testid="results-h2" component="h2">
-          Results
+          <b>Results</b>
         </Typography>
         <div>
           <Typography data-testid="results-attacker-occupies" component="p">
