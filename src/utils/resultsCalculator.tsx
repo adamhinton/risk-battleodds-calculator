@@ -39,6 +39,8 @@ const generateResults = (
     averageDefendersLeft: null,
   };
 
+  console.log("userInputs.numSimulations:", userInputs.numSimulations);
+
   let totalAttackersLeft = 0;
   let totalDefendersLeft = 0;
 

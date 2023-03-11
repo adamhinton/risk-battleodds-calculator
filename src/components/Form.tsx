@@ -28,7 +28,10 @@ const Form = (props: FormProps) => {
   const [formValues, setFormValues] = useState<FormValues>({
     attackerCount: 10,
     defenderCount: "10",
-    numSimulations: 10000,
+    // The number of simulations corresponds to the position on the slider. So the first position is 1 simulations, secondis 10, third is 100, all the way through #6 at 100,000 simulations.
+    // So numSimulations: 5 means that there are 10,000 simulations by default unless the user changes it by adjusting the slider.
+    // This is a little wonky, I'd like to refactor.
+    numSimulations: 5,
   });
 
   function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
@@ -58,6 +61,7 @@ const Form = (props: FormProps) => {
             defenderCount: formValues.defenderCount.split(",").map((item) => {
               return Number(item);
             }),
+            numSimulations: calculateValue(formValues.numSimulations),
           };
 
           const results: Results = generateResults(userInputs);
@@ -101,6 +105,7 @@ const Form = (props: FormProps) => {
           max={6}
           name="numSimulations"
           marks={marks}
+          defaultValue={5}
           scale={calculateValue}
           value={formValues.numSimulations}
           onChange={(event, value) => {
