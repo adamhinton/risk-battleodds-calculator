@@ -39,6 +39,7 @@ export default Header;
 
 const StyledBox = styled(Box)`
   && {
+    width: 100%;
     max-width: 950px;
   }
 `;
@@ -46,6 +47,8 @@ const StyledBox = styled(Box)`
 const StyledAppBar = styled(AppBar)`
   && {
     padding: 15px;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -63,5 +66,6 @@ const StyledToolBar = styled(Toolbar)`
 const StyledLink = styled(Link)`
   && {
     color: white;
+    margin: 0 10px;
   }
 `;
