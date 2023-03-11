@@ -44,7 +44,7 @@ const Form = (props: FormProps) => {
   }
 
   return (
-    <form
+    <StyledForm
       onSubmit={(e) => {
         e.preventDefault();
 
@@ -69,10 +69,12 @@ const Form = (props: FormProps) => {
         }
       }}
     >
-      <FormLabel>Inputs</FormLabel>
+      <FormLabel component={"h2"}>
+        <b>Inputs</b>
+      </FormLabel>
       <StyledInputAndLabel>
         <InputLabel htmlFor="attackers">Attackers:</InputLabel>
-        <Input
+        <StyledAttackerInput
           id="attackers"
           type="number"
           inputComponent="input"
@@ -81,7 +83,7 @@ const Form = (props: FormProps) => {
           value={formValues.attackerCount}
           onChange={handleChange}
           data-testid="attackers-input"
-        ></Input>
+        ></StyledAttackerInput>
       </StyledInputAndLabel>
 
       <StyledInputAndLabel>
@@ -126,15 +128,27 @@ const Form = (props: FormProps) => {
         </Button>
       </div>
       <ToastContainer />
-    </form>
+    </StyledForm>
   );
 };
 
 export default Form;
 
+const StyledForm = styled("form")`
+  border: 1px solid blue;
+  padding: 0 50px 50px;
+`;
+
 const StyledInputAndLabel = styled("div")`
   margin: 10px 0;
   display: flex;
+  align-items: center;
+`;
+
+const StyledAttackerInput = styled(Input)`
+  && {
+    width: 70px;
+  }
 `;
 
 const StyledSlider = styled(Slider)`
