@@ -2,6 +2,7 @@ import { Results } from "../utils/resultsCalculator";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
 
 type ResultsDisplayProps = {
   results: Results;
@@ -18,7 +19,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
   console.log("results:", results);
 
   return (
-    <Card data-testid="results-display-section">
+    <StyledCard data-testid="results-display-section">
       <CardContent>
         <Typography data-testid="results-h2" component="h2">
           <b>Results</b>
@@ -40,8 +41,15 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
           </Typography>
         </div>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 
 export default ResultsDisplay;
+
+const StyledCard = styled(Card)`
+  && {
+    margin-top: 20px;
+    padding: 50px;
+  }
+`;
