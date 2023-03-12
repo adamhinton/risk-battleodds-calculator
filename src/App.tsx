@@ -16,8 +16,16 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 // <Results/>
 // </App>
 
-const darkTheme = createTheme({});
-const lightTheme = createTheme({});
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+});
 
 function App() {
   const [results, setResults] = useState<Results | null>(null);
