@@ -26,21 +26,23 @@ function App() {
   console.log("isDark:", isDark);
 
   return (
-    <StyledApp className="App">
-      <button
-        onClick={(e: MouseEvent) => {
-          e.preventDefault();
-          setIsDark(!isDark);
-        }}
-      >
-        Dark Mode Test
-      </button>
-      <Header />
-      <StyledMain>
-        <Form setResults={setResults} />
-        {results && <ResultsDisplay results={results} />}
-      </StyledMain>
-    </StyledApp>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <StyledApp className="App">
+        <button
+          onClick={(e: MouseEvent) => {
+            e.preventDefault();
+            setIsDark(!isDark);
+          }}
+        >
+          Dark Mode Test
+        </button>
+        <Header />
+        <StyledMain>
+          <Form setResults={setResults} />
+          {results && <ResultsDisplay results={results} />}
+        </StyledMain>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 
