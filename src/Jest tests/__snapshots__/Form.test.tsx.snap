@@ -2,15 +2,18 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
+  className="sc-beySbM cxouhD"
   onSubmit={[Function]}
 >
-  <label
+  <h2
     className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
   >
-    Inputs
-  </label>
+    <b>
+      Inputs
+    </b>
+  </h2>
   <div
-    className="sc-beySbM inDFJi"
+    className="sc-guDLRT bPGqke"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -19,7 +22,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Attackers:
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi fwveKs css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -38,7 +41,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-beySbM inDFJi"
+    className="sc-guDLRT bPGqke"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -54,6 +57,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       <input
         className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
         id="defenders"
+        max={10000}
         min={1}
         name="defenderCount"
         onAnimationStart={[Function]}
@@ -73,8 +77,9 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Number of Simulations:
     </label>
     <span
-      className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-guDLRT gKLwQn css-1aznpnh-MuiSlider-root"
+      className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-hLQRIN cFpESz css-1aznpnh-MuiSlider-root"
       data-testid="numsimulations-input"
+      defaultValue={5}
       onMouseDown={[Function]}
     >
       <span
@@ -85,7 +90,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
         style={
           Object {
             "left": "0%",
-            "width": "100%",
+            "width": "80%",
           }
         }
       />
@@ -195,7 +200,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
         10000
       </span>
       <span
-        className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
+        className="MuiSlider-mark css-1tfve6q-MuiSlider-mark"
         data-index={5}
         style={
           Object {
@@ -205,7 +210,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
       <span
         aria-hidden={true}
-        className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
+        className="MuiSlider-markLabel MuiSlider-markLabel css-yafthl-MuiSlider-markLabel"
         data-index={5}
         style={
           Object {
@@ -222,7 +227,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
         onMouseOver={[Function]}
         style={
           Object {
-            "left": "100%",
+            "left": "80%",
             "pointerEvents": undefined,
           }
         }
@@ -231,7 +236,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
           aria-orientation="horizontal"
           aria-valuemax={100000}
           aria-valuemin={1}
-          aria-valuenow={100000}
+          aria-valuenow={10000}
           data-index={0}
           disabled={false}
           max={6}
@@ -255,7 +260,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
             }
           }
           type="range"
-          value={6}
+          value={5}
         />
         <span
           aria-hidden={true}
@@ -267,7 +272,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
             <span
               className="MuiSlider-valueLabelLabel"
             >
-              100000
+              10000
             </span>
           </span>
         </span>
