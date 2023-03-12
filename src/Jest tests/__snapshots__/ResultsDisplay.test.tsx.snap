@@ -1,41 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[4] Matches screenshot from 3.1.2023 1`] = `
-<section>
-  <h2
-    data-testid="results-h2"
+<div
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root sc-beySbM jdOxbs css-bhp9pd-MuiPaper-root-MuiCard-root"
+  data-testid="results-display-section"
+>
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
   >
-    Results
-  </h2>
-  <div>
-    <p
-      data-testid="results-attacker-occupies"
+    <h2
+      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      data-testid="results-h2"
     >
-      Attacker Occupies: 
-      47.9
-      %
-    </p>
-    <p
-      data-testid="results-avg-attackers-left"
-    >
-      Average Attackers Left: 
-      19.0
-    </p>
+      <b>
+        Results
+      </b>
+    </h2>
+    <div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        data-testid="results-attacker-occupies"
+      >
+        Attacker Occupies: 
+        47.9
+        %
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        data-testid="results-avg-attackers-left"
+      >
+        Average Attackers Left: 
+        19.0
+      </p>
+    </div>
+    <div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        data-testid="results-defenderholds"
+      >
+        Defender Holds: 
+        52.1
+        %
+      </p>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+        data-testid="results-avg-defenders-left"
+      >
+        Average Defenders Left: 
+        28.5
+      </p>
+    </div>
   </div>
-  <div>
-    <p
-      data-testid="results-defenderholds"
-    >
-      Defender Holds: 
-      52.1
-      %
-    </p>
-    <p
-      data-testid="results-avg-defenders-left"
-    >
-      Average Defenders Left: 
-      28.5
-    </p>
-  </div>
-</section>
+</div>
 `;

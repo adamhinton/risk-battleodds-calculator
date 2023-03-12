@@ -3,6 +3,8 @@ import { useState } from "react";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
 import Form from "./components/Form";
+import Header from "./components/Header";
+import styled from "styled-components";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -16,12 +18,27 @@ function App() {
   const [results, setResults] = useState<Results | null>(null);
 
   return (
-    <div className="App">
-      <h1>Adam Hinton</h1>
-      <Form setResults={setResults} />
-      {results && <ResultsDisplay results={results} />}
-    </div>
+    <StyledApp className="App">
+      <Header />
+      <StyledMain>
+        <Form setResults={setResults} />
+        {results && <ResultsDisplay results={results} />}
+      </StyledMain>
+    </StyledApp>
   );
 }
 
 export default App;
+
+const StyledApp = styled("div")`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const StyledMain = styled("main")`
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  flex-direction: column;
+`;
