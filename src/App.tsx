@@ -5,6 +5,7 @@ import { Results } from "./utils/resultsCalculator";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import styled from "styled-components";
+import useDarkMode from "./hooks/useDarkMode";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -16,6 +17,9 @@ import styled from "styled-components";
 
 function App() {
   const [results, setResults] = useState<Results | null>(null);
+  const [isDark, setIsDark] = useDarkMode();
+
+  console.log("isDark:", isDark);
 
   return (
     <StyledApp className="App">
