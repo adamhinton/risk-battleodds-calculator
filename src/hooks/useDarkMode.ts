@@ -5,7 +5,7 @@ const useDarkMode = () => {
   const [isDark, setIsDark] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : undefined;
+      return item ? JSON.parse(item) : true;
     } catch (error) {
       return false;
     }
