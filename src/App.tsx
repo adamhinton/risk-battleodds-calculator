@@ -6,6 +6,7 @@ import Form from "./components/Form";
 import Header from "./components/Header";
 import styled from "styled-components";
 import useDarkMode from "./hooks/useDarkMode";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -14,6 +15,9 @@ import useDarkMode from "./hooks/useDarkMode";
 // <Form/>
 // <Results/>
 // </App>
+
+const darkTheme = createTheme({});
+const lightTheme = createTheme({});
 
 function App() {
   const [results, setResults] = useState<Results | null>(null);
