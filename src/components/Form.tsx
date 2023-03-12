@@ -137,6 +137,7 @@ export default Form;
 const StyledForm = styled("form")`
   border: 1px solid blue;
   padding: 0 50px 50px;
+  color: green;
 `;
 
 const StyledInputAndLabel = styled("div")`

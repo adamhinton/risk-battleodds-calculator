@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 // import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
@@ -23,6 +23,14 @@ function App() {
 
   return (
     <StyledApp className="App">
+      <button
+        onClick={(e: MouseEvent) => {
+          e.preventDefault();
+          setIsDark(!isDark);
+        }}
+      >
+        Dark Mode Test
+      </button>
       <Header />
       <StyledMain>
         <Form setResults={setResults} />
