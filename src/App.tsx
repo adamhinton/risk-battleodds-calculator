@@ -4,9 +4,9 @@ import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
 import Form from "./components/Form";
 import Header from "./components/Header";
-import styled from "styled-components";
+import styled, { ThemeProviderProps } from "styled-components";
 import useDarkMode from "./hooks/useDarkMode";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, ThemeOptions } from "@mui/material/styles";
 import { ThemeProvider } from "styled-components";
 
 // PLAN
@@ -17,14 +17,28 @@ import { ThemeProvider } from "styled-components";
 // <Results/>
 // </App>
 
+declare module "@mui/material/styles" {
+	interface ThemeOptions {
+		customTheming?: {
+			mainBGC: string;
+		};
+	}
+}
+
 const darkTheme = createTheme({
 	palette: {
 		mode: "dark",
+	},
+	customTheming: {
+		mainBGC: "black",
 	},
 });
 const lightTheme = createTheme({
 	palette: {
 		mode: "light",
+	},
+	customTheming: {
+		mainBGC: "blue",
 	},
 });
 
@@ -61,9 +75,8 @@ const StyledApp = styled("div")`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	background-color: ${(props) => {
-		console.log("props.theme:", props.theme);
-		return "green";
+	background-color: ${({ theme }) => {
+		return theme.customTheming.mainBGC;
 	}};
 `;
 
