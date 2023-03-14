@@ -88,7 +88,7 @@ const Form = (props: FormProps) => {
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="defenders">Defenders:</InputLabel>
-				<Input
+				<StyledInput
 					id="defenders"
 					type="text"
 					inputProps={{ min: 1, max: 10000 }}
@@ -96,7 +96,7 @@ const Form = (props: FormProps) => {
 					value={formValues.defenderCount}
 					onChange={handleChange}
 					data-testid="defenders-input"
-				></Input>
+				></StyledInput>
 			</StyledInputAndLabel>
 
 			<div>
@@ -156,7 +156,14 @@ const StyledInputAndLabel = styled("div")`
 	align-items: center;
 `;
 
-const StyledAttackerInput = styled(Input)`
+const StyledInput = styled(Input)`
+	&& {
+		background: white;
+		color: black;
+	}
+`;
+
+const StyledAttackerInput = styled(StyledInput)`
 	&& {
 		width: 70px;
 	}
