@@ -69,7 +69,7 @@ const Form = (props: FormProps) => {
 				}
 			}}
 		>
-			<FormLabel component={"h2"}>
+			<FormLabel>
 				<b>Inputs</b>
 			</FormLabel>
 			<StyledInputAndLabel>
@@ -141,9 +141,13 @@ const StyledForm = styled("form")`
 		return theme.customTheming.formAndInputsBGC;
 	}};
 	// TODO: This isn't giving me what I want in dark mode or light mode. Something is overriding it
-	color: ${({ theme }) => {
-		return theme.customTheming.formAndInputTextColor;
-	}};
+	h2,
+	div,
+	label {
+		color: ${({ theme }) => {
+			return theme.customTheming.formAndInputTextColor;
+		}};
+	}
 `;
 
 const StyledInputAndLabel = styled("div")`
