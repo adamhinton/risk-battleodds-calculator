@@ -30,7 +30,7 @@ const darkTheme = createTheme({
 		mode: "dark",
 	},
 	customTheming: {
-		mainBGC: "black",
+		mainBGC: "rgb(45, 60, 66)",
 	},
 });
 const lightTheme = createTheme({
@@ -38,7 +38,7 @@ const lightTheme = createTheme({
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "blue",
+		mainBGC: "#3c9893",
 	},
 });
 
