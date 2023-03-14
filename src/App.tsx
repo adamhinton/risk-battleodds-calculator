@@ -4,10 +4,9 @@ import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/resultsCalculator";
 import Form from "./components/Form";
 import Header from "./components/Header";
-import styled, { ThemeProviderProps } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import useDarkMode from "./hooks/useDarkMode";
-import { createTheme, ThemeOptions } from "@mui/material/styles";
-import { ThemeProvider } from "styled-components";
+import { createTheme } from "@mui/material/styles";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -17,13 +16,18 @@ import { ThemeProvider } from "styled-components";
 // <Results/>
 // </App>
 
+type CustomTheming = {
+	mainBGC: string;
+	formAndInputsBGC?: string;
+	formAndInputTextColor?: string;
+};
+
 declare module "@mui/material/styles" {
 	interface ThemeOptions {
-		customTheming?: {
-			mainBGC: string;
-			formAndInputsBGC?: string;
-			formAndInputTextColor?: string;
-		};
+		customTheming?: CustomTheming;
+	}
+	interface DefaultTheme {
+		customTheming: CustomTheming;
 	}
 }
 
@@ -56,6 +60,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+			<GlobalStyle />
 			<StyledApp className="App">
 				<button
 					onClick={(e: MouseEvent) => {
@@ -76,6 +81,16 @@ function App() {
 }
 
 export default App;
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => {
+			// I don't like this ts-ignore hacky solution but I added mainBGC to this DefaultTheme interface, not sure why TS still complains. TODO: Look at this again later.
+			// @ts-ignore
+			return theme.customTheming.mainBGC;
+		}};
+  }
+  `;
 
 const StyledApp = styled("div")`
 	display: flex;
