@@ -55,7 +55,7 @@ const StyledCard = styled(Card)`
 			return theme.customTheming.formAndInputsBGC;
 		}};
 		color: ${({ theme }) => {
-			return theme.customTheming.formAndInputTextColor;
+			return theme.customTheming.formTextColor;
 		}};
 	}
 `;
