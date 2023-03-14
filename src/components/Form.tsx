@@ -140,6 +140,14 @@ const StyledForm = styled("form")`
 	background-color: ${({ theme }) => {
 		return theme.customTheming.formAndInputsBGC;
 	}};
+	// TODO: This isn't giving me what I want in dark mode or light mode. Something is overriding it
+	color: ${({ theme }) => {
+		console.log(
+			"theme.customTheming.formAndInputTextColor:",
+			theme.customTheming.formAndInputTextColor
+		);
+		return theme.customTheming.formAndInputTextColor;
+	}};
 `;
 
 const StyledInputAndLabel = styled("div")`
