@@ -143,9 +143,10 @@ const StyledForm = styled("form")`
 	// TODO: This isn't giving me what I want in dark mode or light mode. Something is overriding it
 	h2,
 	div,
-	label {
+	label,
+	span {
 		color: ${({ theme }) => {
-			return theme.customTheming.formAndInputTextColor;
+			return theme.customTheming.formTextColor;
 		}};
 	}
 `;
@@ -159,7 +160,13 @@ const StyledInputAndLabel = styled("div")`
 const StyledInput = styled(Input)`
 	&& {
 		background: white;
-		color: black;
+		color: ${({ theme }) => {
+			console.log(
+				"theme.customTheming.inputTextColor:",
+				theme.customTheming.inputTextColor
+			);
+			return theme.customTheming.inputTextColor;
+		}};
 	}
 `;
 
