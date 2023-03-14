@@ -22,6 +22,7 @@ declare module "@mui/material/styles" {
 		customTheming?: {
 			mainBGC: string;
 			formAndInputsBGC?: string;
+			formAndInputTextColor?: string;
 		};
 	}
 }
@@ -33,6 +34,7 @@ const darkTheme = createTheme({
 	customTheming: {
 		mainBGC: "rgb(45, 60, 66)",
 		formAndInputsBGC: "rgb(17, 16, 16)",
+		formAndInputTextColor: "rgba(255, 255, 255, 0.721)",
 	},
 });
 const lightTheme = createTheme({
@@ -42,6 +44,7 @@ const lightTheme = createTheme({
 	customTheming: {
 		mainBGC: "#3c9893",
 		formAndInputsBGC: "#bef8f8",
+		formAndInputTextColor: "black",
 	},
 });
 
