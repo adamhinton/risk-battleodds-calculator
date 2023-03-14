@@ -18,8 +18,8 @@ import { createTheme } from "@mui/material/styles";
 
 type CustomTheming = {
 	mainBGC: string;
-	formAndInputsBGC?: string;
-	formTextColor?: string;
+	formAndInputsBGC: string;
+	formTextColor: string;
 	inputTextColor: "black";
 };
 
