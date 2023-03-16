@@ -24,7 +24,7 @@ type CustomTheming = {
 };
 
 declare module "@mui/material/styles" {
-	interface ThemeOptions {
+	export interface ThemeOptions {
 		customTheming?: CustomTheming;
 	}
 	interface DefaultTheme {
@@ -32,7 +32,7 @@ declare module "@mui/material/styles" {
 	}
 }
 
-const darkTheme = createTheme({
+export const darkTheme = createTheme({
 	palette: {
 		mode: "dark",
 	},
