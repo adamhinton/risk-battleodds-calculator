@@ -5,7 +5,7 @@ import { darkTheme } from "../App";
 import { ThemeProvider } from "styled-components";
 const fakeSetState = jest.fn();
 
-test.only("[1] renders without errors", () => {
+test("[1] renders without errors", () => {
 	render(
 		<ThemeProvider theme={darkTheme}>
 			<Form setResults={fakeSetState} />
@@ -14,9 +14,13 @@ test.only("[1] renders without errors", () => {
 });
 
 test("[2] Renders three user input fields as expected", () => {
-	render(<Form setResults={fakeSetState} />);
-	const attackerInput = screen.getByTestId("attackers-input");
-	const defenderInput = screen.getByTestId("defenders-input");
+	render(
+		<ThemeProvider theme={darkTheme}>
+			<Form setResults={fakeSetState} />
+		</ThemeProvider>
+	);
+	const attackerInput = screen.getByLabelText("Attackers:");
+	const defenderInput = screen.getByLabelText("Defenders:");
 
 	expect(attackerInput).toBeVisible();
 	expect(defenderInput).toBeVisible();
@@ -26,6 +30,12 @@ test("[2] Renders three user input fields as expected", () => {
 });
 
 test("[3] Matches screenshot from 1.29.2023", () => {
-	const tree = renderer.create(<Form setResults={fakeSetState} />).toJSON();
+	const tree = renderer
+		.create(
+			<ThemeProvider theme={darkTheme}>
+				<Form setResults={fakeSetState} />
+			</ThemeProvider>
+		)
+		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

@@ -2,18 +2,18 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-beySbM cxouhD"
+  className="sc-beySbM jBqxZQ"
   onSubmit={[Function]}
 >
-  <h2
+  <label
     className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
   >
     <b>
       Inputs
     </b>
-  </h2>
+  </label>
   <div
-    className="sc-guDLRT bPGqke"
+    className="sc-guDLRT gBynLr"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -22,7 +22,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Attackers:
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi fwveKs css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi sc-hLQRIN gesoIO govqwa css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -41,7 +41,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-guDLRT bPGqke"
+    className="sc-guDLRT gBynLr"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -50,7 +50,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Defenders:
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi gesoIO css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -77,7 +77,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Number of Simulations:
     </label>
     <span
-      className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-hLQRIN cFpESz css-1aznpnh-MuiSlider-root"
+      className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-eDLJxc bdYbRP css-1aznpnh-MuiSlider-root"
       data-testid="numsimulations-input"
       defaultValue={5}
       onMouseDown={[Function]}
