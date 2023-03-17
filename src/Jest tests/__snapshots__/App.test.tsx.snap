@@ -19,16 +19,19 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
     >
       <h1
         className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+        data-testid="title"
       >
         Risk Battleodds Calculator
       </h1>
       <h2
         className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
+        data-testid="author"
       >
         Author: Adam Hinton
       </h2>
       <div
         className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-fsYeqs dDVyGz css-hyum1k-MuiToolbar-root"
+        data-testid="links"
       >
         <a
           className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-qZqnM fMrdNc css-1ps4owl-MuiTypography-root-MuiLink-root"
