@@ -17,8 +17,3 @@ test("[3] Matches snapshot from 1.29.2023", () => {
 	const tree = renderer.create(<App />).toJSON();
 	expect(tree).toMatchSnapshot();
 });
-
-// INTEGRATION TESTS
-test("[1] Hitting Submit in Form triggers Results to render", () => {
-	render(<App />);
-});
