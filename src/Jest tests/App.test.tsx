@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "../App";
 import renderer from "react-test-renderer";
 
@@ -9,6 +9,8 @@ test("[1] Sanity check", () => {
 
 test("[2] renders without errors", () => {
 	render(<App />);
+
+	expect(screen.getByText(/run simulations/i)).toBeInTheDocument();
 });
 
 test("[3] Matches snapshot from 1.29.2023", () => {
