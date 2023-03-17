@@ -62,8 +62,9 @@ function App() {
 	return (
 		<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
 			<GlobalStyle />
-			<StyledApp className="App">
+			<StyledApp className="App" data-testid="app">
 				<button
+					data-testid="darkmode-btn"
 					onClick={(e: MouseEvent) => {
 						e.preventDefault();
 						setIsDark(!isDark);
