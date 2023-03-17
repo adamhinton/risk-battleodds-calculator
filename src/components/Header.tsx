@@ -9,13 +9,13 @@ const Header = () => {
 	return (
 		<StyledBox sx={{ flexGrow: 1 }}>
 			<StyledAppBar position="static">
-				<Typography variant="h4" component="h1">
+				<Typography variant="h4" component="h1" data-testid="title">
 					Risk Battleodds Calculator
 				</Typography>
-				<Typography variant="h6" component="h2">
+				<Typography variant="h6" component="h2" data-testid="author">
 					Author: Adam Hinton
 				</Typography>
-				<StyledToolBar>
+				<StyledToolBar data-testid="links">
 					<StyledLink
 						href="https://github.com/adamhinton/risk-battleodds-calculator"
 						target="_blank"
