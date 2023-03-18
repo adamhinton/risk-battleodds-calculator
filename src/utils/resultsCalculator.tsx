@@ -157,7 +157,7 @@ export function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
 	});
 }
 
-function generatePlayerRolls(
+export function generatePlayerRolls(
 	playerType: Readonly<PlayerType>,
 	diceRolls: Readonly<1 | 2 | number>
 ): PlayerRolls {
