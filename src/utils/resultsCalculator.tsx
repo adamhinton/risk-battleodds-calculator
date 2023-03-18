@@ -6,7 +6,7 @@ export type UserInputs = {
 
 type PlayerType = "attacker" | "defender";
 
-type AttackerRolls = [number, number?, number?];
+export type AttackerRolls = [number, number?, number?];
 type DefenderRolls = [number, number?];
 type PlayerRolls = AttackerRolls | DefenderRolls;
 
@@ -151,7 +151,7 @@ function randomIntFromInterval(
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
+export function sortPlayerRolls(rolls: PlayerRolls): PlayerRolls {
 	return rolls.sort((a, b) => {
 		return b! - a!;
 	});
