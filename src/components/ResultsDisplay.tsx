@@ -16,8 +16,6 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 	const attackerWinPercent = attackerOccupies / totalSimulations;
 	const defenderWinPercent = defenderHolds / totalSimulations;
 
-	console.log("results:", results);
-
 	return (
 		<StyledCard data-testid="results-display-section">
 			<CardContent>

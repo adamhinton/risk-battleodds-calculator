@@ -59,13 +59,12 @@ function App() {
 	const [results, setResults] = useState<Results | null>(null);
 	const [isDark, setIsDark] = useDarkMode();
 
-	console.log("isDark:", isDark);
-
 	return (
 		<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
 			<GlobalStyle />
-			<StyledApp className="App">
+			<StyledApp className="App" data-testid="app">
 				<button
+					data-testid="darkmode-btn"
 					onClick={(e: MouseEvent) => {
 						e.preventDefault();
 						setIsDark(!isDark);

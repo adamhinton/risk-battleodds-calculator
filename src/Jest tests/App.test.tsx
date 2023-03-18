@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../App";
 import renderer from "react-test-renderer";
 
@@ -9,6 +9,8 @@ test("[1] Sanity check", () => {
 
 test("[2] renders without errors", () => {
 	render(<App />);
+
+	expect(screen.getByText(/run simulations/i)).toBeInTheDocument();
 });
 
 test("[3] Matches snapshot from 1.29.2023", () => {
@@ -16,7 +18,16 @@ test("[3] Matches snapshot from 1.29.2023", () => {
 	expect(tree).toMatchSnapshot();
 });
 
-// INTEGRATION TESTS
-test("[1] Hitting Submit in Form triggers Results to render", () => {
+test("[4] Dark mode toggle button changes styling", () => {
 	render(<App />);
+
+	const darkModeButton = screen.getByTestId("darkmode-btn");
+
+	expect(screen.getByTestId("app")).toHaveStyle(
+		"background-color: rgb(45, 60, 66)"
+	);
+
+	fireEvent.click(darkModeButton);
+
+	expect(screen.getByTestId("app")).toHaveStyle("background-color: #3c9893");
 });

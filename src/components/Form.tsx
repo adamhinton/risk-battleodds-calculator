@@ -161,10 +161,6 @@ const StyledInput = styled(Input)`
 	&& {
 		background: white;
 		color: ${({ theme }) => {
-			console.log(
-				"theme.customTheming.inputTextColor:",
-				theme.customTheming.inputTextColor
-			);
 			return theme.customTheming.inputTextColor;
 		}};
 	}
