@@ -3,6 +3,7 @@ import generateResults, {
 	generatePlayerRolls,
 	AttackerRolls,
 	runSingleSimulation,
+	UserInputs,
 } from "../utils/resultsCalculator";
 
 // jest.mock("../utils/resultsCalculator", () => ({
@@ -72,5 +73,27 @@ describe("[2] generatePlayerRolls", () => {
 
 		const defenderRollOne = generatePlayerRolls("defender", 1);
 		expect(defenderRollOne).toHaveLength(1);
+	});
+});
+
+describe("[3] generateResults - the overall return value of this module", () => {
+	test("[1] attackerOccupies and defenderHolds add up to numSimulations", () => {
+		const userInputs: UserInputs = {
+			attackerCount: 1000,
+			defenderCount: [1000],
+			numSimulations: 10,
+		};
+		const results = generateResults(userInputs);
+		expect(results.attackerOccupies + results.defenderHolds).toBe(10);
+	});
+
+	test("[2] Attacker should always win an even fight with large numbers of troops", () => {
+		const userInputs: UserInputs = {
+			attackerCount: 2000,
+			defenderCount: [2000],
+			numSimulations: 100,
+		};
+		const results = generateResults(userInputs);
+		expect(results.defenderHolds).toBe(0);
 	});
 });
