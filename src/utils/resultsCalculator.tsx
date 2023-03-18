@@ -59,89 +59,90 @@ const generateResults = (
 	results.averageAttackersLeft = totalAttackersLeft / userInputs.numSimulations;
 	results.averageDefendersLeft = totalDefendersLeft / userInputs.numSimulations;
 	return results;
+};
 
-	// UTILS
-	function runSingleSimulation(
-		playerCounts: PlayerCounts
-	): Readonly<SingleSimResults> {
-		let singleSimResults: SingleSimResults = {
-			attackersLeft: 0,
-			defendersLeft: 0,
-			attackerOccupies: false,
-			defenderHolds: false,
-		};
+// UTILS
 
-		// loop through playerCounts.defenderCount
+export function runSingleSimulation(
+	playerCounts: PlayerCounts
+): Readonly<SingleSimResults> {
+	let singleSimResults: SingleSimResults = {
+		attackersLeft: 0,
+		defendersLeft: 0,
+		attackerOccupies: false,
+		defenderHolds: false,
+	};
 
-		playerCounts.defenderCount.forEach((defender: number, index) => {
-			while (playerCounts.defenderCount[index] > 0) {
-				const attackerRolls = generatePlayerRolls(
-					"attacker",
-					playerCounts.attackerCount
-				);
-				const defenderRolls = generatePlayerRolls(
-					"defender",
-					playerCounts.defenderCount[index]
-				);
+	// loop through playerCounts.defenderCount
 
-				// Now for the attack
-				// Attacker wins first dice roll
-				if (attackerRolls[0] > defenderRolls[0]) {
+	playerCounts.defenderCount.forEach((defender: number, index) => {
+		while (playerCounts.defenderCount[index] > 0) {
+			const attackerRolls = generatePlayerRolls(
+				"attacker",
+				playerCounts.attackerCount
+			);
+			const defenderRolls = generatePlayerRolls(
+				"defender",
+				playerCounts.defenderCount[index]
+			);
+
+			// Now for the attack
+			// Attacker wins first dice roll
+			if (attackerRolls[0] > defenderRolls[0]) {
+				playerCounts.defenderCount[index]--;
+			}
+			// Attacker loses first dice roll
+			else {
+				playerCounts.attackerCount--;
+			}
+
+			// If there is a second dice roll
+			if (
+				attackerRolls[1] &&
+				// Found the problem. We just potentially did defendercount[index]-- so this may not be accurate. So we were overestimating defenders by doing this.
+				defenderRolls[1]
+			) {
+				// Attacker wins second dice roll
+				if (attackerRolls[1]! > defenderRolls[1]!) {
 					playerCounts.defenderCount[index]--;
 				}
-				// Attacker loses first dice roll
+				// Attacker loses second dice roll
 				else {
 					playerCounts.attackerCount--;
 				}
-
-				// If there is a second dice roll
-				if (
-					attackerRolls[1] &&
-					// Found the problem. We just potentially did defendercount[index]-- so this may not be accurate. So we were overestimating defenders by doing this.
-					defenderRolls[1]
-				) {
-					// Attacker wins second dice roll
-					if (attackerRolls[1]! > defenderRolls[1]!) {
-						playerCounts.defenderCount[index]--;
-					}
-					// Attacker loses second dice roll
-					else {
-						playerCounts.attackerCount--;
-					}
-				}
-
-				// results
-				//defender wins entire battle
-				if (playerCounts.attackerCount < 1) {
-					singleSimResults.defenderHolds = true;
-					const totalOfDefenders = playerCounts.defenderCount.reduce(
-						(partialSum, a) => partialSum + a,
-						0
-					);
-					singleSimResults.defendersLeft = totalOfDefenders;
-					break;
-				}
-				// defender occupies current territory but there are more defending territories left
-				if (
-					playerCounts.defenderCount[index] < 1 &&
-					index < playerCounts.defenderCount.length - 1
-				) {
-					// attacker loses a troop because they have to occupy the conquered territory with one troop
-					playerCounts.attackerCount--;
-				}
-				// Attacker occupies last defending territory and wins the whole battle
-				if (
-					playerCounts.defenderCount[index] === 0 &&
-					index === playerCounts.defenderCount.length - 1
-				) {
-					singleSimResults.attackerOccupies = true;
-					singleSimResults.attackersLeft = playerCounts.attackerCount;
-				}
 			}
-		});
-		return singleSimResults;
-	}
-};
+
+			// results
+			//defender wins entire battle
+			if (playerCounts.attackerCount < 1) {
+				singleSimResults.defenderHolds = true;
+				const totalOfDefenders = playerCounts.defenderCount.reduce(
+					(partialSum, a) => partialSum + a,
+					0
+				);
+				singleSimResults.defendersLeft = totalOfDefenders;
+				break;
+			}
+			// defender occupies current territory but there are more defending territories left
+			if (
+				playerCounts.defenderCount[index] < 1 &&
+				index < playerCounts.defenderCount.length - 1
+			) {
+				// attacker loses a troop because they have to occupy the conquered territory with one troop
+				playerCounts.attackerCount--;
+			}
+			// Attacker occupies last defending territory and wins the whole battle
+			if (
+				playerCounts.defenderCount[index] === 0 &&
+				index === playerCounts.defenderCount.length - 1
+			) {
+				singleSimResults.attackerOccupies = true;
+				singleSimResults.attackersLeft = playerCounts.attackerCount;
+			}
+		}
+	});
+	return singleSimResults;
+}
 
 function randomIntFromInterval(
 	min: Readonly<number>,
