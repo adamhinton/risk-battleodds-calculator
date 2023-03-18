@@ -15,4 +15,10 @@ describe("[1] sortPlayerRolls", () => {
 		expect(sortedRollsTwo).toEqual([5, 1]);
 		expect(sortedRollsOne).toEqual([1]);
 	});
+
+	test("[2] sortPlayerRolls takes an array with multiple elements of the same value", () => {
+		const rolls: AttackerRolls = [4, 4, 4];
+		const sortedRolls = sortPlayerRolls(rolls);
+		expect(sortedRolls).toEqual([4, 4, 4]);
+	});
 });
