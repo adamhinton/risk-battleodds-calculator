@@ -1,8 +1,14 @@
-import {
+import generateResults, {
 	sortPlayerRolls,
 	generatePlayerRolls,
 	AttackerRolls,
+	runSingleSimulation,
 } from "../utils/resultsCalculator";
+
+// jest.mock("../utils/resultsCalculator", () => ({
+// 	...jest.requireActual("../utils/resultsCalculator"),
+// 	runSingleSimulation: jest.fn(),
+// }));
 
 describe("[1] sortPlayerRolls", () => {
 	test("[1] sortPlayerRolls sorts arrays of numbers (lengths 3, 2, or 1) in descending order", () => {

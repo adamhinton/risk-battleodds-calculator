@@ -17,7 +17,7 @@ export type Results = {
 	averageDefendersLeft?: number | null;
 };
 
-type PlayerCounts = {
+export type PlayerCounts = {
 	attackerCount: number;
 	defenderCount: number[];
 };
