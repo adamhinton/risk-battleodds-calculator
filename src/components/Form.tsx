@@ -70,7 +70,7 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<FormLabel>
-				<b>Inputs</b>
+				<h2>Inputs</h2>
 			</FormLabel>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
@@ -101,10 +101,10 @@ const Form = (props: FormProps) => {
 
 			<div>
 				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-				{/* slider component showing values 1, 10, 100, 1000, 10000, 100000 spaced evenly apart on the screen */}
+				{/* slider component showing values 1, 10, 100, 1000, 10000 spaced evenly apart on the screen */}
 				<StyledSlider
 					min={1}
-					max={6}
+					max={5}
 					name="numSimulations"
 					marks={marks}
 					defaultValue={5}
@@ -122,11 +122,9 @@ const Form = (props: FormProps) => {
 				></StyledSlider>
 			</div>
 
-			<div>
-				<Button type="submit" data-testid="submit-btn" variant="outlined">
-					Run Simulations
-				</Button>
-			</div>
+			<Button type="submit" data-testid="submit-btn" variant="outlined">
+				Run Simulations
+			</Button>
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -136,11 +134,11 @@ export default Form;
 
 const StyledForm = styled("form")`
 	border: 1px solid blue;
-	padding: 0 50px 50px;
+	padding: 10px 50px 25px;
+	text-align: center;
 	background-color: ${({ theme }) => {
 		return theme.customTheming.formAndInputsBGC;
 	}};
-	// TODO: This isn't giving me what I want in dark mode or light mode. Something is overriding it
 	h2,
 	div,
 	label,
@@ -152,13 +150,14 @@ const StyledForm = styled("form")`
 `;
 
 const StyledInputAndLabel = styled("div")`
-	margin: 10px 0;
+	margin: 15px;
 	display: flex;
 	align-items: center;
 `;
 
 const StyledInput = styled(Input)`
 	&& {
+		margin-left: 10px;
 		background: white;
 		color: ${({ theme }) => {
 			return theme.customTheming.inputTextColor;
@@ -191,12 +190,11 @@ function calculateValue(value: number): any {
 			return 1000;
 		case 5:
 			return 10000;
-		case 6:
-			return 100000;
 	}
 }
 
-const marks = [1, 2, 3, 4, 5, 6].map((value) => ({
+// Each number in this array maps to a number of simulations in the Slider: 1, 10, 100, 1000, 10000. This feels a little hacky but it's how I got the Slider to work.
+const marks = [1, 2, 3, 4, 5].map((value) => ({
 	value,
 	label: calculateValue(value),
 }));

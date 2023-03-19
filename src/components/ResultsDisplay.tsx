@@ -19,9 +19,7 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 	return (
 		<StyledCard data-testid="results-display-section">
 			<CardContent>
-				<Typography data-testid="results-h2" component="h2">
-					<b>Results</b>
-				</Typography>
+				<h2 data-testid="results-h2">Results</h2>
 				<div>
 					<Typography data-testid="results-attacker-occupies" component="p">
 						Attacker Occupies: {(attackerWinPercent * 100).toFixed(1)}%
@@ -48,12 +46,17 @@ export default ResultsDisplay;
 const StyledCard = styled(Card)`
 	&& {
 		margin-top: 20px;
-		padding: 50px;
+		padding: 30px 50px;
 		background-color: ${({ theme }) => {
 			return theme.customTheming.formAndInputsBGC;
 		}};
 		color: ${({ theme }) => {
 			return theme.customTheming.formTextColor;
 		}};
+
+		h2 {
+			margin: 0 0 10px;
+			text-align: center;
+		}
 	}
 `;
