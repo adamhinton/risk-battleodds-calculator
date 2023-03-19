@@ -101,7 +101,7 @@ const Form = (props: FormProps) => {
 
 			<div>
 				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-				{/* slider component showing values 1, 10, 100, 1000, 10000, 100000 spaced evenly apart on the screen */}
+				{/* slider component showing values 1, 10, 100, 1000, 10000 spaced evenly apart on the screen */}
 				<StyledSlider
 					min={1}
 					max={5}
@@ -139,7 +139,6 @@ const StyledForm = styled("form")`
 	background-color: ${({ theme }) => {
 		return theme.customTheming.formAndInputsBGC;
 	}};
-	// TODO: This isn't giving me what I want in dark mode or light mode. Something is overriding it
 	h2,
 	div,
 	label,
@@ -194,6 +193,7 @@ function calculateValue(value: number): any {
 	}
 }
 
+// Each number in this array maps to a number of simulations in the Slider: 1, 10, 100, 1000, 10000. This feels a little hacky but it's how I got the Slider to work.
 const marks = [1, 2, 3, 4, 5].map((value) => ({
 	value,
 	label: calculateValue(value),
