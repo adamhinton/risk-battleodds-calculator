@@ -7,16 +7,27 @@ import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 
-const Header = () => {
+type HeaderProps = {
+	isDark: boolean;
+	setIsDark: Function;
+};
+
+const Header = (headerProps: HeaderProps) => {
+	const { isDark, setIsDark } = headerProps;
+
 	return (
 		<StyledBox sx={{ flexGrow: 1 }}>
 			<StyledAppBar position="static">
 				<Typography variant="h4" component="h1" data-testid="title">
 					Risk Battleodds Calculator
 				</Typography>
-				<Typography variant="h6" component="h2" data-testid="author">
-					Author: Adam Hinton
-				</Typography>
+				<StyledAuthorAndDarkModeBtn>
+					<Typography variant="h6" component="h2" data-testid="author">
+						Author: Adam Hinton
+					</Typography>
+					{DarkModeToggleButton(isDark, setIsDark)}
+				</StyledAuthorAndDarkModeBtn>
+
 				<StyledToolBar data-testid="links">
 					<StyledLink
 						href="https://github.com/adamhinton/risk-battleodds-calculator"
@@ -67,9 +78,32 @@ const StyledToolBar = styled(Toolbar)`
 	}
 `;
 
+const StyledAuthorAndDarkModeBtn = styled("div")`
+	&& {
+		display: flex;
+		flex-direction: row;
+
+		h2 {
+			margin-right: 20px;
+		}
+	}
+`;
+
 const StyledLink = styled(Link)`
 	&& {
 		color: white;
 		margin: 0 10px;
 	}
 `;
+
+function DarkModeToggleButton(isDark: boolean, setIsDark: Function) {
+	const Component = isDark ? LightModeIcon : DarkModeIcon;
+
+	return (
+		<Component
+			onClick={() => {
+				setIsDark(!isDark);
+			}}
+		/>
+	);
+}
