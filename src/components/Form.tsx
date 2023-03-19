@@ -104,7 +104,7 @@ const Form = (props: FormProps) => {
 				{/* slider component showing values 1, 10, 100, 1000, 10000, 100000 spaced evenly apart on the screen */}
 				<StyledSlider
 					min={1}
-					max={6}
+					max={5}
 					name="numSimulations"
 					marks={marks}
 					defaultValue={5}
@@ -191,12 +191,10 @@ function calculateValue(value: number): any {
 			return 1000;
 		case 5:
 			return 10000;
-		case 6:
-			return 100000;
 	}
 }
 
-const marks = [1, 2, 3, 4, 5, 6].map((value) => ({
+const marks = [1, 2, 3, 4, 5].map((value) => ({
 	value,
 	label: calculateValue(value),
 }));

@@ -164,7 +164,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             style={
               Object {
                 "left": "0%",
-                "width": "80%",
+                "width": "100%",
               }
             }
           />
@@ -194,7 +194,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={1}
             style={
               Object {
-                "left": "20%",
+                "left": "25%",
               }
             }
           />
@@ -204,7 +204,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={1}
             style={
               Object {
-                "left": "20%",
+                "left": "25%",
               }
             }
           >
@@ -215,7 +215,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={2}
             style={
               Object {
-                "left": "40%",
+                "left": "50%",
               }
             }
           />
@@ -225,7 +225,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={2}
             style={
               Object {
-                "left": "40%",
+                "left": "50%",
               }
             }
           >
@@ -236,7 +236,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={3}
             style={
               Object {
-                "left": "60%",
+                "left": "75%",
               }
             }
           />
@@ -246,7 +246,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={3}
             style={
               Object {
-                "left": "60%",
+                "left": "75%",
               }
             }
           >
@@ -257,7 +257,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={4}
             style={
               Object {
-                "left": "80%",
+                "left": "100%",
               }
             }
           />
@@ -267,32 +267,11 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             data-index={4}
             style={
               Object {
-                "left": "80%",
+                "left": "100%",
               }
             }
           >
             10000
-          </span>
-          <span
-            className="MuiSlider-mark css-1tfve6q-MuiSlider-mark"
-            data-index={5}
-            style={
-              Object {
-                "left": "100%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel css-yafthl-MuiSlider-markLabel"
-            data-index={5}
-            style={
-              Object {
-                "left": "100%",
-              }
-            }
-          >
-            100000
           </span>
           <span
             className="MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary css-eg0mwd-MuiSlider-thumb"
@@ -301,19 +280,19 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             onMouseOver={[Function]}
             style={
               Object {
-                "left": "80%",
+                "left": "100%",
                 "pointerEvents": undefined,
               }
             }
           >
             <input
               aria-orientation="horizontal"
-              aria-valuemax={100000}
+              aria-valuemax={10000}
               aria-valuemin={1}
               aria-valuenow={10000}
               data-index={0}
               disabled={false}
-              max={6}
+              max={5}
               min={1}
               name="numSimulations"
               onBlur={[Function]}
