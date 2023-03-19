@@ -4,6 +4,8 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import Link from "@mui/material/Link";
 import styled from "styled-components";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const Header = () => {
 	return (
