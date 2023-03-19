@@ -2,18 +2,18 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-beySbM jBqxZQ"
+  className="sc-beySbM jkUHGP"
   onSubmit={[Function]}
 >
   <label
     className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
   >
-    <b>
+    <h2>
       Inputs
-    </b>
+    </h2>
   </label>
   <div
-    className="sc-guDLRT gBynLr"
+    className="sc-guDLRT jkZAuG"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -22,7 +22,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Attackers:
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi sc-hLQRIN gesoIO govqwa css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi sc-hLQRIN fPLOmk govqwa css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -41,7 +41,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-guDLRT gBynLr"
+    className="sc-guDLRT jkZAuG"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -50,7 +50,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       Defenders:
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi gesoIO css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi fPLOmk css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -279,29 +279,27 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       </span>
     </span>
   </div>
-  <div>
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
-      data-testid="submit-btn"
-      disabled={false}
-      onBlur={[Function]}
-      onContextMenu={[Function]}
-      onDragLeave={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      tabIndex={0}
-      type="submit"
-    >
-      Run Simulations
-    </button>
-  </div>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+    data-testid="submit-btn"
+    disabled={false}
+    onBlur={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="submit"
+  >
+    Run Simulations
+  </button>
   <div
     className="Toastify"
   />
