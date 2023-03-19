@@ -63,16 +63,7 @@ function App() {
 		<ThemeProvider theme={isDark ? darkTheme : lightTheme}>
 			<GlobalStyle />
 			<StyledApp className="App" data-testid="app">
-				<button
-					data-testid="darkmode-btn"
-					onClick={(e: MouseEvent) => {
-						e.preventDefault();
-						setIsDark(!isDark);
-					}}
-				>
-					Dark Mode Test
-				</button>
-				<Header />
+				<Header isDark={isDark} setIsDark={setIsDark} />
 				<StyledMain>
 					<Form setResults={setResults} />
 					{results && <ResultsDisplay results={results} />}
@@ -106,6 +97,6 @@ const StyledApp = styled("div")`
 const StyledMain = styled("main")`
 	display: flex;
 	align-items: center;
-	margin-top: 50px;
+	margin-top: 20px;
 	flex-direction: column;
 `;
