@@ -70,7 +70,7 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<FormLabel>
-				<b>Inputs</b>
+				<h2>Inputs</h2>
 			</FormLabel>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
@@ -122,11 +122,9 @@ const Form = (props: FormProps) => {
 				></StyledSlider>
 			</div>
 
-			<div>
-				<Button type="submit" data-testid="submit-btn" variant="outlined">
-					Run Simulations
-				</Button>
-			</div>
+			<Button type="submit" data-testid="submit-btn" variant="outlined">
+				Run Simulations
+			</Button>
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -136,7 +134,8 @@ export default Form;
 
 const StyledForm = styled("form")`
 	border: 1px solid blue;
-	padding: 0 50px 50px;
+	padding: 10px 50px 25px;
+	text-align: center;
 	background-color: ${({ theme }) => {
 		return theme.customTheming.formAndInputsBGC;
 	}};
@@ -152,13 +151,14 @@ const StyledForm = styled("form")`
 `;
 
 const StyledInputAndLabel = styled("div")`
-	margin: 10px 0;
+	margin: 15px;
 	display: flex;
 	align-items: center;
 `;
 
 const StyledInput = styled(Input)`
 	&& {
+		margin-left: 10px;
 		background: white;
 		color: ${({ theme }) => {
 			return theme.customTheming.inputTextColor;
