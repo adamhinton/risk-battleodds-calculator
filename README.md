@@ -5,7 +5,7 @@ RISK BATTLEODDS CALCULATOR
 
 # `Introduction`
 
--A scalable, maintainable application for players of the classical board game Risk. This project calculates odds of success in user-inputted scenarios and provides useful data such as average attackers/defenders remaining. \
+-A scalable, maintainable application for players of the classical board game Risk. This project calculates odds of success in user-inputted scenarios and provides useful data such as average attackers/defenders remaining. 
 
 -I invested in my codebase with thorough documentation, strong unit testing suites and good git practices with small, clean commits and descriptive, small PRs. 
 
@@ -30,3 +30,15 @@ To run those 3 commands you can just do
 $ npm run pull
 
 
+# `Technical Information:`
+
+## `Component Structure`
+```
+<ThemeProvider> --- controls dark/light mode theming
+- <App>
+- - <Header />
+- - <Form />
+- - <Results />  --- only displays if user has submitted Form
+- <App/>
+<ThemeProvider />
+```
