@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+RISK BATTLEODDS CALCULATOR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`TOOLS: TypeScript, React, HTML/CSS, Styled Components, Material UI, Jest`
 
-## Available Scripts
 
-In the project directory, you can run:
+# `Introduction`
 
-### `npm start`
+-A scalable, maintainable application for players of the classical board game Risk. This project calculates odds of success in user-inputted scenarios and provides useful data such as average attackers/defenders remaining. \
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-I invested in my codebase with thorough documentation, strong unit testing suites and good git practices with small, clean commits and descriptive, small PRs. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`HTML/CSS is highly semantic, accessible and responsive for readers of all screen sizes and abilities`
 
-### `npm test`
+`Persistent Dark/Light Mode preference is stored in localStorage and remembered across sessions`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Requirements:
+For development, you will only need Node.js installed on your environement. And please use the appropriate Editorconfig plugin for your Editor (not mandatory).
 
-### `npm run build`
+Install
+$ git clone https://github.com/ORG/pokemon-project.git
+$ cd PROJECT
+$ npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+$ git pull
+$ npm prune
+$ npm install
+To run those 3 commands you can just do
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+$ npm run pull
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
