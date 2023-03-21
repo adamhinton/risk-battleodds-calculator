@@ -84,6 +84,9 @@ $ npm run pull
 ### `Form.tsx <Form />`
 
 #### `Form Intro:`
+  
+  NOTE: See documentation for generateResults.ts to see logic on how results are generated.
+
   User inputs Risk board game scenario in to this Form 
   
   Attackers: \
@@ -111,3 +114,5 @@ $ npm run pull
     defenderCount: string;
     numSimulations: number;
     }
+    ```
+   
