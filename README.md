@@ -6,7 +6,7 @@ RISK BATTLEODDS CALCULATOR
 # `Introduction`
 
 -NOTE: This app calcultes the odds of success, and the average results, in certain scenario for the board game Risk. It assumes each dice has six sides, and that the attacker throws a maximum of three dice and the defender rolls a maximum of two dice. \
-  -This link explains Risk battles in better detail than I could, so please check it out. 
+  -This link explains Risk battles in better detail than I could, so please check it out. \
     -https://www.kent.ac.uk/smsas/personal/odl/riskfaq.htm#2.6
 
 -A scalable, maintainable application for players of the classical board game Risk. This project calculates odds of success in user-inputted scenarios and provides useful data such as average attackers/defenders remaining. 
