@@ -148,7 +148,7 @@ $ npm run pull
     }
 ```
 
-#### `Features`
+#### `ResultsDisplay Features`
 
   -Displays the percentage of simulations in which the attacker or defender wins \
   -Displays average number of attackers and defenders remaining at the end of simulations
