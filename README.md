@@ -108,11 +108,23 @@ $ npm run pull
   -[formValues, setFormValues]
   
  ##### formValues typing:
-  ```
+ ```
   {
     attackerCount: number;
     defenderCount: string;
     numSimulations: number;
     }
-    ```
-   
+```
+
+#### `Form Features`
+  -Inputs \
+    -Attackers: Integer \
+    -Defenders: Single integer or list of integers (defenders) separated by commas (5, 4, 8, 9, 2, 1) \
+    -Number of Simulations Slider: See Slider info below for more detail \
+    -Submit: See generateResults.ts documentation for explanation of how results are calculated
+    
+#### `Slider Component`
+  -Utilizes MUI's Slider component \
+  -Sleek Slider input to let user choose number of simulations: 1, 10, 100, 1_000, or 10_000 \
+  -In internal HTML, had to label these choices as 1, 2, 3, 4, and 5 to space them evenly on the slider \
+  -See the function calculateValue and the const marks which convert the 1, 2, 3, 4, 5 in to numbers of simulations
