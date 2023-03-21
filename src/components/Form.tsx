@@ -1,6 +1,6 @@
 import { useState } from "react";
-import generateResults, { Results } from "../utils/resultsCalculator";
-import { UserInputs } from "../utils/resultsCalculator";
+import generateResults, { Results } from "../utils/generateResults";
+import { UserInputs } from "../utils/generateResults";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Input } from "@mui/material";

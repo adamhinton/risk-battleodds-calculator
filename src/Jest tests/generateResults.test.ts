@@ -3,7 +3,7 @@ import generateResults, {
 	generatePlayerRolls,
 	AttackerRolls,
 	UserInputs,
-} from "../utils/resultsCalculator";
+} from "../utils/generateResults";
 
 describe("[1] sortPlayerRolls", () => {
 	test("[1] sortPlayerRolls sorts arrays of numbers (lengths 3, 2, or 1) in descending order", () => {

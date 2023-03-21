@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
-import { Results } from "./utils/resultsCalculator";
+import { Results } from "./utils/generateResults";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
