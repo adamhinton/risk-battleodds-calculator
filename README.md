@@ -81,3 +81,33 @@ $ npm run pull
   -Dark Mode button \
   -Nav bar worked through MUI
   
+### `Form.tsx <Form />`
+
+#### `Form Intro:`
+  User inputs Risk board game scenario in to this Form 
+  
+  Attackers: \
+    -How many troops occupy the attacking territory \
+    -Subtract 1 if abandonment is off (i.e. if you have to leave one troop behind in the territory you attacked from) 
+  
+  Defenders: \
+    -How many troops are in the defending territories \
+    -User can input one or more defenders separated by commas \
+      -ex. 5, 3, 3, 6, 18 
+  
+  Number of simulations:
+    -How many times the app should simulate the battle \
+    -More simulations takes more time, but this is usually all done in 1-2 seconds so not much to worry about there \
+    -Max 10,000 simulations \
+    -Could run one simulation if you're playing a real game of Risk and don't want to manually roll the dice
+    
+ #### `Form state:`
+  -[formValues, setFormValues]
+  
+ ##### formValues typing:
+  ```
+  {
+    attackerCount: number;
+    defenderCount: string;
+    numSimulations: number;
+    }
