@@ -162,3 +162,31 @@ Again, see this link for an explanation of Risk dice rolls: https://www.kent.ac.
   -Displays average number of attackers and defenders remaining at the end of simulations
   
 ## `Utils`
+
+### `generateResults.ts /utils/generateResults`
+
+#### `Intro to generateResults()`
+
+  -Again, see this link for an explanation of Risk dice rolls: https://www.kent.ac.uk/smsas/personal/odl/riskfaq.htm#2.6 \
+  -This takes a user-inputted number of attackers and defenders (defenders can have multiple territories) and runs a simulation of this (default 10,000 simulations) to calculate the average/expected results. \
+  -This is tested fairly thoroughly at generateResults.test.ts
+  
+#### `generateResults Functions`
+
+##### `runSingleSimulation()`
+  
+   -Produces a Results object for one run-through of the battle. Tells whether the attacker or defender won, and how many troops were left for each side. \
+    -This is the smallest single unit that could run once and the app would still work. Runs 10,000 times by default. \
+    -in this function, the attacker attacks the defender until one of them is out of troops. Whoever survives is the winner of that simulation.
+    
+##### `randomIntFromInterval()`
+  
+  -Generates a random number from 1-6 to simulate a dice roll
+  
+##### `generatePlayerRolls()`
+  -generates an array of dice rolls for an attacker (max 3 rolls) or defender (max 2 rolls) \
+  -If there is only one defender currently in the territory being attacked, they get one dice roll. If more than one defender, they get 2 dice rolls. \
+  -If there is only one attacker, attacker gets 1 dice roll. If two attackers, they get two dice rolls. If more than 2 attackers, they get three dice rolls.
+  
+##### `sortPlayerRolls()`
+  -Dice rolls need to be sorted from highest to lowest. So this takes the results of generatePlayerRolls() and sorts it highest to lowest.
