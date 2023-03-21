@@ -45,9 +45,13 @@ $ npm run pull
 
 ## `Components`
 
+### `ThemeProvider <ThemeProvider/>`
+  -Wraps around App \
+  -Controls theming (aka light or dark mode) for the whole app. Passes dark/light CSS properties down to subcomponent without having to use prop drilling
+
 ### `App.tsx <App/>`
-Standard React App component. Houses all other components. \
-ThemeProvider wraps aroudn App to provide darkmode theming.
+  -Standard React App component. Houses all other components. \
+  -ThemeProvider wraps aroudn App to provide darkmode theming.
 
 #### `State:`
   -Passes state in to other components:\
@@ -63,3 +67,4 @@ ThemeProvider wraps aroudn App to provide darkmode theming.
 ### `Styled Components:`
   -StyledApp: The `div` that is, well, the App. \
   -StyledMain: the `main` tag.
+
