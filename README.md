@@ -2,12 +2,12 @@
 
 `TOOLS: TypeScript, React, HTML/CSS, Styled Components, Material UI, Jest`
 
-`Stretch Goals:
+Stretch Goals: \
   -Variable dice sides (based on user input) \
   -Tool tips \
   -Howto page \
   -Cool images or something
-`
+
 
 # `Introduction`
 
