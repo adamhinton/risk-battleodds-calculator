@@ -53,7 +53,7 @@ $ npm run pull
   -Standard React App component. Houses all other components. \
   -ThemeProvider wraps aroudn App to provide darkmode theming.
 
-#### `State:`
+#### `App State:`
   -Passes state in to other components:\
   -[results, setResults] : The risk of the user-inputted Risk boardgame scenario from Form. Passes setResults to Form and passes results to Results.tsx. \
   -[isDark, setIsDark] Dark Mode controller. Uses custom useDarkMode() hook (see documentation on this hook below). Passes setIsDark down to Header.tsx and passes isDark up to ThemeProvider.
@@ -64,7 +64,20 @@ $ npm run pull
  #### `Types:`
   -CustomTheming: Needed to add, well, custom theming to the ThemeOptions type, so I created this add-on for ThemeOptions. CustomTheming is a sub-object of the return value of darkTheme and lightTheme.
 
-### `Styled Components:`
-  -StyledApp: The `div` that is, well, the App. \
-  -StyledMain: the `main` tag.
+### `Header.tsx <Header />`
 
+#### `Header Info`
+  -Fairly straightforward Header component. Relies on MUI components for some styling, mixed with my own additions through styled-components
+
+#### `Header props:`
+  ```
+  {
+  isDark: boolean; --- dark or light mode
+  setIsDark: Function;  --- sets dark mode to true or false
+  }
+  ```
+  
+#### `Header Features:`
+  -Dark Mode button \
+  -Nav bar worked through MUI
+  
