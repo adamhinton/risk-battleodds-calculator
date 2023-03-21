@@ -5,6 +5,10 @@ RISK BATTLEODDS CALCULATOR
 
 # `Introduction`
 
+-NOTE: This app calcultes the odds of success, and the average results, in certain scenario for the board game Risk. It assumes each dice has six sides, and that the attacker throws a maximum of three dice and the defender rolls a maximum of two dice. \
+  -This link explains Risk battles in better detail than I could, so please check it out. 
+    -https://www.kent.ac.uk/smsas/personal/odl/riskfaq.htm#2.6
+
 -A scalable, maintainable application for players of the classical board game Risk. This project calculates odds of success in user-inputted scenarios and provides useful data such as average attackers/defenders remaining. 
 
 -I invested in my codebase with thorough documentation, strong unit testing suites and good git practices with small, clean commits and descriptive, small PRs. 
@@ -83,6 +87,8 @@ $ npm run pull
   
 ### `Form.tsx <Form />`
 
+Again, see this link for an explanation of Risk dice rolls: https://www.kent.ac.uk/smsas/personal/odl/riskfaq.htm#2.6
+
 #### `Form Intro:`
   
   NOTE: See documentation for generateResults.ts to see logic on how results are generated.
@@ -131,6 +137,8 @@ $ npm run pull
 
 ### `ResultsDisplay.tsx <ResultsDisplay />`
 
+Again, see this link for an explanation of Risk dice rolls: https://www.kent.ac.uk/smsas/personal/odl/riskfaq.htm#2.6
+
 #### `ResultsDisplay Introduction`
 
   -Fairly simple component. Takes in Results object and displays it \
@@ -153,3 +161,4 @@ $ npm run pull
   -Displays the percentage of simulations in which the attacker or defender wins \
   -Displays average number of attackers and defenders remaining at the end of simulations
   
+## `Utils`
