@@ -128,3 +128,28 @@ $ npm run pull
   -Sleek Slider input to let user choose number of simulations: 1, 10, 100, 1_000, or 10_000 \
   -In internal HTML, had to label these choices as 1, 2, 3, 4, and 5 to space them evenly on the slider \
   -See the function calculateValue and the const marks which convert the 1, 2, 3, 4, 5 in to numbers of simulations
+
+### `ResultsDisplay.tsx <ResultsDisplay />`
+
+#### `ResultsDisplay Introduction`
+
+  -Fairly simple component. Takes in Results object and displays it \
+  -Updates whenever new Results are passed to it \
+  -Uses some components from MUI, supplemented by styled components
+  
+#### `Results Type`
+ 
+```
+    {
+    attackerOccupies: number;
+    defenderHolds: number;
+    averageAttackersLeft: number;
+    averageDefendersLeft: number;
+    }
+```
+
+#### `Features`
+
+  -Displays the percentage of simulations in which the attacker or defender wins \
+  -Displays average number of attackers and defenders remaining at the end of simulations
+  
