@@ -41,8 +41,13 @@ const Header = (headerProps: HeaderProps) => {
 					>
 						LinkedIn
 					</StyledLink>
-					<StyledLink href="https://www.google.com">Google</StyledLink>
+					<StyledLink href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories">
+						Risk Explained
+					</StyledLink>
 				</StyledToolBar>
+				<Typography>
+					For the classic board game <b>RISK</b>
+				</Typography>
 			</StyledAppBar>
 		</StyledBox>
 	);
