@@ -63,13 +63,21 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </a>
         <a
           className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-jsEegt QVyeD css-1ps4owl-MuiTypography-root-MuiLink-root"
-          href="https://www.google.com"
+          href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories"
           onBlur={[Function]}
           onFocus={[Function]}
         >
-          Google
+          Risk Explained
         </a>
       </div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        For the classic board game 
+        <b>
+          RISK
+        </b>
+      </p>
     </header>
   </div>
   <main
@@ -95,6 +103,26 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         >
           Attackers:
         </label>
+        <svg
+          aria-hidden={true}
+          aria-label="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory."
+          aria-labelledby={null}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-mui-internal-clone-element={true}
+          data-testid="QuestionMarkIcon"
+          focusable="false"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+          />
+        </svg>
         <div
           className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-hLQRIN sc-eDLJxc HLRki kvWlIS css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="attackers-input"
@@ -123,6 +151,26 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         >
           Defenders:
         </label>
+        <svg
+          aria-hidden={true}
+          aria-label="Number of defenders. Separate multiple territories with commas, like 2, 6, 19, 3, 5."
+          aria-labelledby={null}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-mui-internal-clone-element={true}
+          data-testid="QuestionMarkIcon"
+          focusable="false"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+          />
+        </svg>
         <div
           className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-hLQRIN HLRki css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="defenders-input"
@@ -150,187 +198,6 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         >
           Number of Simulations:
         </label>
-        <span
-          className="MuiSlider-root MuiSlider-marked MuiSlider-colorPrimary MuiSlider-sizeMedium sc-jTQDnj kHtLns css-1aznpnh-MuiSlider-root"
-          data-testid="numsimulations-input"
-          defaultValue={5}
-          onMouseDown={[Function]}
-        >
-          <span
-            className="MuiSlider-rail css-14pt78w-MuiSlider-rail"
-          />
-          <span
-            className="MuiSlider-track css-1gv0vcd-MuiSlider-track"
-            style={
-              Object {
-                "left": "0%",
-                "width": "100%",
-              }
-            }
-          />
-          <span
-            className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
-            data-index={0}
-            style={
-              Object {
-                "left": "0%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
-            data-index={0}
-            style={
-              Object {
-                "left": "0%",
-              }
-            }
-          >
-            1
-          </span>
-          <span
-            className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
-            data-index={1}
-            style={
-              Object {
-                "left": "25%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
-            data-index={1}
-            style={
-              Object {
-                "left": "25%",
-              }
-            }
-          >
-            10
-          </span>
-          <span
-            className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
-            data-index={2}
-            style={
-              Object {
-                "left": "50%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
-            data-index={2}
-            style={
-              Object {
-                "left": "50%",
-              }
-            }
-          >
-            100
-          </span>
-          <span
-            className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
-            data-index={3}
-            style={
-              Object {
-                "left": "75%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
-            data-index={3}
-            style={
-              Object {
-                "left": "75%",
-              }
-            }
-          >
-            1000
-          </span>
-          <span
-            className="MuiSlider-mark MuiSlider-markActive css-6cwnna-MuiSlider-mark"
-            data-index={4}
-            style={
-              Object {
-                "left": "100%",
-              }
-            }
-          />
-          <span
-            aria-hidden={true}
-            className="MuiSlider-markLabel MuiSlider-markLabel MuiSlider-markLabelActive css-1eoe787-MuiSlider-markLabel"
-            data-index={4}
-            style={
-              Object {
-                "left": "100%",
-              }
-            }
-          >
-            10000
-          </span>
-          <span
-            className="MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary MuiSlider-thumb MuiSlider-thumbSizeMedium MuiSlider-thumbColorPrimary css-eg0mwd-MuiSlider-thumb"
-            data-index={0}
-            onMouseLeave={[Function]}
-            onMouseOver={[Function]}
-            style={
-              Object {
-                "left": "100%",
-                "pointerEvents": undefined,
-              }
-            }
-          >
-            <input
-              aria-orientation="horizontal"
-              aria-valuemax={10000}
-              aria-valuemin={1}
-              aria-valuenow={10000}
-              data-index={0}
-              disabled={false}
-              max={5}
-              min={1}
-              name="numSimulations"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              style={
-                Object {
-                  "border": 0,
-                  "clip": "rect(0 0 0 0)",
-                  "direction": "ltr",
-                  "height": "100%",
-                  "margin": -1,
-                  "overflow": "hidden",
-                  "padding": 0,
-                  "position": "absolute",
-                  "whiteSpace": "nowrap",
-                  "width": "100%",
-                }
-              }
-              type="range"
-              value={5}
-            />
-            <span
-              aria-hidden={true}
-              className="MuiSlider-valueLabel css-nnid7-MuiSlider-valueLabel"
-            >
-              <span
-                className="MuiSlider-valueLabelCircle"
-              >
-                <span
-                  className="MuiSlider-valueLabelLabel"
-                >
-                  10000
-                </span>
-              </span>
-            </span>
-          </span>
-        </span>
       </div>
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
@@ -352,6 +219,9 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         type="submit"
       >
         Run Simulations
+        <span
+          className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
       </button>
       <div
         className="Toastify"

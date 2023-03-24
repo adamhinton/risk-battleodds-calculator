@@ -9,6 +9,8 @@ import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
 import FormLabel from "@mui/material/FormLabel";
+import Tooltip from "@mui/material/Tooltip";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 // Thanks to this site for the toast help:
 //www.magicbell.com/blog/react-toast-notifications-made-easy
 
@@ -74,6 +76,10 @@ const Form = (props: FormProps) => {
 			</FormLabel>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
+				<Tooltip title="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory.">
+					<QuestionMarkIcon />
+				</Tooltip>
+
 				<StyledAttackerInput
 					id="attackers"
 					type="number"
@@ -88,6 +94,9 @@ const Form = (props: FormProps) => {
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="defenders">Defenders:</InputLabel>
+				<Tooltip title="Number of defenders. Separate multiple territories with commas, like 2, 6, 19, 3, 5.">
+					<QuestionMarkIcon />
+				</Tooltip>
 				<StyledInput
 					id="defenders"
 					type="text"
