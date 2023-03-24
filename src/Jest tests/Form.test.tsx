@@ -5,6 +5,11 @@ import { darkTheme } from "../App";
 import { ThemeProvider } from "styled-components";
 const fakeSetState = jest.fn();
 
+// Mocking the Slider component because it messed up my screenshots - and MUI already tests it, I don't need to test it further.
+jest.mock("@mui/material/Slider", () => {
+	return jest.fn();
+});
+
 test("[1] renders without errors", () => {
 	render(
 		<ThemeProvider theme={darkTheme}>
