@@ -63,13 +63,21 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </a>
         <a
           className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-jsEegt QVyeD css-1ps4owl-MuiTypography-root-MuiLink-root"
-          href="https://www.google.com"
+          href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories"
           onBlur={[Function]}
           onFocus={[Function]}
         >
-          Google
+          Risk Explained
         </a>
       </div>
+      <p
+        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      >
+        For the classic board game 
+        <b>
+          RISK
+        </b>
+      </p>
     </header>
   </div>
   <main
