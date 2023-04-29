@@ -60,6 +60,8 @@ const Form = (props: FormProps) => {
 					toast(
 						"Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
 					);
+				} else if (formValues.stopAt >= formValues.attackerCount) {
+					toast("Stop At must be less than Attackers");
 				} else {
 					// Convert user's multiple defender inputs from a string to number[]
 					const userInputs: UserInputs = {
