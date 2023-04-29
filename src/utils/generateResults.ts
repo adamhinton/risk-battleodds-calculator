@@ -82,6 +82,19 @@ export function runSingleSimulation(
 
 	playerCounts.defenderCount.forEach((defender: number, index) => {
 		while (playerCounts.defenderCount[index] > 0) {
+			// If attacker has reached the number of troops where they have specified to stop:
+			// Defender holds, and the number of attackers and defenders left are added to their averages.
+			if (playerCounts.attackerCount <= stopAt) {
+				singleSimResults.defenderHolds = true;
+				singleSimResults.attackersLeft = playerCounts.attackerCount;
+				const totalOfDefenders = playerCounts.defenderCount.reduce(
+					(partialSum, a) => partialSum + a,
+					0
+				);
+				singleSimResults.defendersLeft = totalOfDefenders;
+				break;
+			}
+
 			const attackerRolls = generatePlayerRolls(
 				"attacker",
 				playerCounts.attackerCount
