@@ -22,6 +22,7 @@ type FormValues = {
 	attackerCount: number;
 	defenderCount: string;
 	numSimulations: number;
+	stopAt: number;
 };
 
 const Form = (props: FormProps) => {
@@ -34,7 +35,10 @@ const Form = (props: FormProps) => {
 		// So numSimulations: 5 means that there are 10,000 simulations by default unless the user changes it by adjusting the slider.
 		// This is a little wonky, I'd like to refactor.
 		numSimulations: 5,
+		stopAt: 3,
 	});
+
+	console.log("formValues:", formValues);
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
 		const value = evt.target.value;
