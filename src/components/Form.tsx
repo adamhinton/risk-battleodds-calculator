@@ -122,10 +122,9 @@ const Form = (props: FormProps) => {
 					id="stop-at"
 					type="number"
 					inputComponent="input"
-					inputProps={{ min: "1" }}
-					name="stop-at"
-					// TODO: Change this
-					value={formValues.attackerCount}
+					inputProps={{ min: "0" }}
+					name="stopAt"
+					value={formValues.stopAt}
 					onChange={handleChange}
 					data-testid="stop-at-input"
 				></StyledNumberInput>
