@@ -2,6 +2,7 @@ export type UserInputs = {
 	attackerCount: number;
 	defenderCount: number[];
 	numSimulations: number;
+	stopAt: number;
 };
 
 type PlayerType = "attacker" | "defender";
@@ -43,10 +44,13 @@ const generateResults = (
 	let totalDefendersLeft = 0;
 
 	for (let i = 0; i < userInputs.numSimulations; i++) {
-		const singleSimResults: SingleSimResults = runSingleSimulation({
-			attackerCount: userInputs.attackerCount,
-			defenderCount: [...userInputs.defenderCount],
-		});
+		const singleSimResults: SingleSimResults = runSingleSimulation(
+			{
+				attackerCount: userInputs.attackerCount,
+				defenderCount: [...userInputs.defenderCount],
+			},
+			userInputs.stopAt
+		);
 
 		if (singleSimResults.attackerOccupies === true) {
 			results.attackerOccupies++;
@@ -64,7 +68,8 @@ const generateResults = (
 // UTILS
 
 export function runSingleSimulation(
-	playerCounts: PlayerCounts
+	playerCounts: PlayerCounts,
+	stopAt: number
 ): Readonly<SingleSimResults> {
 	let singleSimResults: SingleSimResults = {
 		attackersLeft: 0,
