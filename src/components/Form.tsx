@@ -80,7 +80,7 @@ const Form = (props: FormProps) => {
 					<QuestionMarkIcon />
 				</Tooltip>
 
-				<StyledAttackerInput
+				<StyledNumberInput
 					id="attackers"
 					type="number"
 					inputComponent="input"
@@ -89,7 +89,7 @@ const Form = (props: FormProps) => {
 					value={formValues.attackerCount}
 					onChange={handleChange}
 					data-testid="attackers-input"
-				></StyledAttackerInput>
+				></StyledNumberInput>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
@@ -106,6 +106,25 @@ const Form = (props: FormProps) => {
 					onChange={handleChange}
 					data-testid="defenders-input"
 				></StyledInput>
+			</StyledInputAndLabel>
+
+			<StyledInputAndLabel>
+				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
+				<Tooltip title="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here.">
+					<QuestionMarkIcon />
+				</Tooltip>
+
+				<StyledNumberInput
+					id="stop-at"
+					type="number"
+					inputComponent="input"
+					inputProps={{ min: "1" }}
+					name="stop-at"
+					// TODO: Change this
+					value={formValues.attackerCount}
+					onChange={handleChange}
+					data-testid="stop-at-input"
+				></StyledNumberInput>
 			</StyledInputAndLabel>
 
 			<div>
@@ -174,7 +193,7 @@ const StyledInput = styled(Input)`
 	}
 `;
 
-const StyledAttackerInput = styled(StyledInput)`
+const StyledNumberInput = styled(StyledInput)`
 	&& {
 		width: 70px;
 	}
