@@ -191,6 +191,54 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </div>
       </div>
+      <div
+        className="sc-dmyDGi cYhbnc"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
+          htmlFor="stop-at"
+        >
+          Stop At:
+        </label>
+        <svg
+          aria-hidden={true}
+          aria-label="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here."
+          aria-labelledby={null}
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+          data-mui-internal-clone-element={true}
+          data-testid="QuestionMarkIcon"
+          focusable="false"
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+          />
+        </svg>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-hLQRIN sc-eDLJxc HLRki kvWlIS css-q0jhri-MuiInputBase-root-MuiInput-root"
+          data-testid="stop-at-input"
+          onClick={[Function]}
+        >
+          <input
+            className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
+            id="stop-at"
+            min="0"
+            name="stopAt"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="number"
+            value={3}
+          />
+        </div>
+      </div>
       <div>
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"

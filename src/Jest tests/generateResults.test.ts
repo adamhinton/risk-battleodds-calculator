@@ -76,6 +76,7 @@ describe("[3] generateResults - the overall return value of this module", () => 
 			attackerCount: 1000,
 			defenderCount: [1000],
 			numSimulations: 10,
+			stopAt: 3,
 		};
 		const results = generateResults(userInputs);
 		expect(results.attackerOccupies + results.defenderHolds).toBe(10);
@@ -86,6 +87,7 @@ describe("[3] generateResults - the overall return value of this module", () => 
 			attackerCount: 2000,
 			defenderCount: [2000],
 			numSimulations: 100,
+			stopAt: 3,
 		};
 		const results = generateResults(userInputs);
 		expect(results.defenderHolds).toBe(0);

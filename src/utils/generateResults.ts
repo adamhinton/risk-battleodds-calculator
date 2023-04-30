@@ -2,6 +2,7 @@ export type UserInputs = {
 	attackerCount: number;
 	defenderCount: number[];
 	numSimulations: number;
+	stopAt: number;
 };
 
 type PlayerType = "attacker" | "defender";
@@ -43,10 +44,13 @@ const generateResults = (
 	let totalDefendersLeft = 0;
 
 	for (let i = 0; i < userInputs.numSimulations; i++) {
-		const singleSimResults: SingleSimResults = runSingleSimulation({
-			attackerCount: userInputs.attackerCount,
-			defenderCount: [...userInputs.defenderCount],
-		});
+		const singleSimResults: SingleSimResults = runSingleSimulation(
+			{
+				attackerCount: userInputs.attackerCount,
+				defenderCount: [...userInputs.defenderCount],
+			},
+			userInputs.stopAt
+		);
 
 		if (singleSimResults.attackerOccupies === true) {
 			results.attackerOccupies++;
@@ -64,7 +68,8 @@ const generateResults = (
 // UTILS
 
 export function runSingleSimulation(
-	playerCounts: PlayerCounts
+	playerCounts: PlayerCounts,
+	stopAt: number
 ): Readonly<SingleSimResults> {
 	let singleSimResults: SingleSimResults = {
 		attackersLeft: 0,
@@ -77,6 +82,19 @@ export function runSingleSimulation(
 
 	playerCounts.defenderCount.forEach((defender: number, index) => {
 		while (playerCounts.defenderCount[index] > 0) {
+			// If attacker has reached the number of troops where they have specified to stop:
+			// Defender holds, and the number of attackers and defenders left are added to their averages.
+			if (playerCounts.attackerCount <= stopAt) {
+				singleSimResults.defenderHolds = true;
+				singleSimResults.attackersLeft = playerCounts.attackerCount;
+				const totalOfDefenders = playerCounts.defenderCount.reduce(
+					(partialSum, a) => partialSum + a,
+					0
+				);
+				singleSimResults.defendersLeft = totalOfDefenders;
+				break;
+			}
+
 			const attackerRolls = generatePlayerRolls(
 				"attacker",
 				playerCounts.attackerCount

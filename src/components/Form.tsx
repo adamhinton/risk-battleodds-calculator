@@ -22,6 +22,7 @@ type FormValues = {
 	attackerCount: number;
 	defenderCount: string;
 	numSimulations: number;
+	stopAt: number;
 };
 
 const Form = (props: FormProps) => {
@@ -34,14 +35,19 @@ const Form = (props: FormProps) => {
 		// So numSimulations: 5 means that there are 10,000 simulations by default unless the user changes it by adjusting the slider.
 		// This is a little wonky, I'd like to refactor.
 		numSimulations: 5,
+		stopAt: 3,
 	});
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
-		const value = evt.target.value;
+		const { value } = evt.target;
+		const newValue = parseFloat(value.toString());
+
 		setFormValues({
 			...formValues,
 			[evt.target.name]:
-				evt.target.name === "defenderCount" ? value : Number(value),
+				evt.target.name === "defenderCount"
+					? String(newValue)
+					: Number(newValue),
 		});
 	}
 
@@ -56,6 +62,8 @@ const Form = (props: FormProps) => {
 					toast(
 						"Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
 					);
+				} else if (formValues.stopAt >= formValues.attackerCount) {
+					toast("Stop At must be less than Attackers");
 				} else {
 					// Convert user's multiple defender inputs from a string to number[]
 					const userInputs: UserInputs = {
@@ -80,7 +88,7 @@ const Form = (props: FormProps) => {
 					<QuestionMarkIcon />
 				</Tooltip>
 
-				<StyledAttackerInput
+				<StyledNumberInput
 					id="attackers"
 					type="number"
 					inputComponent="input"
@@ -89,7 +97,7 @@ const Form = (props: FormProps) => {
 					value={formValues.attackerCount}
 					onChange={handleChange}
 					data-testid="attackers-input"
-				></StyledAttackerInput>
+				></StyledNumberInput>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
@@ -106,6 +114,24 @@ const Form = (props: FormProps) => {
 					onChange={handleChange}
 					data-testid="defenders-input"
 				></StyledInput>
+			</StyledInputAndLabel>
+
+			<StyledInputAndLabel>
+				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
+				<Tooltip title="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here.">
+					<QuestionMarkIcon />
+				</Tooltip>
+
+				<StyledNumberInput
+					id="stop-at"
+					type="number"
+					inputComponent="input"
+					inputProps={{ min: "0" }}
+					name="stopAt"
+					value={formValues.stopAt}
+					onChange={handleChange}
+					data-testid="stop-at-input"
+				></StyledNumberInput>
 			</StyledInputAndLabel>
 
 			<div>
@@ -174,7 +200,7 @@ const StyledInput = styled(Input)`
 	}
 `;
 
-const StyledAttackerInput = styled(StyledInput)`
+const StyledNumberInput = styled(StyledInput)`
 	&& {
 		width: 70px;
 	}
