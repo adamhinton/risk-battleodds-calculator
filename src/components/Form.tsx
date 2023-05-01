@@ -40,14 +40,13 @@ const Form = (props: FormProps) => {
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
 		const { value } = evt.target;
-		const newValue = parseFloat(value.toString());
 
 		setFormValues({
 			...formValues,
 			[evt.target.name]:
 				evt.target.name === "defenderCount"
-					? String(newValue)
-					: Number(newValue),
+					? String(value)
+					: parseFloat(value.toString()),
 		});
 	}
 
