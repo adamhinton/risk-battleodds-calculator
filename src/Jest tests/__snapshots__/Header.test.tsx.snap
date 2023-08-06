@@ -2,10 +2,10 @@
 
 exports[`[3] Matches snapshot from 3.17.23 1`] = `
 <div
-  className="sc-beySbM bltIyb MuiBox-root css-i9gxme"
+  className="sc-aXZVg kFXYMr MuiBox-root css-i9gxme"
 >
   <header
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-guDLRT bCktLS css-hip9hq-MuiPaper-root-MuiAppBar-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-gEvEer aOUhw css-hip9hq-MuiPaper-root-MuiAppBar-root"
   >
     <h1
       className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
@@ -14,7 +14,7 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       Risk Battleodds Calculator
     </h1>
     <div
-      className="sc-hLQRIN fCysJZ"
+      className="sc-fqkvVR jWRtLL"
     >
       <h2
         className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
@@ -36,11 +36,11 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       </svg>
     </div>
     <div
-      className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-dmyDGi enWWIG css-hyum1k-MuiToolbar-root"
+      className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-eqUAAy YkbEk css-hyum1k-MuiToolbar-root"
       data-testid="links"
     >
       <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-eDLJxc gOJnZV css-1ps4owl-MuiTypography-root-MuiLink-root"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dcJsrY eEdJLw css-1bhi0za-MuiTypography-root-MuiLink-root"
         href="https://github.com/adamhinton/risk-battleodds-calculator"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -49,7 +49,7 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
         Source Code
       </a>
       <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-eDLJxc gOJnZV css-1ps4owl-MuiTypography-root-MuiLink-root"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dcJsrY eEdJLw css-1bhi0za-MuiTypography-root-MuiLink-root"
         href="https://www.linkedin.com/in/adam-hinton/"
         onBlur={[Function]}
         onFocus={[Function]}
@@ -58,7 +58,7 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
         LinkedIn
       </a>
       <a
-        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-eDLJxc gOJnZV css-1ps4owl-MuiTypography-root-MuiLink-root"
+        className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dcJsrY eEdJLw css-1bhi0za-MuiTypography-root-MuiLink-root"
         href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories"
         onBlur={[Function]}
         onFocus={[Function]}

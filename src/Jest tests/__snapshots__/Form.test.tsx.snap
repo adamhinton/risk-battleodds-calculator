@@ -2,7 +2,7 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-beySbM gbLJSg"
+  className="sc-aXZVg gmlyls"
   onSubmit={[Function]}
 >
   <label
@@ -13,7 +13,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </h2>
   </label>
   <div
-    className="sc-guDLRT jkZAuG"
+    className="sc-gEvEer bOBTxw"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -42,7 +42,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi sc-hLQRIN fPLOmk govqwa css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy sc-fqkvVR gcBnKG dlYaOU css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -61,7 +61,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-guDLRT jkZAuG"
+    className="sc-gEvEer bOBTxw"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -90,7 +90,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi fPLOmk css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy gcBnKG css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -110,7 +110,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-guDLRT jkZAuG"
+    className="sc-gEvEer bOBTxw"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -139,7 +139,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dmyDGi sc-hLQRIN fPLOmk govqwa css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy sc-fqkvVR gcBnKG dlYaOU css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="stop-at-input"
       onClick={[Function]}
     >
