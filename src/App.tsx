@@ -21,6 +21,8 @@ type CustomTheming = {
 	formAndInputsBGC: string;
 	formTextColor: string;
 	inputTextColor: string;
+	headerBGC: string;
+	headerTextColor: string;
 };
 
 declare module "@mui/material/styles" {
@@ -37,10 +39,12 @@ export const darkTheme = createTheme({
 		mode: "dark",
 	},
 	customTheming: {
-		mainBGC: "#232323", // Dark gray background color
+		mainBGC: "#2d3c42",
+		headerBGC: "#263238",
 		formAndInputsBGC: "rgb(17, 16, 16)",
-		formTextColor: "#1976d2",
-		inputTextColor: "black",
+		formTextColor: "#1976d2", // Vibrant cyan color
+		inputTextColor: "#1976d2", // Vibrant cyan color
+		headerTextColor: "#1976d2", // Vibrant cyan color for Header text
 	},
 });
 
@@ -49,10 +53,12 @@ export const lightTheme = createTheme({
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "#f5f5f5", // Light gray background color
-		formAndInputsBGC: "#bef8f8",
+		mainBGC: "#e0e0e0", // Slightly darker background color
+		formAndInputsBGC: "#c2f0f0", // Adjusted background color for form and inputs
 		formTextColor: "black",
 		inputTextColor: "black",
+		headerBGC: "#f5f5f5",
+		headerTextColor: "#333333", // Dark gray color for Header text in light mode
 	},
 });
 
