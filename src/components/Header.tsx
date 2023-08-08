@@ -59,16 +59,20 @@ const StyledBox = styled(Box)`
 	&& {
 		width: 100%;
 		max-width: 950px;
+		margin: 0 auto; /* Center align the header */
 	}
 `;
 
 const StyledAppBar = styled(AppBar)`
 	&& {
-		background-color: rgb(46, 37, 37);
-		color: rgb(221, 203, 203);
+		background-color: #3c9893; /* Update background color to a teal shade */
+		color: white; /* Set text color to white for better contrast */
 		padding: 15px;
 		display: flex;
 		align-items: center;
+		justify-content: space-between; /* Space evenly between title and author section */
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+		transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 	}
 `;
 
@@ -86,11 +90,8 @@ const StyledToolBar = styled(Toolbar)`
 const StyledAuthorAndDarkModeBtn = styled("div")`
 	&& {
 		display: flex;
-		flex-direction: row;
-
-		h2 {
-			margin-right: 20px;
-		}
+		align-items: center;
+		gap: 20px; /* Add spacing between author and dark mode button */
 	}
 `;
 
@@ -98,6 +99,10 @@ const StyledLink = styled(Link)`
 	&& {
 		color: white;
 		margin: 0 10px;
+		transition: color 0.3s; /* Smooth transition for link color */
+		&:hover {
+			color: #fddb3a; /* Change link color on hover */
+		}
 	}
 `;
 
