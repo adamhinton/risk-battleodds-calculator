@@ -78,16 +78,15 @@ const Form = (props: FormProps) => {
 				}
 			}}
 		>
-			<FormLabel>
+			<StyledHeader>
 				<h2>Inputs</h2>
-			</FormLabel>
+			</StyledHeader>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
 				<Tooltip title="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory.">
 					<QuestionMarkIcon />
 				</Tooltip>
-
-				<StyledNumberInput
+				<StyledInput
 					id="attackers"
 					type="number"
 					inputComponent="input"
@@ -96,7 +95,7 @@ const Form = (props: FormProps) => {
 					value={formValues.attackerCount}
 					onChange={handleChange}
 					data-testid="attackers-input"
-				></StyledNumberInput>
+				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
@@ -112,7 +111,7 @@ const Form = (props: FormProps) => {
 					value={formValues.defenderCount}
 					onChange={handleChange}
 					data-testid="defenders-input"
-				></StyledInput>
+				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
@@ -120,7 +119,6 @@ const Form = (props: FormProps) => {
 				<Tooltip title="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here.">
 					<QuestionMarkIcon />
 				</Tooltip>
-
 				<StyledNumberInput
 					id="stop-at"
 					type="number"
@@ -130,12 +128,11 @@ const Form = (props: FormProps) => {
 					value={formValues.stopAt}
 					onChange={handleChange}
 					data-testid="stop-at-input"
-				></StyledNumberInput>
+				/>
 			</StyledInputAndLabel>
 
-			<div>
+			<StyledSliderContainer>
 				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-				{/* slider component showing values 1, 10, 100, 1000, 10000 spaced evenly apart on the screen */}
 				<StyledSlider
 					min={1}
 					max={5}
@@ -153,12 +150,12 @@ const Form = (props: FormProps) => {
 					data-testid="numsimulations-input"
 					step={null}
 					valueLabelDisplay="auto"
-				></StyledSlider>
-			</div>
+				/>
+			</StyledSliderContainer>
 
-			<Button type="submit" data-testid="submit-btn" variant="outlined">
+			<StyledButton type="submit" data-testid="submit-btn" variant="contained">
 				Run Simulations
-			</Button>
+			</StyledButton>
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -173,6 +170,8 @@ const StyledForm = styled("form")`
 	background-color: ${({ theme }) => {
 		return theme.customTheming.formAndInputsBGC;
 	}};
+	color: ${({ theme }) =>
+		theme.customTheming.formTextColor}; /* Add this line to set text color */
 	h2,
 	div,
 	label,
@@ -182,9 +181,14 @@ const StyledForm = styled("form")`
 		}};
 	}
 `;
+const StyledHeader = styled.div`
+	margin-bottom: 20px;
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	font-size: 1.5rem;
+`;
 
 const StyledInputAndLabel = styled("div")`
-	margin: 15px;
+	margin: 15px 0;
 	display: flex;
 	align-items: center;
 `;
@@ -193,9 +197,7 @@ const StyledInput = styled(Input)`
 	&& {
 		margin-left: 10px;
 		background: white;
-		color: ${({ theme }) => {
-			return theme.customTheming.inputTextColor;
-		}};
+		color: ${({ theme }) => theme.customTheming.inputTextColor};
 	}
 `;
 
@@ -205,9 +207,23 @@ const StyledNumberInput = styled(StyledInput)`
 	}
 `;
 
+const StyledSliderContainer = styled.div`
+	margin-top: 20px;
+`;
+
 const StyledSlider = styled(Slider)`
 	&& {
-		width: 350px;
+		width: 100%;
+	}
+`;
+
+const StyledButton = styled(Button)`
+	margin-top: 20px;
+	color: white;
+	background-color: ${({ theme }) => theme.customTheming.formTextColor};
+	&:hover {
+		background-color: ${({ theme }) =>
+			theme.customTheming.formTextColor}; /* Darken a bit on hover */
 	}
 `;
 
