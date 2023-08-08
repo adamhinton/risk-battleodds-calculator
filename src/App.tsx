@@ -20,7 +20,7 @@ type CustomTheming = {
 	mainBGC: string;
 	formAndInputsBGC: string;
 	formTextColor: string;
-	inputTextColor: "black";
+	inputTextColor: string;
 };
 
 declare module "@mui/material/styles" {
@@ -37,18 +37,19 @@ export const darkTheme = createTheme({
 		mode: "dark",
 	},
 	customTheming: {
-		mainBGC: "rgb(45, 60, 66)",
+		mainBGC: "#232323", // Dark gray background color
 		formAndInputsBGC: "rgb(17, 16, 16)",
 		formTextColor: "#1976d2",
 		inputTextColor: "black",
 	},
 });
-const lightTheme = createTheme({
+
+export const lightTheme = createTheme({
 	palette: {
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "#3c9893",
+		mainBGC: "#f5f5f5", // Light gray background color
 		formAndInputsBGC: "#bef8f8",
 		formTextColor: "black",
 		inputTextColor: "black",
