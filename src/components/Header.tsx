@@ -104,7 +104,7 @@ const StyledLink = styled(Link)`
 		text-decoration: none;
 		transition: color 0.3s;
 		&:hover {
-			color: #fddb3a;
+			color: #1976d2;
 		}
 	}
 `;

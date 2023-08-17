@@ -87,9 +87,7 @@ const StyledResult = styled.div`
 
 const StyledPercent = styled.span`
 	font-size: 1.1rem;
-	color: ${({ theme }) =>
-		theme.customTheming
-			.headerTextColor}; /* Use header text color for percent */
+	color: ${({ theme }) => theme.customTheming.headerTextColor};
 `;
 
 const StyledValue = styled.span`
