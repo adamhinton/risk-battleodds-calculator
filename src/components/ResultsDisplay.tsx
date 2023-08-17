@@ -58,18 +58,9 @@ export default ResultsDisplay;
 const StyledCard = styled(Card)`
 	&& {
 		margin-top: 20px;
-		padding: 30px 50px;
-		background-color: ${({ theme }) => {
-			return theme.customTheming.formAndInputsBGC;
-		}};
-		color: ${({ theme }) => {
-			return theme.customTheming.formTextColor;
-		}};
-
-		h2 {
-			margin: 0 0 10px;
-			text-align: center;
-		}
+		padding: 20px 30px;
+		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+		color: ${({ theme }) => theme.customTheming.formTextColor};
 	}
 `;
 
@@ -77,7 +68,7 @@ const StyledHeader = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 `;
 
 const StyledEmojiIcon = styled(EmojiEventsIcon)`
@@ -86,19 +77,21 @@ const StyledEmojiIcon = styled(EmojiEventsIcon)`
 `;
 
 const StyledResult = styled.div`
-	margin-top: 20px;
+	margin-top: 15px;
 	text-align: center;
 
 	p {
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 	}
 `;
 
 const StyledPercent = styled.span`
-	font-size: 1.2rem;
-	color: #fddb3a;
+	font-size: 1.1rem;
+	color: ${({ theme }) =>
+		theme.customTheming
+			.headerTextColor}; /* Use header text color for percent */
 `;
 
 const StyledValue = styled.span`
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 `;
