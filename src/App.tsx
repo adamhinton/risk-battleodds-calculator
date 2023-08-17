@@ -89,6 +89,7 @@ const GlobalStyle = createGlobalStyle`
 			// @ts-ignore
 			return theme.customTheming.mainBGC;
 		}};
+    font-family: 'Open Sans', sans-serif;
   }
   `;
 
