@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import styled from "styled-components";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 type ResultsDisplayProps = {
 	results: Results;
@@ -13,29 +14,40 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 	const { attackerOccupies, defenderHolds } = results;
 
 	const totalSimulations = attackerOccupies + defenderHolds;
-	const attackerWinPercent = attackerOccupies / totalSimulations;
-	const defenderWinPercent = defenderHolds / totalSimulations;
+	const attackerWinPercent = (attackerOccupies / totalSimulations) * 100;
+	const defenderWinPercent = (defenderHolds / totalSimulations) * 100;
 
 	return (
 		<StyledCard data-testid="results-display-section">
 			<CardContent>
-				<h2 data-testid="results-h2">Results</h2>
-				<div>
-					<Typography data-testid="results-attacker-occupies" component="p">
-						Attacker Occupies: {(attackerWinPercent * 100).toFixed(1)}%
+				<StyledHeader>
+					<h2>Results</h2>
+					<StyledEmojiIcon />
+				</StyledHeader>
+				<StyledResult>
+					<Typography component="p">
+						Attacker Occupies:{" "}
+						<StyledPercent>{attackerWinPercent.toFixed(1)}%</StyledPercent>
 					</Typography>
-					<Typography data-testid="results-avg-attackers-left" component="p">
-						Average Attackers Left: {results.averageAttackersLeft?.toFixed(1)}
+					<Typography component="p">
+						Average Attackers Left:{" "}
+						<StyledValue>
+							{results.averageAttackersLeft?.toFixed(1)}
+						</StyledValue>
 					</Typography>
-				</div>
-				<div>
-					<Typography data-testid="results-defenderholds" component="p">
-						Defender Holds: {(defenderWinPercent * 100).toFixed(1)}%
+				</StyledResult>
+				<StyledResult>
+					<Typography component="p">
+						Defender Holds:{" "}
+						<StyledPercent>{defenderWinPercent.toFixed(1)}%</StyledPercent>
 					</Typography>
-					<Typography data-testid="results-avg-defenders-left" component="p">
-						Average Defenders Left: {results.averageDefendersLeft?.toFixed(1)}
+					<Typography component="p">
+						Average Defenders Left:{" "}
+						<StyledValue>
+							{results.averageDefendersLeft?.toFixed(1)}
+						</StyledValue>
 					</Typography>
-				</div>
+				</StyledResult>
 			</CardContent>
 		</StyledCard>
 	);
@@ -59,4 +71,34 @@ const StyledCard = styled(Card)`
 			text-align: center;
 		}
 	}
+`;
+
+const StyledHeader = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+`;
+
+const StyledEmojiIcon = styled(EmojiEventsIcon)`
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	font-size: 2rem;
+`;
+
+const StyledResult = styled.div`
+	margin-top: 20px;
+	text-align: center;
+
+	p {
+		margin-bottom: 15px;
+	}
+`;
+
+const StyledPercent = styled.span`
+	font-size: 1.2rem;
+	color: #fddb3a;
+`;
+
+const StyledValue = styled.span`
+	font-size: 1.2rem;
 `;
