@@ -169,6 +169,8 @@ const StyledForm = styled("form")`
 	span {
 		color: ${({ theme }) => theme.customTheming.formTextColor};
 	}
+	border-radius: 10px;
+	margin-bottom: 20px;
 `;
 
 const StyledHeader = styled.div`

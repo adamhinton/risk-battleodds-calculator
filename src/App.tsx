@@ -90,16 +90,18 @@ const GlobalStyle = createGlobalStyle`
 			return theme.customTheming.mainBGC;
 		}};
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s;
   }
-  `;
+`;
 
 const StyledApp = styled("div")`
 	display: flex;
-	align-items: center;
 	flex-direction: column;
-	background-color: ${({ theme }) => {
-		return theme.customTheming.mainBGC;
-	}};
+	align-items: center;
+	background-color: ${({ theme }) => theme.customTheming.mainBGC};
+	min-height: 100vh;
 `;
 
 const StyledMain = styled("main")`

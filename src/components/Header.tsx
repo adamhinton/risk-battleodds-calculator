@@ -55,14 +55,16 @@ export default Header;
 const StyledAppBar = styled(AppBar)`
 	&& {
 		background-color: ${({ theme }) => theme.customTheming.headerBGC};
-		color: ${({ theme }) =>
-			theme.customTheming.headerTextColor}; // Use the new text color
+		color: ${({ theme }) => theme.customTheming.headerTextColor};
 		padding: 15px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 		transition: background-color 0.3s, color 0.3s;
+		position: sticky;
+		top: 0;
+		z-index: 100;
 	}
 `;
 

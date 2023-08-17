@@ -58,9 +58,12 @@ export default ResultsDisplay;
 const StyledCard = styled(Card)`
 	&& {
 		margin-top: 20px;
-		padding: 20px 30px;
+		padding: 20px;
 		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 		color: ${({ theme }) => theme.customTheming.formTextColor};
+		max-width: 500px;
+		margin: 0 auto;
+		border-radius: 10px;
 	}
 `;
 
