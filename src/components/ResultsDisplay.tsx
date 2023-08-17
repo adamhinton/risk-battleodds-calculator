@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import styled from "styled-components";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import { colors, typography, spacing } from "../utils/styles";
 
 type ResultsDisplayProps = {
 	results: Results;
@@ -57,8 +58,8 @@ export default ResultsDisplay;
 
 const StyledCard = styled(Card)`
 	&& {
-		margin-top: 20px;
-		padding: 20px;
+		margin-top: ${spacing.paddingLarge};
+		padding: ${spacing.paddingMedium};
 		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 		color: ${({ theme }) => theme.customTheming.formTextColor};
 		max-width: 500px;

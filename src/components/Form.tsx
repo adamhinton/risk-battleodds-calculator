@@ -11,6 +11,7 @@ import styled from "styled-components";
 import FormLabel from "@mui/material/FormLabel";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
+import { spacing } from "../utils/styles";
 
 type FormProps = {
 	setResults: Function;
@@ -162,7 +163,8 @@ const StyledForm = styled("form")`
 	text-align: center;
 	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
-	width: 110%; /* Adjust the width as needed */
+	padding: ${spacing.paddingMedium};
+	width: 400px; /* Adjust the width as needed */
 	h2,
 	div,
 	label,

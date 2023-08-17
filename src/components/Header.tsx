@@ -5,6 +5,7 @@ import Link from "@mui/material/Link";
 import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import { spacing } from "../utils/styles";
 
 type HeaderProps = {
 	isDark: boolean;
@@ -54,9 +55,10 @@ const Header = (headerProps: HeaderProps) => {
 export default Header;
 const StyledAppBar = styled(AppBar)`
 	&& {
-		background-color: ${({ theme }) => theme.customTheming.headerBGC};
-		color: ${({ theme }) => theme.customTheming.headerTextColor};
-		padding: 15px;
+		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+		color: ${({ theme }) => theme.customTheming.formTextColor};
+		padding: ${spacing.paddingMedium};
+		width: 110%; /* Adjust the width as needed */
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
