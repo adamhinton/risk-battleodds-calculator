@@ -20,7 +20,9 @@ type CustomTheming = {
 	mainBGC: string;
 	formAndInputsBGC: string;
 	formTextColor: string;
-	inputTextColor: "black";
+	inputTextColor: string;
+	headerBGC: string;
+	headerTextColor: string;
 };
 
 declare module "@mui/material/styles" {
@@ -37,21 +39,26 @@ export const darkTheme = createTheme({
 		mode: "dark",
 	},
 	customTheming: {
-		mainBGC: "rgb(45, 60, 66)",
+		mainBGC: "#2d3c42",
+		headerBGC: "#263238",
 		formAndInputsBGC: "rgb(17, 16, 16)",
-		formTextColor: "#1976d2",
-		inputTextColor: "black",
+		formTextColor: "#1976d2", // Vibrant cyan color
+		inputTextColor: "#1976d2", // Vibrant cyan color
+		headerTextColor: "#1976d2", // Vibrant cyan color for Header text
 	},
 });
-const lightTheme = createTheme({
+
+export const lightTheme = createTheme({
 	palette: {
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "#3c9893",
-		formAndInputsBGC: "#bef8f8",
+		mainBGC: "#e0e0e0", // Slightly darker background color
+		formAndInputsBGC: "#c2f0f0", // Adjusted background color for form and inputs
 		formTextColor: "black",
 		inputTextColor: "black",
+		headerBGC: "#f5f5f5",
+		headerTextColor: "#333333", // Dark gray color for Header text in light mode
 	},
 });
 
@@ -82,16 +89,19 @@ const GlobalStyle = createGlobalStyle`
 			// @ts-ignore
 			return theme.customTheming.mainBGC;
 		}};
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s;
   }
-  `;
+`;
 
 const StyledApp = styled("div")`
 	display: flex;
-	align-items: center;
 	flex-direction: column;
-	background-color: ${({ theme }) => {
-		return theme.customTheming.mainBGC;
-	}};
+	align-items: center;
+	background-color: ${({ theme }) => theme.customTheming.mainBGC};
+	min-height: 100vh;
 `;
 
 const StyledMain = styled("main")`

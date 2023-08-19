@@ -2,14 +2,14 @@
 
 exports[`[3] Matches snapshot from 1.29.2023 1`] = `
 <div
-  className="sc-kpDqfm eegxba App"
+  className="sc-jEACwC hGuGYI App"
   data-testid="app"
 >
-  <div
-    className="sc-gsFSXq kRkGQl MuiBox-root css-i9gxme"
+  <header
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-dhKdcB bfoXJu css-hip9hq-MuiPaper-root-MuiAppBar-root"
   >
-    <header
-      className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-kAyceB frnlPp css-hip9hq-MuiPaper-root-MuiAppBar-root"
+    <div
+      className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-kpDqfm kXWLEy css-hyum1k-MuiToolbar-root"
     >
       <h1
         className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
@@ -18,7 +18,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         Risk Battleodds Calculator
       </h1>
       <div
-        className="sc-jXbUNg crGdDh"
+        className="sc-jlZhew bDaSfn"
       >
         <h2
           className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
@@ -40,11 +40,10 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </svg>
       </div>
       <div
-        className="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular sc-imWYAI cggwMW css-hyum1k-MuiToolbar-root"
-        data-testid="links"
+        className="sc-dAlyuH cdYkLX"
       >
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dhKdcB inOJvj css-1bhi0za-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-cwHptR bqfocB css-1bhi0za-MuiTypography-root-MuiLink-root"
           href="https://github.com/adamhinton/risk-battleodds-calculator"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -53,7 +52,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           Source Code
         </a>
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dhKdcB inOJvj css-1bhi0za-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-cwHptR bqfocB css-1bhi0za-MuiTypography-root-MuiLink-root"
           href="https://www.linkedin.com/in/adam-hinton/"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -62,7 +61,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           LinkedIn
         </a>
         <a
-          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-dhKdcB inOJvj css-1bhi0za-MuiTypography-root-MuiLink-root"
+          className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-cwHptR bqfocB css-1bhi0za-MuiTypography-root-MuiLink-root"
           href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories"
           onBlur={[Function]}
           onFocus={[Function]}
@@ -70,32 +69,32 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           Risk Explained
         </a>
       </div>
-      <p
-        className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-      >
-        For the classic board game 
-        <b>
-          RISK
-        </b>
-      </p>
-    </header>
-  </div>
+    </div>
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    >
+      For the classic board game 
+      <b>
+        RISK
+      </b>
+    </p>
+  </header>
   <main
-    className="sc-dAlyuH hUGliI"
+    className="sc-cPiKLX ekQHBo"
   >
     <form
-      className="sc-gEvEer VgGQY"
+      className="sc-gEvEer hnIOeg"
       onSubmit={[Function]}
     >
-      <label
-        className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
+      <div
+        className="sc-eqUAAy fmiQKr"
       >
         <h2>
           Inputs
         </h2>
-      </label>
+      </div>
       <div
-        className="sc-eqUAAy iqpUKC"
+        className="sc-fqkvVR bJtQQc"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -105,7 +104,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
         <svg
           aria-hidden={true}
-          aria-label="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory."
+          aria-label="Number of attackers..."
           aria-labelledby={null}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           data-mui-internal-clone-element={true}
@@ -124,7 +123,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-dcJsrY hjFsjc bUldRj css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY jVJPGl css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="attackers-input"
           onClick={[Function]}
         >
@@ -143,7 +142,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </div>
       </div>
       <div
-        className="sc-eqUAAy iqpUKC"
+        className="sc-fqkvVR bJtQQc"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -153,7 +152,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
         <svg
           aria-hidden={true}
-          aria-label="Number of defenders. Separate multiple territories with commas, like 2, 6, 19, 3, 5."
+          aria-label="Number of defenders..."
           aria-labelledby={null}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           data-mui-internal-clone-element={true}
@@ -172,7 +171,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR hjFsjc css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-iGgWBj jVJPGl kUynLf css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="defenders-input"
           onClick={[Function]}
         >
@@ -192,7 +191,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </div>
       </div>
       <div
-        className="sc-eqUAAy iqpUKC"
+        className="sc-fqkvVR bJtQQc"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -202,7 +201,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
         <svg
           aria-hidden={true}
-          aria-label="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here."
+          aria-label="Stop when you have this number of attackers left..."
           aria-labelledby={null}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           data-mui-internal-clone-element={true}
@@ -221,7 +220,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-dcJsrY hjFsjc bUldRj css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-gsFSXq jVJPGl hMgEKI css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="stop-at-input"
           onClick={[Function]}
         >
@@ -239,7 +238,9 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </div>
       </div>
-      <div>
+      <div
+        className="sc-kAyceB hyiRUB"
+      >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
           htmlFor="simulations"
@@ -248,7 +249,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
       </div>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium sc-jXbUNg jXRgyX css-sghohy-MuiButtonBase-root-MuiButton-root"
         data-testid="submit-btn"
         disabled={false}
         onBlur={[Function]}

@@ -11,8 +11,7 @@ import styled from "styled-components";
 import FormLabel from "@mui/material/FormLabel";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-// Thanks to this site for the toast help:
-//www.magicbell.com/blog/react-toast-notifications-made-easy
+import { spacing } from "../utils/styles";
 
 type FormProps = {
 	setResults: Function;
@@ -31,9 +30,6 @@ const Form = (props: FormProps) => {
 	const [formValues, setFormValues] = useState<FormValues>({
 		attackerCount: 10,
 		defenderCount: "10",
-		// The number of simulations corresponds to the position on the slider. So the first position is 1 simulations, secondis 10, third is 100, all the way through #6 at 100,000 simulations.
-		// So numSimulations: 5 means that there are 10,000 simulations by default unless the user changes it by adjusting the slider.
-		// This is a little wonky, I'd like to refactor.
 		numSimulations: 5,
 		stopAt: 3,
 	});
@@ -56,20 +52,18 @@ const Form = (props: FormProps) => {
 				e.preventDefault();
 
 				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
-				// Check to make sure defender input is a list of integers
 				if (!formValues.defenderCount.match(defenderValidationRegex)) {
 					toast(
-						"Invalid Defenders input. Please separate multiple defenders with commas, eg 10, 5, 5, 3"
+						"Invalid Defenders input. Please separate multiple defenders with commas, e.g., 10, 5, 5, 3"
 					);
 				} else if (formValues.stopAt >= formValues.attackerCount) {
 					toast("Stop At must be less than Attackers");
 				} else {
-					// Convert user's multiple defender inputs from a string to number[]
 					const userInputs: UserInputs = {
 						...formValues,
-						defenderCount: formValues.defenderCount.split(",").map((item) => {
-							return Number(item);
-						}),
+						defenderCount: formValues.defenderCount
+							.split(",")
+							.map((item) => Number(item)),
 						numSimulations: calculateValue(formValues.numSimulations),
 					};
 
@@ -78,16 +72,15 @@ const Form = (props: FormProps) => {
 				}
 			}}
 		>
-			<FormLabel>
+			<StyledHeader>
 				<h2>Inputs</h2>
-			</FormLabel>
+			</StyledHeader>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
-				<Tooltip title="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory.">
+				<Tooltip title="Number of attackers...">
 					<QuestionMarkIcon />
 				</Tooltip>
-
-				<StyledNumberInput
+				<StyledInput
 					id="attackers"
 					type="number"
 					inputComponent="input"
@@ -96,15 +89,15 @@ const Form = (props: FormProps) => {
 					value={formValues.attackerCount}
 					onChange={handleChange}
 					data-testid="attackers-input"
-				></StyledNumberInput>
+				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="defenders">Defenders:</InputLabel>
-				<Tooltip title="Number of defenders. Separate multiple territories with commas, like 2, 6, 19, 3, 5.">
+				<Tooltip title="Number of defenders...">
 					<QuestionMarkIcon />
 				</Tooltip>
-				<StyledInput
+				<StyledWiderInput
 					id="defenders"
 					type="text"
 					inputProps={{ min: 1, max: 10000 }}
@@ -112,16 +105,15 @@ const Form = (props: FormProps) => {
 					value={formValues.defenderCount}
 					onChange={handleChange}
 					data-testid="defenders-input"
-				></StyledInput>
+				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
-				<Tooltip title="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here.">
+				<Tooltip title="Stop when you have this number of attackers left...">
 					<QuestionMarkIcon />
 				</Tooltip>
-
-				<StyledNumberInput
+				<StyledNarrowerInput
 					id="stop-at"
 					type="number"
 					inputComponent="input"
@@ -130,12 +122,11 @@ const Form = (props: FormProps) => {
 					value={formValues.stopAt}
 					onChange={handleChange}
 					data-testid="stop-at-input"
-				></StyledNumberInput>
+				/>
 			</StyledInputAndLabel>
 
-			<div>
+			<StyledSliderContainer>
 				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-				{/* slider component showing values 1, 10, 100, 1000, 10000 spaced evenly apart on the screen */}
 				<StyledSlider
 					min={1}
 					max={5}
@@ -153,12 +144,12 @@ const Form = (props: FormProps) => {
 					data-testid="numsimulations-input"
 					step={null}
 					valueLabelDisplay="auto"
-				></StyledSlider>
-			</div>
+				/>
+			</StyledSliderContainer>
 
-			<Button type="submit" data-testid="submit-btn" variant="outlined">
+			<StyledButton type="submit" data-testid="submit-btn" variant="contained">
 				Run Simulations
-			</Button>
+			</StyledButton>
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -168,23 +159,30 @@ export default Form;
 
 const StyledForm = styled("form")`
 	border: 1px solid blue;
-	padding: 10px 50px 25px;
+	padding: 10px 50px 10px;
 	text-align: center;
-	background-color: ${({ theme }) => {
-		return theme.customTheming.formAndInputsBGC;
-	}};
+	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	padding: ${spacing.paddingMedium};
+	width: 400px; /* Adjust the width as needed */
 	h2,
 	div,
 	label,
 	span {
-		color: ${({ theme }) => {
-			return theme.customTheming.formTextColor;
-		}};
+		color: ${({ theme }) => theme.customTheming.formTextColor};
 	}
+	border-radius: 10px;
+	margin-bottom: 20px;
+`;
+
+const StyledHeader = styled.div`
+	margin-bottom: 20px;
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	font-size: 1.5rem;
 `;
 
 const StyledInputAndLabel = styled("div")`
-	margin: 15px;
+	margin: 15px 0;
 	display: flex;
 	align-items: center;
 `;
@@ -193,25 +191,42 @@ const StyledInput = styled(Input)`
 	&& {
 		margin-left: 10px;
 		background: white;
-		color: ${({ theme }) => {
-			return theme.customTheming.inputTextColor;
-		}};
+		color: ${({ theme }) => theme.customTheming.inputTextColor};
+		width: 80px;
 	}
 `;
 
-const StyledNumberInput = styled(StyledInput)`
+const StyledWiderInput = styled(StyledInput)`
 	&& {
-		width: 70px;
+		width: 120px; /* Adjust the width as needed */
 	}
+`;
+
+const StyledNarrowerInput = styled(StyledInput)`
+	&& {
+		width: 60px; /* Adjust the width as needed */
+	}
+`;
+
+const StyledSliderContainer = styled.div`
+	margin-top: 20px;
 `;
 
 const StyledSlider = styled(Slider)`
 	&& {
-		width: 350px;
+		width: 100%;
 	}
 `;
 
-// marks and calculateValues are utilities to make the Slider values space evenly
+const StyledButton = styled(Button)`
+	margin-top: 20px;
+	color: white;
+	background-color: ${({ theme }) => theme.customTheming.formTextColor};
+	&:hover {
+		background-color: ${({ theme }) => theme.customTheming.formTextColor};
+	}
+`;
+
 function calculateValue(value: number): any {
 	switch (value) {
 		case 1:
@@ -227,7 +242,6 @@ function calculateValue(value: number): any {
 	}
 }
 
-// Each number in this array maps to a number of simulations in the Slider: 1, 10, 100, 1000, 10000. This feels a little hacky but it's how I got the Slider to work.
 const marks = [1, 2, 3, 4, 5].map((value) => ({
 	value,
 	label: calculateValue(value),

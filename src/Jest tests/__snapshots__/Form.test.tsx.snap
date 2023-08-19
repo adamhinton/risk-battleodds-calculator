@@ -2,18 +2,18 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-aXZVg gmlyls"
+  className="sc-aXZVg cYlnYQ"
   onSubmit={[Function]}
 >
-  <label
-    className="MuiFormLabel-root MuiFormLabel-colorPrimary css-u4tvz2-MuiFormLabel-root"
+  <div
+    className="sc-gEvEer gtmDyV"
   >
     <h2>
       Inputs
     </h2>
-  </label>
+  </div>
   <div
-    className="sc-gEvEer bOBTxw"
+    className="sc-eqUAAy jolgcu"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -23,7 +23,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
     <svg
       aria-hidden={true}
-      aria-label="Number of attackers. Subtract 1 since you have to leave one behind in your territory. With multiple defenders, this takes in to account that you leave behind an attacker in each conquered territory."
+      aria-label="Number of attackers..."
       aria-labelledby={null}
       className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
       data-mui-internal-clone-element={true}
@@ -42,7 +42,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy sc-fqkvVR gcBnKG dlYaOU css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR eiFKlK css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -61,7 +61,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-gEvEer bOBTxw"
+    className="sc-eqUAAy jolgcu"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -71,7 +71,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
     <svg
       aria-hidden={true}
-      aria-label="Number of defenders. Separate multiple territories with commas, like 2, 6, 19, 3, 5."
+      aria-label="Number of defenders..."
       aria-labelledby={null}
       className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
       data-mui-internal-clone-element={true}
@@ -90,7 +90,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy gcBnKG css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-dcJsrY eiFKlK btWwYY css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -110,7 +110,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-gEvEer bOBTxw"
+    className="sc-eqUAAy jolgcu"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -120,7 +120,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
     <svg
       aria-hidden={true}
-      aria-label="Stop when you have this number of attackers left. If you want to keep at least 10 attackers, input 10 here."
+      aria-label="Stop when you have this number of attackers left..."
       aria-labelledby={null}
       className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
       data-mui-internal-clone-element={true}
@@ -139,7 +139,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-eqUAAy sc-fqkvVR gcBnKG dlYaOU css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-iGgWBj eiFKlK dUMtUK css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="stop-at-input"
       onClick={[Function]}
     >
@@ -157,7 +157,9 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </div>
   </div>
-  <div>
+  <div
+    className="sc-gsFSXq iUhdqm"
+  >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="simulations"
@@ -166,7 +168,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
   </div>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium sc-imWYAI krPHNd css-sghohy-MuiButtonBase-root-MuiButton-root"
     data-testid="submit-btn"
     disabled={false}
     onBlur={[Function]}
