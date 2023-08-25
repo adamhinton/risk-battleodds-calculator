@@ -163,7 +163,7 @@ const StyledForm = styled("form")`
 	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	padding: ${spacing.paddingMedium};
-	width: 400px; /* Adjust the width as needed */
+	width: 400px;
 	h2,
 	div,
 	label,
@@ -197,13 +197,13 @@ const StyledInput = styled(Input)`
 
 const StyledWiderInput = styled(StyledInput)`
 	&& {
-		width: 120px; /* Adjust the width as needed */
+		width: 120px;
 	}
 `;
 
 const StyledNarrowerInput = styled(StyledInput)`
 	&& {
-		width: 60px; /* Adjust the width as needed */
+		width: 60px;
 	}
 `;
 
