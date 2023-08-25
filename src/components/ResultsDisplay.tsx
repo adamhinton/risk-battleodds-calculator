@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import styled from "styled-components";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import { colors, typography, spacing } from "../utils/styles";
+import { spacing } from "../utils/styles";
 
 type ResultsDisplayProps = {
 	results: Results;
@@ -22,17 +22,19 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 		<StyledCard data-testid="results-display-section">
 			<CardContent>
 				<StyledHeader>
-					<h2>Results</h2>
+					<h2 data-testid="results-h2">Results</h2>
 					<StyledEmojiIcon />
 				</StyledHeader>
 				<StyledResult>
 					<Typography component="p">
 						Attacker Occupies:{" "}
-						<StyledPercent>{attackerWinPercent.toFixed(1)}%</StyledPercent>
+						<StyledPercent data-testid="results-attacker-occupies">
+							{attackerWinPercent.toFixed(1)}%
+						</StyledPercent>
 					</Typography>
 					<Typography component="p">
 						Average Attackers Left:{" "}
-						<StyledValue>
+						<StyledValue data-testid="results-avg-attackers-left">
 							{results.averageAttackersLeft?.toFixed(1)}
 						</StyledValue>
 					</Typography>
@@ -40,11 +42,13 @@ const ResultsDisplay = (props: ResultsDisplayProps) => {
 				<StyledResult>
 					<Typography component="p">
 						Defender Holds:{" "}
-						<StyledPercent>{defenderWinPercent.toFixed(1)}%</StyledPercent>
+						<StyledPercent data-testid="results-defenderholds">
+							{defenderWinPercent.toFixed(1)}%
+						</StyledPercent>
 					</Typography>
 					<Typography component="p">
 						Average Defenders Left:{" "}
-						<StyledValue>
+						<StyledValue data-testid="results-avg-defenders-left">
 							{results.averageDefendersLeft?.toFixed(1)}
 						</StyledValue>
 					</Typography>
