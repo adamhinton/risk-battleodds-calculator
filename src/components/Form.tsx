@@ -72,7 +72,7 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<StyledHeader>
-				<h2>Inputs</h2>
+				<StyledHeaderText>Inputs</StyledHeaderText>
 			</StyledHeader>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
@@ -175,9 +175,13 @@ const StyledForm = styled("form")`
 `;
 
 const StyledHeader = styled.div`
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	font-size: 1.5rem;
+`;
+
+const StyledHeaderText = styled.h2`
+	margin: 5px;
 `;
 
 const StyledInputAndLabel = styled("div")`
