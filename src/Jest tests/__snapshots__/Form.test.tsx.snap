@@ -44,7 +44,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY jVJPGl css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY jfGUsK css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -92,7 +92,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-iGgWBj jVJPGl hKpVec css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-iGgWBj jfGUsK hKpVec css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -122,7 +122,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
     <svg
       aria-hidden={true}
-      aria-label="Stop when you have this number of attackers left..."
+      aria-label="Stop when you have this many attackers left. If unsure, input 2."
       aria-labelledby={null}
       className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
       data-mui-internal-clone-element={true}
@@ -141,7 +141,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-gsFSXq jVJPGl cUPqRT css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-gsFSXq jfGUsK cUPqRT css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="stop-at-input"
       onClick={[Function]}
     >
@@ -155,7 +155,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
         onChange={[Function]}
         onFocus={[Function]}
         type="number"
-        value={3}
+        value={2}
       />
     </div>
   </div>

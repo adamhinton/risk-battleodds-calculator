@@ -122,7 +122,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB llVJji css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB gQxyul css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="attackers-input"
           onClick={[Function]}
         >
@@ -170,7 +170,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB sc-kpDqfm llVJji egUdOb css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB sc-kpDqfm gQxyul egUdOb css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="defenders-input"
           onClick={[Function]}
         >
@@ -200,7 +200,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
         <svg
           aria-hidden={true}
-          aria-label="Stop when you have this number of attackers left..."
+          aria-label="Stop when you have this many attackers left. If unsure, input 2."
           aria-labelledby={null}
           className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
           data-mui-internal-clone-element={true}
@@ -219,7 +219,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           />
         </svg>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB sc-dAlyuH llVJji jznGfi css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dhKdcB sc-dAlyuH gQxyul jznGfi css-q0jhri-MuiInputBase-root-MuiInput-root"
           data-testid="stop-at-input"
           onClick={[Function]}
         >
@@ -233,7 +233,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
             onChange={[Function]}
             onFocus={[Function]}
             type="number"
-            value={3}
+            value={2}
           />
         </div>
       </div>

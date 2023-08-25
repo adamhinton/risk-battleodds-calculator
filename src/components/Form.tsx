@@ -30,7 +30,7 @@ const Form = (props: FormProps) => {
 		attackerCount: 10,
 		defenderCount: "10",
 		numSimulations: 5,
-		stopAt: 3,
+		stopAt: 2,
 	});
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
@@ -109,7 +109,7 @@ const Form = (props: FormProps) => {
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
-				<Tooltip title="Stop when you have this number of attackers left...">
+				<Tooltip title="Stop when you have this many attackers left. If unsure, input 2.">
 					<QuestionMarkIcon />
 				</Tooltip>
 				<StyledNarrowerInput
@@ -192,6 +192,7 @@ const StyledInputAndLabel = styled("div")`
 
 const StyledInput = styled(Input)`
 	&& {
+		padding-left: 3px;
 		margin-left: 10px;
 		background: white;
 		color: ${({ theme }) => theme.customTheming.inputTextColor};
