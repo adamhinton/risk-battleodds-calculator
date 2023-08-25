@@ -8,7 +8,6 @@ import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
-import FormLabel from "@mui/material/FormLabel";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { spacing } from "../utils/styles";
