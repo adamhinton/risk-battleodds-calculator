@@ -1,13 +1,29 @@
 import { render, screen } from "@testing-library/react";
 import Header from "../components/Header";
 import renderer from "react-test-renderer";
+import { ThemeProvider } from "styled-components";
+
+const mockTheme = {
+	customTheming: {
+		formAndInputsBGC: "your-color-here",
+		formTextColor: "your-color-here",
+	},
+};
 
 test("[1] Renders without errors", () => {
-	render(<Header isDark={true} setIsDark={jest.fn()} />);
+	render(
+		<ThemeProvider theme={mockTheme}>
+			<Header isDark={true} setIsDark={jest.fn()} />
+		</ThemeProvider>
+	);
 });
 
 test("[2] All elements show up as expected", () => {
-	render(<Header isDark={true} setIsDark={jest.fn()} />);
+	render(
+		<ThemeProvider theme={mockTheme}>
+			<Header isDark={true} setIsDark={jest.fn()} />
+		</ThemeProvider>
+	);
 	const title = screen.getByTestId("title");
 	const author = screen.getByTestId("author");
 	const sourceLinks = screen.getByTestId("links");
@@ -19,7 +35,11 @@ test("[2] All elements show up as expected", () => {
 
 test("[3] Matches snapshot from 3.17.23", () => {
 	const tree = renderer
-		.create(<Header isDark={true} setIsDark={jest.fn()} />)
+		.create(
+			<ThemeProvider theme={mockTheme}>
+				<Header isDark={true} setIsDark={jest.fn()} />
+			</ThemeProvider>
+		)
 		.toJSON();
 	expect(tree).toMatchSnapshot();
 });

@@ -41,10 +41,10 @@ test("[2] Displays text of results as expected", () => {
 	const avgDefendersLeft = screen.getByTestId("results-avg-defenders-left");
 
 	expect(h2).toHaveTextContent("Results");
-	expect(attackerOccupies).toHaveTextContent("Attacker Occupies: 47.9%");
-	expect(avgAttackersLeft).toHaveTextContent("Average Attackers Left: 19.0");
-	expect(defenderHolds).toHaveTextContent("Defender Holds: 52.1%");
-	expect(avgDefendersLeft).toHaveTextContent("Average Defenders Left: 28.5");
+	expect(attackerOccupies).toHaveTextContent("47.9%");
+	expect(avgAttackersLeft).toHaveTextContent("19.0");
+	expect(defenderHolds).toHaveTextContent("52.1%");
+	expect(avgDefendersLeft).toHaveTextContent("28.5");
 });
 
 test("[3] Updates when passed new props", () => {
@@ -61,7 +61,7 @@ test("[3] Updates when passed new props", () => {
 	);
 
 	const avgAttackersLeft = screen.getByTestId("results-avg-attackers-left");
-	expect(avgAttackersLeft).toHaveTextContent("Average Attackers Left: 16.0");
+	expect(avgAttackersLeft).toHaveTextContent("16.0");
 	expect(avgAttackersLeft).not.toHaveTextContent(
 		"Average Attackers Left: 19.0"
 	);
