@@ -19,7 +19,7 @@ const Header = (headerProps: HeaderProps) => {
 			<Typography variant="h4" component="h1" data-testid="title">
 				Risk Battleodds Calculator
 			</Typography>
-			<StyledLinkContainer>
+			<StyledLinkContainer data-testid="links">
 				<StyledLink
 					href="https://github.com/adamhinton/risk-battleodds-calculator"
 					target="_blank"
