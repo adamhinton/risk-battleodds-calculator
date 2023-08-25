@@ -2,18 +2,20 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-aXZVg iAJOel"
+  className="sc-aXZVg cdoTnS"
   onSubmit={[Function]}
 >
   <div
-    className="sc-gEvEer gtmDyV"
+    className="sc-gEvEer fJpida"
   >
-    <h2>
+    <h2
+      className="sc-eqUAAy dUZjhb"
+    >
       Inputs
     </h2>
   </div>
   <div
-    className="sc-eqUAAy jolgcu"
+    className="sc-fqkvVR bJtQQc"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -42,7 +44,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR eiFKlK css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY jVJPGl css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="attackers-input"
       onClick={[Function]}
     >
@@ -61,7 +63,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-eqUAAy jolgcu"
+    className="sc-fqkvVR bJtQQc"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -90,7 +92,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-dcJsrY eiFKlK btWwYY css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-iGgWBj jVJPGl hKpVec css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="defenders-input"
       onClick={[Function]}
     >
@@ -110,7 +112,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-eqUAAy jolgcu"
+    className="sc-fqkvVR bJtQQc"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -139,7 +141,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       />
     </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR sc-iGgWBj eiFKlK dUMtUK css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-gsFSXq jVJPGl cUPqRT css-q0jhri-MuiInputBase-root-MuiInput-root"
       data-testid="stop-at-input"
       onClick={[Function]}
     >
@@ -158,7 +160,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-gsFSXq iUhdqm"
+    className="sc-kAyceB hyiRUB"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
@@ -168,7 +170,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </label>
   </div>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium sc-imWYAI krPHNd css-sghohy-MuiButtonBase-root-MuiButton-root"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium sc-jXbUNg jXRgyX css-sghohy-MuiButtonBase-root-MuiButton-root"
     data-testid="submit-btn"
     disabled={false}
     onBlur={[Function]}
