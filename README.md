@@ -5,7 +5,6 @@
 Stretch Goals: \
   -Variable dice sides (based on user input) \
   -Tool tips \
-  -Howto page \
   -Cool images or something
 
 
