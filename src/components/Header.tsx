@@ -1,6 +1,5 @@
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import Toolbar from "@mui/material/Toolbar";
 import Link from "@mui/material/Link";
 import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -20,7 +19,7 @@ const Header = (headerProps: HeaderProps) => {
 			<Typography variant="h4" component="h1" data-testid="title">
 				Risk Battleodds Calculator
 			</Typography>
-			<StyledLinkContainer>
+			<StyledLinkContainer data-testid="links">
 				<StyledLink
 					href="https://github.com/adamhinton/risk-battleodds-calculator"
 					target="_blank"

@@ -8,7 +8,6 @@ import { Button } from "@mui/material";
 import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
-import FormLabel from "@mui/material/FormLabel";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { spacing } from "../utils/styles";
@@ -31,7 +30,7 @@ const Form = (props: FormProps) => {
 		attackerCount: 10,
 		defenderCount: "10",
 		numSimulations: 5,
-		stopAt: 3,
+		stopAt: 2,
 	});
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
@@ -73,7 +72,7 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<StyledHeader>
-				<h2>Inputs</h2>
+				<StyledHeaderText>Inputs</StyledHeaderText>
 			</StyledHeader>
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
@@ -110,7 +109,7 @@ const Form = (props: FormProps) => {
 
 			<StyledInputAndLabel>
 				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
-				<Tooltip title="Stop when you have this number of attackers left...">
+				<Tooltip title="Stop when you have this many attackers left. If unsure, input 2.">
 					<QuestionMarkIcon />
 				</Tooltip>
 				<StyledNarrowerInput
@@ -164,7 +163,7 @@ const StyledForm = styled("form")`
 	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	padding: ${spacing.paddingMedium};
-	width: 400px; /* Adjust the width as needed */
+	width: 400px;
 	h2,
 	div,
 	label,
@@ -176,9 +175,13 @@ const StyledForm = styled("form")`
 `;
 
 const StyledHeader = styled.div`
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	font-size: 1.5rem;
+`;
+
+const StyledHeaderText = styled.h2`
+	margin: 5px;
 `;
 
 const StyledInputAndLabel = styled("div")`
@@ -189,6 +192,7 @@ const StyledInputAndLabel = styled("div")`
 
 const StyledInput = styled(Input)`
 	&& {
+		padding-left: 3px;
 		margin-left: 10px;
 		background: white;
 		color: ${({ theme }) => theme.customTheming.inputTextColor};
@@ -198,13 +202,13 @@ const StyledInput = styled(Input)`
 
 const StyledWiderInput = styled(StyledInput)`
 	&& {
-		width: 120px; /* Adjust the width as needed */
+		width: 120px;
 	}
 `;
 
 const StyledNarrowerInput = styled(StyledInput)`
 	&& {
-		width: 60px; /* Adjust the width as needed */
+		width: 60px;
 	}
 `;
 
