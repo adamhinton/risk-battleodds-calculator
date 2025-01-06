@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import useDarkMode from "./hooks/useDarkMode";
 import { createTheme } from "@mui/material/styles";
+import { colors } from "./utils/styles";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -23,6 +24,7 @@ type CustomTheming = {
 	inputTextColor: string;
 	headerBGC: string;
 	headerTextColor: string;
+	accentColor: string;
 };
 
 declare module "@mui/material/styles" {
@@ -39,12 +41,13 @@ export const darkTheme = createTheme({
 		mode: "dark",
 	},
 	customTheming: {
-		mainBGC: "#2d3c42",
-		headerBGC: "#263238",
-		formAndInputsBGC: "rgb(17, 16, 16)",
-		formTextColor: "#1976d2",
-		inputTextColor: "#1976d2",
-		headerTextColor: "#1976d2",
+		mainBGC: colors.dark.background,
+		headerBGC: colors.dark.header,
+		formAndInputsBGC: colors.dark.form,
+		formTextColor: colors.dark.text,
+		inputTextColor: colors.dark.input,
+		headerTextColor: colors.dark.headerText,
+		accentColor: colors.accent.primary,
 	},
 });
 
@@ -53,15 +56,15 @@ export const lightTheme = createTheme({
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "#e0e0e0",
-		formAndInputsBGC: "#c2f0f0",
-		formTextColor: "black",
-		inputTextColor: "black",
-		headerBGC: "#f5f5f5",
-		headerTextColor: "#333333",
+		mainBGC: colors.light.background,
+		formAndInputsBGC: colors.light.form,
+		formTextColor: colors.light.text,
+		inputTextColor: colors.light.input,
+		headerBGC: colors.light.header,
+		headerTextColor: colors.light.headerText,
+		accentColor: colors.accent.primary,
 	},
 });
-
 function App() {
 	const [results, setResults] = useState<Results | null>(null);
 	const [isDark, setIsDark] = useDarkMode();
@@ -89,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
 			// @ts-ignore
 			return theme.customTheming.mainBGC;
 		}};
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s;
@@ -100,8 +103,11 @@ const StyledApp = styled("div")`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: flex-start;
 	background-color: ${({ theme }) => theme.customTheming.mainBGC};
 	min-height: 100vh;
+	padding: 0px;
+	box-sizing: border-box;
 `;
 
 const StyledMain = styled("main")`
@@ -109,4 +115,6 @@ const StyledMain = styled("main")`
 	align-items: center;
 	margin-top: 20px;
 	flex-direction: column;
+	width: 100%;
+	max-width: 800px;
 `;
