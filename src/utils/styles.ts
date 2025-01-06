@@ -65,13 +65,20 @@ export const typography = {
 		fontWeight: 600,
 	},
 	body: {
-		fontSize: "1rem",
+		fontSize: "0.9rem",
+		fontWeight: 400,
+	},
+	small: {
+		fontSize: "0.8rem",
 		fontWeight: 400,
 	},
 };
 
 export const spacing = {
-	paddingSmall: "10px",
-	paddingMedium: "20px",
-	paddingLarge: "30px",
+	paddingSmall: "8px",
+	paddingMedium: "16px",
+	paddingLarge: "24px",
+	marginSmall: "8px",
+	marginMedium: "16px",
+	marginLarge: "24px",
 };

@@ -10,7 +10,8 @@ import Slider from "@mui/material/Slider";
 import styled from "styled-components";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import { spacing } from "../utils/styles";
+import { spacing, typography } from "../utils/styles";
+import { useTheme } from "@mui/material/styles";
 
 type FormProps = {
 	setResults: Function;
@@ -23,92 +24,117 @@ type FormValues = {
 	stopAt: number;
 };
 
-const Form = (props: FormProps) => {
-	const { setResults } = props;
-
+const Form = (formProps: FormProps) => {
+	const { setResults } = formProps;
 	const [formValues, setFormValues] = useState<FormValues>({
 		attackerCount: 10,
 		defenderCount: "10",
 		numSimulations: 5,
 		stopAt: 2,
 	});
+	const theme = useTheme();
 
-	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
-		const { value } = evt.target;
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = event.target;
+		setFormValues({ ...formValues, [name]: value });
+	};
 
-		setFormValues({
-			...formValues,
-			[evt.target.name]:
-				evt.target.name === "defenderCount"
-					? String(value)
-					: parseFloat(value.toString()),
-		});
-	}
+	const handleSubmit = (event: React.FormEvent) => {
+		event.preventDefault();
+		const { attackerCount, defenderCount, numSimulations, stopAt } = formValues;
+
+		if (!attackerCount || !defenderCount || !numSimulations || !stopAt) {
+			toast.error("Please fill in all fields");
+			return;
+		}
+
+		const parsedDefenderCount = parseInt(defenderCount);
+
+		if (isNaN(parsedDefenderCount)) {
+			toast.error("Please enter a valid number for defenders");
+			return;
+		}
+
+		const userInputs: UserInputs = {
+			attackerCount: attackerCount,
+			defenderCount: [parsedDefenderCount],
+			numSimulations: numSimulations,
+			stopAt: stopAt,
+		};
+
+		const results = generateResults(userInputs);
+		setResults(results);
+	};
+
+	const marks = [
+		{
+			value: 1,
+			label: "100",
+		},
+		{
+			value: 2,
+			label: "1,000",
+		},
+		{
+			value: 3,
+			label: "10,000",
+		},
+		{
+			value: 4,
+			label: "100,000",
+		},
+		{
+			value: 5,
+			label: "1,000,000",
+		},
+	];
+
+	const calculateValue = (value: number) => {
+		return Math.pow(10, value + 1);
+	};
 
 	return (
-		<StyledForm
-			onSubmit={(e) => {
-				e.preventDefault();
-
-				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
-				if (!formValues.defenderCount.match(defenderValidationRegex)) {
-					toast(
-						"Invalid Defenders input. Please separate multiple defenders with commas, e.g., 10, 5, 5, 3"
-					);
-				} else if (formValues.stopAt >= formValues.attackerCount) {
-					toast("Stop At must be less than Attackers");
-				} else {
-					const userInputs: UserInputs = {
-						...formValues,
-						defenderCount: formValues.defenderCount
-							.split(",")
-							.map((item) => Number(item)),
-						numSimulations: calculateValue(formValues.numSimulations),
-					};
-
-					const results: Results = generateResults(userInputs);
-					setResults(results);
-				}
-			}}
-		>
+		<StyledForm onSubmit={handleSubmit} data-testid="form">
 			<StyledHeader>
-				<StyledHeaderText>Inputs</StyledHeaderText>
+				<StyledHeaderText style={{ ...typography.h2 }}>
+					Battle Simulation
+				</StyledHeaderText>
 			</StyledHeader>
 			<StyledInputAndLabel>
-				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
-				<Tooltip title="Number of attackers...">
-					<QuestionMarkIcon />
-				</Tooltip>
+				<InputLabel htmlFor="attacker-count" style={{ ...typography.body }}>
+					Attackers:
+				</InputLabel>
 				<StyledInput
-					id="attackers"
+					id="attacker-count"
 					type="number"
 					inputComponent="input"
-					inputProps={{ min: "1" }}
+					inputProps={{ min: "0" }}
 					name="attackerCount"
 					value={formValues.attackerCount}
 					onChange={handleChange}
-					data-testid="attackers-input"
+					data-testid="attacker-count-input"
 				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
-				<InputLabel htmlFor="defenders">Defenders:</InputLabel>
-				<Tooltip title="Number of defenders...">
-					<QuestionMarkIcon />
-				</Tooltip>
+				<InputLabel htmlFor="defender-count" style={{ ...typography.body }}>
+					Defenders:
+				</InputLabel>
 				<StyledWiderInput
-					id="defenders"
+					id="defender-count"
 					type="text"
-					inputProps={{ min: 1, max: 10000 }}
+					inputComponent="input"
 					name="defenderCount"
 					value={formValues.defenderCount}
 					onChange={handleChange}
-					data-testid="defenders-input"
+					data-testid="defender-count-input"
 				/>
 			</StyledInputAndLabel>
 
 			<StyledInputAndLabel>
-				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
+				<InputLabel htmlFor="stop-at" style={{ ...typography.body }}>
+					Stop At:
+				</InputLabel>
 				<Tooltip title="Stop when you have this many attackers left. If unsure, input 2.">
 					<QuestionMarkIcon />
 				</Tooltip>
@@ -125,7 +151,9 @@ const Form = (props: FormProps) => {
 			</StyledInputAndLabel>
 
 			<StyledSliderContainer>
-				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
+				<InputLabel htmlFor="simulations" style={{ ...typography.body }}>
+					Number of Simulations:
+				</InputLabel>
 				<StyledSlider
 					min={1}
 					max={5}
@@ -157,27 +185,30 @@ const Form = (props: FormProps) => {
 export default Form;
 
 const StyledForm = styled("form")`
-	border: 1px solid blue;
-	padding: 10px 50px 10px;
-	text-align: center;
 	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	padding: ${spacing.paddingMedium};
-	width: 400px;
-	h2,
-	div,
-	label,
-	span {
-		color: ${({ theme }) => theme.customTheming.formTextColor};
-	}
+	width: 100%;
+	max-width: 500px;
 	border-radius: 10px;
 	margin-bottom: 20px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	flex: 1;
+	min-width: 300px;
+
+	@media (max-width: 768px) {
+		padding: ${spacing.paddingSmall};
+		margin-bottom: ${spacing.marginSmall};
+	}
 `;
 
 const StyledHeader = styled.div`
-	margin-bottom: 10px;
+	margin-bottom: ${spacing.marginSmall};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
-	font-size: 1.5rem;
 `;
 
 const StyledHeaderText = styled.h2`
@@ -185,9 +216,17 @@ const StyledHeaderText = styled.h2`
 `;
 
 const StyledInputAndLabel = styled("div")`
-	margin: 15px 0;
+	margin: ${spacing.marginSmall} 0;
 	display: flex;
 	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	box-sizing: border-box;
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;
 
 const StyledInput = styled(Input)`
@@ -197,23 +236,36 @@ const StyledInput = styled(Input)`
 		background: white;
 		color: ${({ theme }) => theme.customTheming.inputTextColor};
 		width: 80px;
+		box-sizing: border-box;
+		@media (max-width: 600px) {
+			margin-left: 0px;
+			margin-top: 5px;
+			width: 100%;
+		}
 	}
 `;
 
 const StyledWiderInput = styled(StyledInput)`
 	&& {
 		width: 120px;
+		@media (max-width: 600px) {
+			width: 100%;
+		}
 	}
 `;
 
 const StyledNarrowerInput = styled(StyledInput)`
 	&& {
 		width: 60px;
+		@media (max-width: 600px) {
+			width: 100%;
+		}
 	}
 `;
 
 const StyledSliderContainer = styled.div`
-	margin-top: 20px;
+	margin-top: ${spacing.marginMedium};
+	width: 100%;
 `;
 
 const StyledSlider = styled(Slider)`
@@ -223,30 +275,11 @@ const StyledSlider = styled(Slider)`
 `;
 
 const StyledButton = styled(Button)`
-	margin-top: 20px;
+	margin-top: ${spacing.marginMedium};
 	color: white;
-	background-color: ${({ theme }) => theme.customTheming.formTextColor};
+	background-color: ${({ theme }) => theme.customTheming.accentColor};
 	&:hover {
-		background-color: ${({ theme }) => theme.customTheming.formTextColor};
+		background-color: ${({ theme }) => theme.customTheming.accentColor};
+		opacity: 0.8;
 	}
 `;
-
-function calculateValue(value: number): any {
-	switch (value) {
-		case 1:
-			return 1;
-		case 2:
-			return 10;
-		case 3:
-			return 100;
-		case 4:
-			return 1000;
-		case 5:
-			return 10000;
-	}
-}
-
-const marks = [1, 2, 3, 4, 5].map((value) => ({
-	value,
-	label: calculateValue(value),
-}));

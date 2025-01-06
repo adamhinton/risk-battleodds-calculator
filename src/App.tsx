@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import useDarkMode from "./hooks/useDarkMode";
 import { createTheme } from "@mui/material/styles";
-import { colors } from "./utils/styles";
+import { colors, spacing } from "./utils/styles";
 
 // PLAN
 // COMPONENT STRUCTURE:
@@ -112,9 +112,17 @@ const StyledApp = styled("div")`
 
 const StyledMain = styled("main")`
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	margin-top: 20px;
 	flex-direction: column;
 	width: 100%;
 	max-width: 800px;
+	gap: 20px;
+	padding: 0 ${spacing.paddingSmall};
+	box-sizing: border-box;
+	@media (min-width: 768px) {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
 `;
