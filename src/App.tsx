@@ -42,9 +42,9 @@ export const darkTheme = createTheme({
 		mainBGC: "#2d3c42",
 		headerBGC: "#263238",
 		formAndInputsBGC: "rgb(17, 16, 16)",
-		formTextColor: "#1976d2", // Vibrant cyan color
-		inputTextColor: "#1976d2", // Vibrant cyan color
-		headerTextColor: "#1976d2", // Vibrant cyan color for Header text
+		formTextColor: "#1976d2",
+		inputTextColor: "#1976d2",
+		headerTextColor: "#1976d2",
 	},
 });
 
@@ -53,12 +53,12 @@ export const lightTheme = createTheme({
 		mode: "light",
 	},
 	customTheming: {
-		mainBGC: "#e0e0e0", // Slightly darker background color
-		formAndInputsBGC: "#c2f0f0", // Adjusted background color for form and inputs
+		mainBGC: "#e0e0e0",
+		formAndInputsBGC: "#c2f0f0",
 		formTextColor: "black",
 		inputTextColor: "black",
 		headerBGC: "#f5f5f5",
-		headerTextColor: "#333333", // Dark gray color for Header text in light mode
+		headerTextColor: "#333333",
 	},
 });
 
