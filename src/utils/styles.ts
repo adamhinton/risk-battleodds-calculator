@@ -81,4 +81,5 @@ export const spacing = {
 	marginSmall: "8px",
 	marginMedium: "16px",
 	marginLarge: "24px",
+	borderRadius: "8px",
 };

@@ -3,10 +3,14 @@ import generateResults, { Results } from "../utils/generateResults";
 import { UserInputs } from "../utils/generateResults";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Input } from "@mui/material";
-import { Button } from "@mui/material";
-import { InputLabel } from "@mui/material";
-import Slider from "@mui/material/Slider";
+import {
+	Button,
+	Input,
+	InputLabel,
+	Slider,
+	TextField,
+	Typography,
+} from "@mui/material";
 import styled from "styled-components";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
@@ -37,6 +41,13 @@ const Form = (formProps: FormProps) => {
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target;
 		setFormValues({ ...formValues, [name]: value });
+	};
+
+	const handleSliderChange = (event: Event, value: number | number[]) => {
+		setFormValues({
+			...formValues,
+			numSimulations: value as number,
+		});
 	};
 
 	const handleSubmit = (event: React.FormEvent) => {
@@ -96,65 +107,59 @@ const Form = (formProps: FormProps) => {
 	return (
 		<StyledForm onSubmit={handleSubmit} data-testid="form">
 			<StyledHeader>
-				<StyledHeaderText style={{ ...typography.h2 }}>
+				<Typography variant="h2" style={{ ...typography.h2 }}>
 					Battle Simulation
-				</StyledHeaderText>
+				</Typography>
 			</StyledHeader>
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="attacker-count" style={{ ...typography.body }}>
-					Attackers:
-				</InputLabel>
-				<StyledInput
-					id="attacker-count"
+
+			<StyledInputsContainer>
+				<StyledTextField
+					label="Attackers"
 					type="number"
-					inputComponent="input"
 					inputProps={{ min: "0" }}
 					name="attackerCount"
 					value={formValues.attackerCount}
 					onChange={handleChange}
 					data-testid="attacker-count-input"
+					variant="outlined"
+					fullWidth
 				/>
-			</StyledInputAndLabel>
-
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="defender-count" style={{ ...typography.body }}>
-					Defenders:
-				</InputLabel>
-				<StyledWiderInput
-					id="defender-count"
+				<StyledTextField
+					label="Defenders"
 					type="text"
-					inputComponent="input"
 					name="defenderCount"
 					value={formValues.defenderCount}
 					onChange={handleChange}
 					data-testid="defender-count-input"
+					variant="outlined"
+					fullWidth
 				/>
-			</StyledInputAndLabel>
-
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="stop-at" style={{ ...typography.body }}>
-					Stop At:
-				</InputLabel>
-				<Tooltip title="Stop when you have this many attackers left. If unsure, input 2.">
-					<QuestionMarkIcon />
-				</Tooltip>
-				<StyledNarrowerInput
-					id="stop-at"
-					type="number"
-					inputComponent="input"
-					inputProps={{ min: "0" }}
-					name="stopAt"
-					value={formValues.stopAt}
-					onChange={handleChange}
-					data-testid="stop-at-input"
-				/>
-			</StyledInputAndLabel>
+				<StyledHorizontalContainer>
+					<StyledTextField
+						label="Stop At"
+						type="number"
+						inputProps={{ min: "0" }}
+						name="stopAt"
+						value={formValues.stopAt}
+						onChange={handleChange}
+						data-testid="stop-at-input"
+						variant="outlined"
+					/>
+					<Tooltip
+						title="Stop when you have this many attackers left. If unsure, input 2."
+						placement="right"
+					>
+						<QuestionMarkIcon />
+					</Tooltip>
+				</StyledHorizontalContainer>
+			</StyledInputsContainer>
 
 			<StyledSliderContainer>
-				<InputLabel htmlFor="simulations" style={{ ...typography.body }}>
+				<Typography id="simulations" style={{ ...typography.body }}>
 					Number of Simulations:
-				</InputLabel>
+				</Typography>
 				<StyledSlider
+					aria-labelledby="simulations"
 					min={1}
 					max={5}
 					name="numSimulations"
@@ -162,19 +167,19 @@ const Form = (formProps: FormProps) => {
 					defaultValue={5}
 					scale={calculateValue}
 					value={formValues.numSimulations}
-					onChange={(event, value) => {
-						setFormValues({
-							...formValues,
-							numSimulations: value as number,
-						});
-					}}
+					onChange={handleSliderChange}
 					data-testid="numsimulations-input"
 					step={null}
 					valueLabelDisplay="auto"
 				/>
 			</StyledSliderContainer>
 
-			<StyledButton type="submit" data-testid="submit-btn" variant="contained">
+			<StyledButton
+				type="submit"
+				data-testid="submit-btn"
+				variant="contained"
+				fullWidth
+			>
 				Run Simulations
 			</StyledButton>
 			<ToastContainer />
@@ -211,56 +216,27 @@ const StyledHeader = styled.div`
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 `;
 
-const StyledHeaderText = styled.h2`
-	margin: 5px;
-`;
-
-const StyledInputAndLabel = styled("div")`
-	margin: ${spacing.marginSmall} 0;
+const StyledInputsContainer = styled.div`
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	gap: ${spacing.marginSmall};
 	width: 100%;
-	justify-content: space-between;
-	box-sizing: border-box;
-
-	@media (max-width: 600px) {
-		flex-direction: column;
-		align-items: flex-start;
-	}
+	margin-bottom: ${spacing.marginSmall};
 `;
 
-const StyledInput = styled(Input)`
+const StyledTextField = styled(TextField)`
 	&& {
-		padding-left: 3px;
-		margin-left: 10px;
 		background: white;
 		color: ${({ theme }) => theme.customTheming.inputTextColor};
-		width: 80px;
-		box-sizing: border-box;
-		@media (max-width: 600px) {
-			margin-left: 0px;
-			margin-top: 5px;
-			width: 100%;
-		}
+		margin: 0;
+		padding: 0;
 	}
 `;
 
-const StyledWiderInput = styled(StyledInput)`
-	&& {
-		width: 120px;
-		@media (max-width: 600px) {
-			width: 100%;
-		}
-	}
-`;
-
-const StyledNarrowerInput = styled(StyledInput)`
-	&& {
-		width: 60px;
-		@media (max-width: 600px) {
-			width: 100%;
-		}
-	}
+const StyledHorizontalContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const StyledSliderContainer = styled.div`
