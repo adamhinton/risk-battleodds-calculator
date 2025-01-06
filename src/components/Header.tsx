@@ -4,7 +4,8 @@ import Link from "@mui/material/Link";
 import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { spacing } from "../utils/styles";
+import { spacing, typography } from "../utils/styles";
+import { useTheme } from "@mui/material/styles";
 
 type HeaderProps = {
 	isDark: boolean;
@@ -13,10 +14,16 @@ type HeaderProps = {
 
 const Header = (headerProps: HeaderProps) => {
 	const { isDark, setIsDark } = headerProps;
+	const theme = useTheme();
 
 	return (
 		<StyledAppBar position="static">
-			<Typography variant="h4" component="h1" data-testid="title">
+			<Typography
+				variant="h4"
+				component="h1"
+				data-testid="title"
+				style={{ ...typography.h4 }}
+			>
 				Risk Battleodds Calculator
 			</Typography>
 			<StyledLinkContainer data-testid="links">
@@ -36,11 +43,16 @@ const Header = (headerProps: HeaderProps) => {
 					Risk Explained
 				</StyledLink>
 			</StyledLinkContainer>
-			<Typography>
+			<Typography style={{ fontSize: "0.8rem" }}>
 				For the classic board game <b>RISK</b>
 			</Typography>
 			<StyledAuthorAndDarkModeBtn>
-				<Typography variant="h6" component="h2" data-testid="author">
+				<Typography
+					variant="h6"
+					component="h2"
+					data-testid="author"
+					style={{ ...typography.h6 }}
+				>
 					Author: Adam Hinton
 				</Typography>
 				{DarkModeToggleButton(isDark, setIsDark)}
@@ -52,17 +64,24 @@ const Header = (headerProps: HeaderProps) => {
 export default Header;
 const StyledAppBar = styled(AppBar)`
 	&& {
-		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
-		color: ${({ theme }) => theme.customTheming.formTextColor};
-		padding: ${spacing.paddingMedium};
-		width: 100%; /* Adjust the width as needed */
+		background: ${({ theme }) => theme.customTheming.headerBGC};
+		color: ${({ theme }) => theme.customTheming.headerTextColor};
+		padding: ${spacing.paddingSmall};
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-		transition: background-color 0.3s, color 0.3s;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+		transition: background 0.3s, color 0.3s;
 		top: 0;
 		z-index: 100;
+		position: sticky;
+
+		@media (max-width: 950px) {
+			flex-direction: column;
+			align-items: center;
+			padding: ${spacing.paddingSmall};
+		}
 	}
 `;
 
@@ -71,16 +90,19 @@ const StyledLinkContainer = styled("div")`
 	display: flex;
 	gap: 20px;
 	@media (max-width: 950px) {
-		margin-top: 15px;
+		margin-top: 10px;
+		margin-right: 0px;
+		margin-bottom: 5px;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
-	margin-bottom: 10px;
 `;
 
 const StyledAuthorAndDarkModeBtn = styled("div")`
 	display: flex;
 	align-items: center;
 	gap: 20px;
-	margin-top: 15px;
+	margin-top: 10px;
 	@media (max-width: 950px) {
 		margin-top: 5px;
 	}
@@ -88,11 +110,14 @@ const StyledAuthorAndDarkModeBtn = styled("div")`
 
 const StyledLink = styled(Link)`
 	&& {
-		color: ${({ theme }) => theme.customTheming.formTextColor};
-		text-decoration: underline;
+		color: ${({ theme }) => theme.customTheming.headerTextColor};
+		text-decoration: none;
 		transition: color 0.3s;
+		border-bottom: 1px solid transparent;
+		font-size: 0.9rem;
 		&:hover {
-			color: #1976d2;
+			color: ${({ theme }) => theme.customTheming.accentColor};
+			border-bottom: 1px solid ${({ theme }) => theme.customTheming.accentColor};
 		}
 	}
 `;
@@ -105,6 +130,7 @@ function DarkModeToggleButton(isDark: boolean, setIsDark: Function) {
 			onClick={() => {
 				setIsDark(!isDark);
 			}}
+			style={{ cursor: "pointer" }}
 		/>
 	);
 }
