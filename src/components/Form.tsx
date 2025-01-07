@@ -100,7 +100,13 @@ const Form = (props: FormProps) => {
 			</StyledInputGroup>
 
 			<StyledInputGroup>
-				<InputLabel htmlFor="stop-at">Stop At</InputLabel>
+				<InputLabel htmlFor="stop-at">
+					Stop At
+					<Tooltip title="Stop at this number of attackers left">
+						<QuestionMarkIcon />
+					</Tooltip>
+				</InputLabel>
+
 				<StyledInput
 					id="stop-at"
 					type="number"
