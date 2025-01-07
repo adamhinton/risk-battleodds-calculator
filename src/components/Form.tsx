@@ -3,7 +3,7 @@ import generateResults, { Results } from "../utils/generateResults";
 import { UserInputs } from "../utils/generateResults";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Input, InputLabel } from "@mui/material";
+import { Input, InputLabel, Checkbox, FormControlLabel } from "@mui/material";
 import { Button } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
@@ -31,6 +31,9 @@ const Form = (props: FormProps) => {
 		numSimulations: 10_000,
 		stopAt: 3,
 	});
+
+	const [isCollapsed, setIsCollapsed] = useState(false);
+	const [shouldCollapse, setShouldCollapse] = useState(true);
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
 		const { value } = evt.target;
@@ -65,6 +68,10 @@ const Form = (props: FormProps) => {
 
 					const results: Results = generateResults(userInputs);
 					setResults(results);
+
+					if (shouldCollapse) {
+						setIsCollapsed(true);
+					}
 				}
 			}}
 		>
@@ -72,71 +79,95 @@ const Form = (props: FormProps) => {
 				<h2>Battle Odds</h2>
 			</StyledHeader>
 
-			<StyledInputGroup>
-				<InputLabel htmlFor="attackers">Attackers</InputLabel>
-				<StyledInput
-					id="attackers"
-					type="number"
-					name="attackerCount"
-					value={formValues.attackerCount}
-					onChange={handleChange}
-				/>
-			</StyledInputGroup>
+			{!isCollapsed ? (
+				<>
+					<StyledInputGroup>
+						<InputLabel htmlFor="attackers">Attackers</InputLabel>
+						<StyledInput
+							id="attackers"
+							type="number"
+							name="attackerCount"
+							value={formValues.attackerCount}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
 
-			<StyledInputGroup>
-				<InputLabel htmlFor="defenders">
-					Defenders
-					<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
-						<QuestionMarkIcon />
-					</Tooltip>
-				</InputLabel>
-				<StyledInput
-					id="defenders"
-					type="text"
-					name="defenderCount"
-					value={formValues.defenderCount}
-					onChange={handleChange}
-				/>
-			</StyledInputGroup>
+					<StyledInputGroup>
+						<InputLabel htmlFor="defenders">
+							Defenders
+							<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
+						<StyledInput
+							id="defenders"
+							type="text"
+							name="defenderCount"
+							value={formValues.defenderCount}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
 
-			<StyledInputGroup>
-				<InputLabel htmlFor="stop-at">
-					Stop At
-					<Tooltip title="Stop at this number of attackers left">
-						<QuestionMarkIcon />
-					</Tooltip>
-				</InputLabel>
+					<StyledInputGroup>
+						<InputLabel htmlFor="stop-at">
+							Stop At
+							<Tooltip title="Stop at this number of attackers left">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
 
-				<StyledInput
-					id="stop-at"
-					type="number"
-					name="stopAt"
-					value={formValues.stopAt}
-					onChange={handleChange}
-				/>
-			</StyledInputGroup>
+						<StyledInput
+							id="stop-at"
+							type="number"
+							name="stopAt"
+							value={formValues.stopAt}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
 
-			<StyledSliderGroup>
-				<InputLabel htmlFor="simulations">
-					Simulations
-					<Tooltip title="Number of simulations to run (max 10k)">
-						<QuestionMarkIcon />
-					</Tooltip>
-				</InputLabel>
-				<StyledSlider
-					min={1}
-					max={10000}
-					name="numSimulations"
-					value={formValues.numSimulations}
-					onChange={(event, value) =>
-						setFormValues({ ...formValues, numSimulations: value as number })
-					}
-					step={100}
-					valueLabelDisplay="auto"
-				/>
-			</StyledSliderGroup>
+					<StyledSliderGroup>
+						<InputLabel htmlFor="simulations">
+							Simulations
+							<Tooltip title="Number of simulations to run (max 10k)">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
+						<StyledSlider
+							min={1}
+							max={10000}
+							name="numSimulations"
+							value={formValues.numSimulations}
+							onChange={(event, value) =>
+								setFormValues({
+									...formValues,
+									numSimulations: value as number,
+								})
+							}
+							step={100}
+							valueLabelDisplay="auto"
+						/>
+					</StyledSliderGroup>
 
-			<StyledButton type="submit">Run Simulations</StyledButton>
+					<StyledFormControlLabel
+						control={
+							<Checkbox
+								checked={shouldCollapse}
+								onChange={() => setShouldCollapse((prev) => !prev)}
+								color="primary"
+							/>
+						}
+						label="Hide form after running simulations"
+					/>
+
+					<StyledButton type="submit">Run Simulations</StyledButton>
+				</>
+			) : (
+				<CollapsedForm>
+					<StyledButton onClick={() => setIsCollapsed(false)}>
+						Expand Form
+					</StyledButton>
+				</CollapsedForm>
+			)}
 
 			<ToastContainer />
 		</StyledForm>
@@ -188,10 +219,7 @@ const StyledInput = styled(Input)`
 	font-size: 0.875rem;
 	padding: 6px 8px;
 	border-radius: 8px;
-	background-color: ${({ theme }) => {
-		console.log("theme.customTheming:", theme.customTheming);
-		return theme.customTheming.inputBGC;
-	}};
+	background-color: ${({ theme }) => theme.customTheming.inputBGC};
 	color: ${({ theme }) => theme.customTheming.inputTextColor + "!important"};
 	border: 1px solid ${({ theme }) => theme.customTheming.accentColor};
 	transition: border-color 0.2s ease;
@@ -236,4 +264,21 @@ const StyledButton = styled(Button)`
 		background-color: ${({ theme }) => theme.customTheming.accentColor};
 		transform: scale(1.05);
 	}
+`;
+
+const StyledFormControlLabel = styled(FormControlLabel)`
+	width: 100%;
+	margin-top: 12px;
+`;
+
+const CollapsedForm = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: ${spacing.paddingSmall};
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	border-radius: ${spacing.borderRadius};
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
