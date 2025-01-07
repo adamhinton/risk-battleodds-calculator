@@ -1,32 +1,89 @@
-export const colors = {
-	primary: "#1976d2", // Vibrant cyan color
-	background: {
-		light: "#e0e0e0", // Slightly darker background color
-		dark: "#2d3c42",
+export type Colors = {
+	primary: string;
+	accent: {
+		primary: string;
+		secondary: string;
+	};
+	dark: {
+		background: string;
+		header: string;
+		form: string;
+		inputBGC: string;
+		text: string;
+		input: string;
+		headerText: string;
+	};
+	light: {
+		background: string;
+		header: string;
+		form: string;
+		inputBGC: string;
+		text: string;
+		input: string;
+		headerText: string;
+	};
+};
+
+export const colors: Colors = {
+	primary: "#1976d2",
+	accent: {
+		primary: "#64b5f6",
+		secondary: "#4dd0e1",
 	},
-	headerBackground: {
-		light: "#f5f5f5",
-		dark: "#263238",
+	dark: {
+		background: "#1e272e",
+		header: "#263238",
+		form: "#2d3c42",
+		inputBGC: "121212",
+		text: "#ffffff",
+		input: "#ffffff",
+		headerText: "#ffffff",
 	},
-	cardBackground: {
-		light: "#c2f0f0", // Adjusted background color for form and inputs
-		dark: "#2d3c42", // Dark background for dark mode
+	light: {
+		background: "#f0f0f0",
+		header: "#e0e0e0",
+		form: "#ffffff",
+		inputBGC: "ddd",
+		text: "#333333",
+		input: "#333333",
+		headerText: "#333333",
 	},
-	text: {
-		light: "black",
-		dark: "white",
-	},
-	// Add more color variables here...
 };
 
 export const typography = {
-	fontFamily: "'Open Sans', sans-serif",
-	// Add font sizes, weights, and other typography styles...
+	fontFamily: "'Roboto', sans-serif",
+	h1: {
+		fontSize: "2rem",
+		fontWeight: 700,
+	},
+	h2: {
+		fontSize: "1.5rem",
+		fontWeight: 600,
+	},
+	h4: {
+		fontSize: "1.2rem",
+		fontWeight: 600,
+	},
+	h6: {
+		fontSize: "1rem",
+		fontWeight: 600,
+	},
+	body: {
+		fontSize: "0.9rem",
+		fontWeight: 400,
+	},
+	small: {
+		fontSize: "0.8rem",
+		fontWeight: 400,
+	},
 };
 
 export const spacing = {
-	paddingSmall: "10px",
+	paddingSmall: "12px",
 	paddingMedium: "20px",
-	paddingLarge: "30px",
-	// Add spacing variables here...
+	paddingLarge: "24px",
+	marginSmall: "8px",
+	marginMedium: "16px",
+	marginLarge: "24px",
+	borderRadius: "10px",
 };

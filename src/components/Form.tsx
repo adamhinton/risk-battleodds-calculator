@@ -3,9 +3,8 @@ import generateResults, { Results } from "../utils/generateResults";
 import { UserInputs } from "../utils/generateResults";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Input } from "@mui/material";
+import { Input, InputLabel, Checkbox, FormControlLabel } from "@mui/material";
 import { Button } from "@mui/material";
-import { InputLabel } from "@mui/material";
 import Slider from "@mui/material/Slider";
 import styled from "styled-components";
 import Tooltip from "@mui/material/Tooltip";
@@ -29,13 +28,15 @@ const Form = (props: FormProps) => {
 	const [formValues, setFormValues] = useState<FormValues>({
 		attackerCount: 10,
 		defenderCount: "10",
-		numSimulations: 5,
-		stopAt: 2,
+		numSimulations: 10_000,
+		stopAt: 3,
 	});
+
+	const [isCollapsed, setIsCollapsed] = useState(false);
+	const [shouldCollapse, setShouldCollapse] = useState(true);
 
 	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
 		const { value } = evt.target;
-
 		setFormValues({
 			...formValues,
 			[evt.target.name]:
@@ -49,11 +50,10 @@ const Form = (props: FormProps) => {
 		<StyledForm
 			onSubmit={(e) => {
 				e.preventDefault();
-
 				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
 				if (!formValues.defenderCount.match(defenderValidationRegex)) {
 					toast(
-						"Invalid Defenders input. Please separate multiple defenders with commas, e.g., 10, 5, 5, 3"
+						"Invalid Defenders input. Separate with commas (e.g., 10, 5, 5, 3)"
 					);
 				} else if (formValues.stopAt >= formValues.attackerCount) {
 					toast("Stop At must be less than Attackers");
@@ -63,92 +63,112 @@ const Form = (props: FormProps) => {
 						defenderCount: formValues.defenderCount
 							.split(",")
 							.map((item) => Number(item)),
-						numSimulations: calculateValue(formValues.numSimulations),
+						numSimulations: formValues.numSimulations,
 					};
 
 					const results: Results = generateResults(userInputs);
 					setResults(results);
+
+					if (shouldCollapse) {
+						setIsCollapsed(true);
+					}
 				}
 			}}
 		>
 			<StyledHeader>
-				<StyledHeaderText>Inputs</StyledHeaderText>
+				<h2>Battle Odds</h2>
 			</StyledHeader>
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="attackers">Attackers:</InputLabel>
-				<Tooltip title="Number of attackers...">
-					<QuestionMarkIcon />
-				</Tooltip>
-				<StyledInput
-					id="attackers"
-					type="number"
-					inputComponent="input"
-					inputProps={{ min: "1" }}
-					name="attackerCount"
-					value={formValues.attackerCount}
-					onChange={handleChange}
-					data-testid="attackers-input"
-				/>
-			</StyledInputAndLabel>
 
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="defenders">Defenders:</InputLabel>
-				<Tooltip title="Number of defenders...">
-					<QuestionMarkIcon />
-				</Tooltip>
-				<StyledWiderInput
-					id="defenders"
-					type="text"
-					inputProps={{ min: 1, max: 10000 }}
-					name="defenderCount"
-					value={formValues.defenderCount}
-					onChange={handleChange}
-					data-testid="defenders-input"
-				/>
-			</StyledInputAndLabel>
+			{!isCollapsed ? (
+				<>
+					<StyledInputGroup>
+						<InputLabel htmlFor="attackers">Attackers</InputLabel>
+						<StyledInput
+							id="attackers"
+							type="number"
+							name="attackerCount"
+							value={formValues.attackerCount}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
 
-			<StyledInputAndLabel>
-				<InputLabel htmlFor="stop-at">Stop At:</InputLabel>
-				<Tooltip title="Stop when you have this many attackers left. If unsure, input 2.">
-					<QuestionMarkIcon />
-				</Tooltip>
-				<StyledNarrowerInput
-					id="stop-at"
-					type="number"
-					inputComponent="input"
-					inputProps={{ min: "0" }}
-					name="stopAt"
-					value={formValues.stopAt}
-					onChange={handleChange}
-					data-testid="stop-at-input"
-				/>
-			</StyledInputAndLabel>
+					<StyledInputGroup>
+						<InputLabel htmlFor="defenders">
+							Defenders
+							<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
+						<StyledInput
+							id="defenders"
+							type="text"
+							name="defenderCount"
+							value={formValues.defenderCount}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
 
-			<StyledSliderContainer>
-				<InputLabel htmlFor="simulations">Number of Simulations:</InputLabel>
-				<StyledSlider
-					min={1}
-					max={5}
-					name="numSimulations"
-					marks={marks}
-					defaultValue={5}
-					scale={calculateValue}
-					value={formValues.numSimulations}
-					onChange={(event, value) => {
-						setFormValues({
-							...formValues,
-							numSimulations: value as number,
-						});
-					}}
-					data-testid="numsimulations-input"
-					step={null}
-					valueLabelDisplay="auto"
-				/>
-			</StyledSliderContainer>
+					<StyledInputGroup>
+						<InputLabel htmlFor="stop-at">
+							Stop At
+							<Tooltip title="Stop at this number of attackers left">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
 
-			<StyledButton type="submit" data-testid="submit-btn" variant="contained">
-				Run Simulations
-			</StyledButton>
+						<StyledInput
+							id="stop-at"
+							type="number"
+							name="stopAt"
+							value={formValues.stopAt}
+							onChange={handleChange}
+						/>
+					</StyledInputGroup>
+
+					<StyledSliderGroup>
+						<InputLabel htmlFor="simulations">
+							Simulations
+							<Tooltip title="Number of simulations to run (max 10k)">
+								<QuestionMarkIcon />
+							</Tooltip>
+						</InputLabel>
+						<StyledSlider
+							min={1}
+							max={10000}
+							name="numSimulations"
+							value={formValues.numSimulations}
+							onChange={(event, value) =>
+								setFormValues({
+									...formValues,
+									numSimulations: value as number,
+								})
+							}
+							step={100}
+							valueLabelDisplay="auto"
+						/>
+					</StyledSliderGroup>
+
+					<StyledFormControlLabel
+						control={
+							<Checkbox
+								checked={shouldCollapse}
+								onChange={() => setShouldCollapse((prev) => !prev)}
+								color="primary"
+							/>
+						}
+						label="Hide form after running simulations"
+					/>
+
+					<StyledButton type="submit">Run Simulations</StyledButton>
+				</>
+			) : (
+				<CollapsedForm>
+					<StyledButton onClick={() => setIsCollapsed(false)}>
+						Expand Form
+					</StyledButton>
+				</CollapsedForm>
+			)}
+
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -157,96 +177,108 @@ const Form = (props: FormProps) => {
 export default Form;
 
 const StyledForm = styled("form")`
-	border: 1px solid blue;
-	padding: 10px 50px 10px;
-	text-align: center;
-	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
-	padding: ${spacing.paddingMedium};
-	width: 400px;
-	h2,
-	div,
-	label,
-	span {
-		color: ${({ theme }) => theme.customTheming.formTextColor};
-	}
-	border-radius: 10px;
-	margin-bottom: 20px;
+	width: 100%;
+	max-width: 400px;
+	padding: ${spacing.paddingSmall};
+	border-radius: ${spacing.borderRadius};
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	gap: 12px;
 `;
 
 const StyledHeader = styled.div`
-	margin-bottom: 10px;
+	font-size: 1.25rem;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
-	font-size: 1.5rem;
+	text-align: center;
 `;
 
-const StyledHeaderText = styled.h2`
-	margin: 5px;
-`;
-
-const StyledInputAndLabel = styled("div")`
-	margin: 15px 0;
+const StyledInputGroup = styled.div`
+	width: 100%;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-start;
+	label {
+		font-size: 0.875rem;
+		color: ${({ theme }) => theme.customTheming.formTextColor};
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+	}
+	> div {
+		margin-top: 6px;
+	}
 `;
 
 const StyledInput = styled(Input)`
-	&& {
-		padding-left: 3px;
-		margin-left: 10px;
-		background: white;
-		color: ${({ theme }) => theme.customTheming.inputTextColor};
-		width: 80px;
+	width: 100%;
+	font-size: 0.875rem;
+	padding: 6px 8px;
+	border-radius: 8px;
+	background-color: ${({ theme }) => theme.customTheming.inputBGC};
+	color: ${({ theme }) => theme.customTheming.inputTextColor + "!important"};
+	border: 1px solid ${({ theme }) => theme.customTheming.accentColor};
+	transition: border-color 0.2s ease;
+	&:focus {
+		border-color: ${({ theme }) => theme.customTheming.accentColor};
 	}
 `;
 
-const StyledWiderInput = styled(StyledInput)`
-	&& {
-		width: 120px;
+const StyledSliderGroup = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	label {
+		font-size: 0.875rem;
+		color: ${({ theme }) => theme.customTheming.formTextColor};
+		font-weight: bold;
+		display: flex;
+		align-items: center;
 	}
-`;
-
-const StyledNarrowerInput = styled(StyledInput)`
-	&& {
-		width: 60px;
+	> div {
+		margin-top: 6px;
 	}
-`;
-
-const StyledSliderContainer = styled.div`
-	margin-top: 20px;
 `;
 
 const StyledSlider = styled(Slider)`
 	&& {
 		width: 100%;
+		color: ${({ theme }) => theme.customTheming.accentColor};
 	}
 `;
 
 const StyledButton = styled(Button)`
-	margin-top: 20px;
-	color: white;
-	background-color: ${({ theme }) => theme.customTheming.formTextColor};
+	width: 100%;
+	background-color: ${({ theme }) => theme.customTheming.accentColor};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	padding: 8px 16px;
+	font-size: 0.875rem;
+	border-radius: 8px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
 	&:hover {
-		background-color: ${({ theme }) => theme.customTheming.formTextColor};
+		background-color: ${({ theme }) => theme.customTheming.accentColor};
+		transform: scale(1.05);
 	}
 `;
 
-function calculateValue(value: number): any {
-	switch (value) {
-		case 1:
-			return 1;
-		case 2:
-			return 10;
-		case 3:
-			return 100;
-		case 4:
-			return 1000;
-		case 5:
-			return 10000;
-	}
-}
+const StyledFormControlLabel = styled(FormControlLabel)`
+	width: 100%;
+	margin-top: 12px;
+`;
 
-const marks = [1, 2, 3, 4, 5].map((value) => ({
-	value,
-	label: calculateValue(value),
-}));
+const CollapsedForm = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: ${spacing.paddingSmall};
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	border-radius: ${spacing.borderRadius};
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;

@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 
 const mockTheme = {
 	customTheming: {
-		formAndInputsBGC: "your-color-here",
+		formBGC: "your-color-here",
 		formTextColor: "your-color-here",
 	},
 };

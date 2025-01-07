@@ -1,103 +1,121 @@
-import { Results } from "../utils/generateResults";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { Typography } from "@mui/material";
 import styled from "styled-components";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import { spacing } from "../utils/styles";
+import { Results } from "../utils/generateResults";
+import { spacing, typography } from "../utils/styles";
+import { useTheme } from "@mui/material/styles";
 
 type ResultsDisplayProps = {
 	results: Results;
 };
 
-const ResultsDisplay = (props: ResultsDisplayProps) => {
-	const { results } = props;
-	const { attackerOccupies, defenderHolds } = results;
+const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
+	const { results } = resultsProps;
+	console.log("results:", results);
+
+	const {
+		attackerOccupies,
+		averageAttackersLeft,
+		defenderHolds,
+		averageDefendersLeft,
+	} = results;
 
 	const totalSimulations = attackerOccupies + defenderHolds;
-	const attackerWinPercent = (attackerOccupies / totalSimulations) * 100;
-	const defenderWinPercent = (defenderHolds / totalSimulations) * 100;
+
+	const attackerOccupiesPercent = (attackerOccupies / totalSimulations) * 100;
+	const defenderHoldsPercent = (defenderHolds / totalSimulations) * 100;
 
 	return (
-		<StyledCard data-testid="results-display-section">
-			<CardContent>
-				<StyledHeader>
-					<h2 data-testid="results-h2">Results</h2>
-					<StyledEmojiIcon />
-				</StyledHeader>
-				<StyledResult>
-					<Typography component="p">
-						Attacker Occupies:{" "}
-						<StyledPercent data-testid="results-attacker-occupies">
-							{attackerWinPercent.toFixed(1)}%
-						</StyledPercent>
-					</Typography>
-					<Typography component="p">
-						Average Attackers Left:{" "}
-						<StyledValue data-testid="results-avg-attackers-left">
-							{results.averageAttackersLeft?.toFixed(1)}
-						</StyledValue>
-					</Typography>
-				</StyledResult>
-				<StyledResult>
-					<Typography component="p">
-						Defender Holds:{" "}
-						<StyledPercent data-testid="results-defenderholds">
-							{defenderWinPercent.toFixed(1)}%
-						</StyledPercent>
-					</Typography>
-					<Typography component="p">
-						Average Defenders Left:{" "}
-						<StyledValue data-testid="results-avg-defenders-left">
-							{results.averageDefendersLeft?.toFixed(1)}
-						</StyledValue>
-					</Typography>
-				</StyledResult>
-			</CardContent>
-		</StyledCard>
+		<StyledResultsDisplay data-testid="results-display">
+			<StyledHeader>
+				<StyledHeaderText style={{ ...typography.h2 }}>
+					Simulation Results
+				</StyledHeaderText>
+			</StyledHeader>
+			<StyledResultItem>
+				<StyledResultLabel style={{ ...typography.body }}>
+					Attacker Wins:
+				</StyledResultLabel>
+				<StyledResultValue
+					style={{ ...typography.body }}
+					data-testid="attacker-wins"
+				>
+					{attackerOccupiesPercent.toFixed(2) + "%"}
+				</StyledResultValue>
+			</StyledResultItem>
+			<StyledResultItem>
+				<StyledResultLabel style={{ ...typography.body }}>
+					Defender Wins:
+				</StyledResultLabel>
+				<StyledResultValue
+					style={{ ...typography.body }}
+					data-testid="defender-wins"
+				>
+					{defenderHoldsPercent.toFixed(2) + "%"}
+				</StyledResultValue>
+			</StyledResultItem>
+			<StyledResultItem>
+				<StyledResultLabel style={{ ...typography.body }}>
+					Average Attackers Remaining:
+				</StyledResultLabel>
+				<StyledResultValue
+					style={{ ...typography.body }}
+					data-testid="average-attackers"
+				>
+					{results.averageAttackersLeft!.toFixed(2)}
+				</StyledResultValue>
+			</StyledResultItem>
+
+			<StyledResultItem>
+				<StyledResultLabel style={{ ...typography.body }}>
+					Average Defenders Remaining:
+				</StyledResultLabel>
+				<StyledResultValue
+					style={{ ...typography.body }}
+					data-testid="average-defenders"
+				>
+					{results.averageDefendersLeft!.toFixed(2)}
+				</StyledResultValue>
+			</StyledResultItem>
+		</StyledResultsDisplay>
 	);
 };
 
 export default ResultsDisplay;
 
-const StyledCard = styled(Card)`
-	&& {
-		margin-top: ${spacing.paddingLarge};
-		padding: ${spacing.paddingMedium};
-		background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
-		color: ${({ theme }) => theme.customTheming.formTextColor};
-		max-width: 500px;
-		margin: 0 auto;
-		border-radius: 10px;
+const StyledResultsDisplay = styled("div")`
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	padding: ${spacing.paddingMedium};
+	border-radius: 10px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 500px;
+	box-sizing: border-box;
+	flex: 1;
+	min-width: 300px;
+
+	@media (max-width: 768px) {
+		padding: ${spacing.paddingSmall};
 	}
 `;
 
 const StyledHeader = styled.div`
+	margin-bottom: ${spacing.marginSmall};
+`;
+
+const StyledHeaderText = styled.h2`
+	margin: 5px;
+`;
+
+const StyledResultItem = styled("div")`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 15px;
+	margin-bottom: ${spacing.marginSmall};
 `;
 
-const StyledEmojiIcon = styled(EmojiEventsIcon)`
-	color: ${({ theme }) => theme.customTheming.formTextColor};
-	font-size: 2rem;
+const StyledResultLabel = styled("span")`
+	font-weight: 600;
 `;
 
-const StyledResult = styled.div`
-	margin-top: 15px;
-	text-align: center;
-
-	p {
-		margin-bottom: 10px;
-	}
-`;
-
-const StyledPercent = styled.span`
-	font-size: 1.1rem;
-	color: ${({ theme }) => theme.customTheming.headerTextColor};
-`;
-
-const StyledValue = styled.span`
-	font-size: 1.1rem;
+const StyledResultValue = styled("span")`
+	font-weight: 400;
 `;
