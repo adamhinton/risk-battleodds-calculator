@@ -3,19 +3,13 @@ import generateResults, { Results } from "../utils/generateResults";
 import { UserInputs } from "../utils/generateResults";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-	Button,
-	Input,
-	InputLabel,
-	Slider,
-	TextField,
-	Typography,
-} from "@mui/material";
+import { Input, InputLabel } from "@mui/material";
+import { Button } from "@mui/material";
+import Slider from "@mui/material/Slider";
 import styled from "styled-components";
 import Tooltip from "@mui/material/Tooltip";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
-import { spacing, typography } from "../utils/styles";
-import { useTheme } from "@mui/material/styles";
+import { spacing } from "../utils/styles";
 
 type FormProps = {
 	setResults: Function;
@@ -28,160 +22,116 @@ type FormValues = {
 	stopAt: number;
 };
 
-const Form = (formProps: FormProps) => {
-	const { setResults } = formProps;
+const Form = (props: FormProps) => {
+	const { setResults } = props;
+
 	const [formValues, setFormValues] = useState<FormValues>({
 		attackerCount: 10,
 		defenderCount: "10",
-		numSimulations: 5,
-		stopAt: 2,
+		numSimulations: 5000,
+		stopAt: 3,
 	});
-	const theme = useTheme();
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = event.target;
-		setFormValues({ ...formValues, [name]: value });
-	};
-
-	const handleSliderChange = (event: Event, value: number | number[]) => {
+	function handleChange(evt: Readonly<React.ChangeEvent<HTMLInputElement>>) {
+		const { value } = evt.target;
 		setFormValues({
 			...formValues,
-			numSimulations: value as number,
+			[evt.target.name]:
+				evt.target.name === "defenderCount"
+					? String(value)
+					: parseFloat(value.toString()),
 		});
-	};
-
-	const handleSubmit = (event: React.FormEvent) => {
-		event.preventDefault();
-		const { attackerCount, defenderCount, numSimulations, stopAt } = formValues;
-
-		if (!attackerCount || !defenderCount || !numSimulations || !stopAt) {
-			toast.error("Please fill in all fields");
-			return;
-		}
-
-		const parsedDefenderCount = parseInt(defenderCount);
-
-		if (isNaN(parsedDefenderCount)) {
-			toast.error("Please enter a valid number for defenders");
-			return;
-		}
-
-		const userInputs: UserInputs = {
-			attackerCount: attackerCount,
-			defenderCount: [parsedDefenderCount],
-			numSimulations: numSimulations,
-			stopAt: stopAt,
-		};
-
-		const results = generateResults(userInputs);
-		setResults(results);
-	};
-
-	const marks = [
-		{
-			value: 1,
-			label: "100",
-		},
-		{
-			value: 2,
-			label: "1,000",
-		},
-		{
-			value: 3,
-			label: "10,000",
-		},
-		{
-			value: 4,
-			label: "100,000",
-		},
-		{
-			value: 5,
-			label: "1,000,000",
-		},
-	];
-
-	const calculateValue = (value: number) => {
-		return Math.pow(10, value + 1);
-	};
+	}
 
 	return (
-		<StyledForm onSubmit={handleSubmit} data-testid="form">
+		<StyledForm
+			onSubmit={(e) => {
+				e.preventDefault();
+				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
+				if (!formValues.defenderCount.match(defenderValidationRegex)) {
+					toast(
+						"Invalid Defenders input. Separate with commas (e.g., 10, 5, 5, 3)"
+					);
+				} else if (formValues.stopAt >= formValues.attackerCount) {
+					toast("Stop At must be less than Attackers");
+				} else {
+					const userInputs: UserInputs = {
+						...formValues,
+						defenderCount: formValues.defenderCount
+							.split(",")
+							.map((item) => Number(item)),
+						numSimulations: formValues.numSimulations,
+					};
+
+					const results: Results = generateResults(userInputs);
+					setResults(results);
+				}
+			}}
+		>
 			<StyledHeader>
-				<Typography variant="h2" style={{ ...typography.h2 }}>
-					Battle Simulation
-				</Typography>
+				<h2>Battle Odds</h2>
 			</StyledHeader>
 
-			<StyledInputsContainer>
-				<StyledTextField
-					label="Attackers"
+			<StyledInputGroup>
+				<InputLabel htmlFor="attackers">Attackers</InputLabel>
+				<StyledInput
+					id="attackers"
 					type="number"
-					inputProps={{ min: "0" }}
 					name="attackerCount"
 					value={formValues.attackerCount}
 					onChange={handleChange}
-					data-testid="attacker-count-input"
-					variant="outlined"
-					fullWidth
 				/>
-				<StyledTextField
-					label="Defenders"
+			</StyledInputGroup>
+
+			<StyledInputGroup>
+				<InputLabel htmlFor="defenders">
+					Defenders
+					<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
+						<QuestionMarkIcon />
+					</Tooltip>
+				</InputLabel>
+				<StyledInput
+					id="defenders"
 					type="text"
 					name="defenderCount"
 					value={formValues.defenderCount}
 					onChange={handleChange}
-					data-testid="defender-count-input"
-					variant="outlined"
-					fullWidth
 				/>
-				<StyledHorizontalContainer>
-					<StyledTextField
-						label="Stop At"
-						type="number"
-						inputProps={{ min: "0" }}
-						name="stopAt"
-						value={formValues.stopAt}
-						onChange={handleChange}
-						data-testid="stop-at-input"
-						variant="outlined"
-					/>
-					<Tooltip
-						title="Stop when you have this many attackers left. If unsure, input 2."
-						placement="right"
-					>
+			</StyledInputGroup>
+
+			<StyledInputGroup>
+				<InputLabel htmlFor="stop-at">Stop At</InputLabel>
+				<StyledInput
+					id="stop-at"
+					type="number"
+					name="stopAt"
+					value={formValues.stopAt}
+					onChange={handleChange}
+				/>
+			</StyledInputGroup>
+
+			<StyledSliderGroup>
+				<InputLabel htmlFor="simulations">
+					Simulations
+					<Tooltip title="Number of simulations to run (max 10k)">
 						<QuestionMarkIcon />
 					</Tooltip>
-				</StyledHorizontalContainer>
-			</StyledInputsContainer>
-
-			<StyledSliderContainer>
-				<Typography id="simulations" style={{ ...typography.body }}>
-					Number of Simulations:
-				</Typography>
+				</InputLabel>
 				<StyledSlider
-					aria-labelledby="simulations"
 					min={1}
-					max={5}
+					max={10000}
 					name="numSimulations"
-					marks={marks}
-					defaultValue={5}
-					scale={calculateValue}
 					value={formValues.numSimulations}
-					onChange={handleSliderChange}
-					data-testid="numsimulations-input"
-					step={null}
+					onChange={(event, value) =>
+						setFormValues({ ...formValues, numSimulations: value as number })
+					}
+					step={100}
 					valueLabelDisplay="auto"
 				/>
-			</StyledSliderContainer>
+			</StyledSliderGroup>
 
-			<StyledButton
-				type="submit"
-				data-testid="submit-btn"
-				variant="contained"
-				fullWidth
-			>
-				Run Simulations
-			</StyledButton>
+			<StyledButton type="submit">Run Simulations</StyledButton>
+
 			<ToastContainer />
 		</StyledForm>
 	);
@@ -190,72 +140,91 @@ const Form = (formProps: FormProps) => {
 export default Form;
 
 const StyledForm = styled("form")`
-	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
-	color: ${({ theme }) => theme.customTheming.formTextColor};
-	padding: ${spacing.paddingMedium};
-	width: 100%;
-	max-width: 500px;
-	border-radius: 10px;
-	margin-bottom: 20px;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	box-sizing: border-box;
-	flex: 1;
-	min-width: 300px;
-
-	@media (max-width: 768px) {
-		padding: ${spacing.paddingSmall};
-		margin-bottom: ${spacing.marginSmall};
-	}
+	justify-content: flex-start;
+	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	width: 100%;
+	max-width: 400px;
+	padding: ${spacing.paddingSmall};
+	border-radius: ${spacing.borderRadius};
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	gap: 12px;
 `;
 
 const StyledHeader = styled.div`
-	margin-bottom: ${spacing.marginSmall};
+	font-size: 1.25rem;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
+	text-align: center;
 `;
 
-const StyledInputsContainer = styled.div`
+const StyledInputGroup = styled.div`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: ${spacing.marginSmall};
-	width: 100%;
-	margin-bottom: ${spacing.marginSmall};
-`;
-
-const StyledTextField = styled(TextField)`
-	&& {
-		background: white;
-		color: ${({ theme }) => theme.customTheming.inputTextColor};
-		margin: 0;
-		padding: 0;
+	align-items: flex-start;
+	label {
+		font-size: 0.875rem;
+		color: ${({ theme }) => theme.customTheming.formTextColor};
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+	}
+	> div {
+		margin-top: 6px;
 	}
 `;
 
-const StyledHorizontalContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+const StyledInput = styled(Input)`
+	width: 100%;
+	font-size: 0.875rem;
+	padding: 6px 8px;
+	border-radius: 8px;
+	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	color: ${({ theme }) => theme.customTheming.inputTextColor};
+	border: 1px solid ${({ theme }) => theme.customTheming.accentColor};
+	transition: border-color 0.2s ease;
+	&:focus {
+		border-color: ${({ theme }) => theme.customTheming.accentColor};
+	}
 `;
 
-const StyledSliderContainer = styled.div`
-	margin-top: ${spacing.marginMedium};
+const StyledSliderGroup = styled.div`
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	label {
+		font-size: 0.875rem;
+		color: ${({ theme }) => theme.customTheming.formTextColor};
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+	}
+	> div {
+		margin-top: 6px;
+	}
 `;
 
 const StyledSlider = styled(Slider)`
 	&& {
 		width: 100%;
+		color: ${({ theme }) => theme.customTheming.accentColor};
 	}
 `;
 
 const StyledButton = styled(Button)`
-	margin-top: ${spacing.marginMedium};
-	color: white;
+	width: 100%;
 	background-color: ${({ theme }) => theme.customTheming.accentColor};
+	color: ${({ theme }) => theme.customTheming.formTextColor};
+	padding: 8px 16px;
+	font-size: 0.875rem;
+	border-radius: 8px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
 	&:hover {
 		background-color: ${({ theme }) => theme.customTheming.accentColor};
-		opacity: 0.8;
+		transform: scale(1.05);
 	}
 `;

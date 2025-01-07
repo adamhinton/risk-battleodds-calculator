@@ -75,11 +75,11 @@ export const typography = {
 };
 
 export const spacing = {
-	paddingSmall: "8px",
-	paddingMedium: "16px",
+	paddingSmall: "12px",
+	paddingMedium: "20px",
 	paddingLarge: "24px",
 	marginSmall: "8px",
 	marginMedium: "16px",
 	marginLarge: "24px",
-	borderRadius: "8px",
+	borderRadius: "10px",
 };
