@@ -9,7 +9,19 @@ type ResultsDisplayProps = {
 
 const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 	const { results } = resultsProps;
-	const theme = useTheme();
+	console.log("results:", results);
+
+	const {
+		attackerOccupies,
+		averageAttackersLeft,
+		defenderHolds,
+		averageDefendersLeft,
+	} = results;
+
+	const totalSimulations = attackerOccupies + defenderHolds;
+
+	const attackerOccupiesPercent = (attackerOccupies / totalSimulations) * 100;
+	const defenderHoldsPercent = (defenderHolds / totalSimulations) * 100;
 
 	return (
 		<StyledResultsDisplay data-testid="results-display">
@@ -26,7 +38,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					style={{ ...typography.body }}
 					data-testid="attacker-wins"
 				>
-					{results.attackerOccupies}
+					{attackerOccupiesPercent.toFixed(2) + "%"}
 				</StyledResultValue>
 			</StyledResultItem>
 			<StyledResultItem>
@@ -37,7 +49,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					style={{ ...typography.body }}
 					data-testid="defender-wins"
 				>
-					{results.defenderHolds}
+					{defenderHoldsPercent.toFixed(2) + "%"}
 				</StyledResultValue>
 			</StyledResultItem>
 			<StyledResultItem>
@@ -49,6 +61,18 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					data-testid="average-attackers"
 				>
 					{results.averageAttackersLeft!.toFixed(2)}
+				</StyledResultValue>
+			</StyledResultItem>
+
+			<StyledResultItem>
+				<StyledResultLabel style={{ ...typography.body }}>
+					Average Defenders Remaining:
+				</StyledResultLabel>
+				<StyledResultValue
+					style={{ ...typography.body }}
+					data-testid="average-defenders"
+				>
+					{results.averageDefendersLeft!.toFixed(2)}
 				</StyledResultValue>
 			</StyledResultItem>
 		</StyledResultsDisplay>
