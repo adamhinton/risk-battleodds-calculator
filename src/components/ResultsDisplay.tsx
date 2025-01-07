@@ -58,7 +58,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 export default ResultsDisplay;
 
 const StyledResultsDisplay = styled("div")`
-	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	padding: ${spacing.paddingMedium};
 	border-radius: 10px;

@@ -19,7 +19,8 @@ import { colors, spacing } from "./utils/styles";
 
 type CustomTheming = {
 	mainBGC: string;
-	formAndInputsBGC: string;
+	formBGC: string;
+	inputBGC: string;
 	formTextColor: string;
 	inputTextColor: string;
 	headerBGC: string;
@@ -43,7 +44,8 @@ export const darkTheme = createTheme({
 	customTheming: {
 		mainBGC: colors.dark.background,
 		headerBGC: colors.dark.header,
-		formAndInputsBGC: colors.dark.form,
+		formBGC: colors.dark.form,
+		inputBGC: colors.dark.inputBGC,
 		formTextColor: colors.dark.text,
 		inputTextColor: colors.dark.input,
 		headerTextColor: colors.dark.headerText,
@@ -57,7 +59,8 @@ export const lightTheme = createTheme({
 	},
 	customTheming: {
 		mainBGC: colors.light.background,
-		formAndInputsBGC: colors.light.form,
+		formBGC: colors.light.form,
+		inputBGC: colors.dark.inputBGC,
 		formTextColor: colors.light.text,
 		inputTextColor: colors.light.input,
 		headerBGC: colors.light.header,

@@ -8,6 +8,7 @@ export type Colors = {
 		background: string;
 		header: string;
 		form: string;
+		inputBGC: string;
 		text: string;
 		input: string;
 		headerText: string;
@@ -16,6 +17,7 @@ export type Colors = {
 		background: string;
 		header: string;
 		form: string;
+		inputBGC: string;
 		text: string;
 		input: string;
 		headerText: string;
@@ -32,6 +34,7 @@ export const colors: Colors = {
 		background: "#1e272e",
 		header: "#263238",
 		form: "#2d3c42",
+		inputBGC: "121212",
 		text: "#ffffff",
 		input: "#ffffff",
 		headerText: "#ffffff",
@@ -40,6 +43,7 @@ export const colors: Colors = {
 		background: "#f0f0f0",
 		header: "#e0e0e0",
 		form: "#ffffff",
+		inputBGC: "ddd",
 		text: "#333333",
 		input: "#333333",
 		headerText: "#333333",

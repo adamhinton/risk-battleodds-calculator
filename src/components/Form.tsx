@@ -28,7 +28,7 @@ const Form = (props: FormProps) => {
 	const [formValues, setFormValues] = useState<FormValues>({
 		attackerCount: 10,
 		defenderCount: "10",
-		numSimulations: 5000,
+		numSimulations: 10_000,
 		stopAt: 3,
 	});
 
@@ -144,7 +144,7 @@ const StyledForm = styled("form")`
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
+	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	width: 100%;
 	max-width: 400px;
@@ -182,8 +182,11 @@ const StyledInput = styled(Input)`
 	font-size: 0.875rem;
 	padding: 6px 8px;
 	border-radius: 8px;
-	background-color: ${({ theme }) => theme.customTheming.formAndInputsBGC};
-	color: ${({ theme }) => theme.customTheming.inputTextColor};
+	background-color: ${({ theme }) => {
+		console.log("theme.customTheming:", theme.customTheming);
+		return theme.customTheming.inputBGC;
+	}};
+	color: ${({ theme }) => theme.customTheming.inputTextColor + "!important"};
 	border: 1px solid ${({ theme }) => theme.customTheming.accentColor};
 	transition: border-color 0.2s ease;
 	&:focus {
