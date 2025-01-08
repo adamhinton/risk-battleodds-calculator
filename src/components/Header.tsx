@@ -5,7 +5,6 @@ import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { spacing, typography } from "../utils/styles";
-import { useTheme } from "@mui/material/styles";
 
 type HeaderProps = {
 	isDark: boolean;
@@ -14,7 +13,6 @@ type HeaderProps = {
 
 const Header = (headerProps: HeaderProps) => {
 	const { isDark, setIsDark } = headerProps;
-	const theme = useTheme();
 
 	return (
 		<StyledAppBar position="static">
