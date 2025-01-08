@@ -14,7 +14,13 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       }
     }
   >
-    Risk Battleodds Calculator
+    <div>
+      Risk Battleodds Calculator 
+      <img
+        className="sc-dcJsrY brlgrC"
+        src="/risk-favicon.png"
+      />
+    </div>
   </h1>
   <div
     className="sc-gEvEer kITQyr"

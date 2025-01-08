@@ -2,14 +2,14 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-aXZVg kOyJVi"
+  className="sc-aXZVg fDBLBP"
   onSubmit={[Function]}
 >
   <div
     className="sc-gEvEer MBnNw"
   >
     <h2>
-      Battle Odds
+      Battle Outcomes Calculator
     </h2>
   </div>
   <div
@@ -19,10 +19,10 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="attackers"
     >
-      Attackers
+      Attacking Troops
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR bHPMzv css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
@@ -45,7 +45,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="defenders"
     >
-      Defenders
+      Defending Troops
       <svg
         aria-hidden={true}
         aria-label="Comma-separated list of defenders (e.g., 10,5,5)"
@@ -68,7 +68,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       </svg>
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR bHPMzv css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
@@ -114,7 +114,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
       </svg>
     </label>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR bHPMzv css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
@@ -131,7 +131,7 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-dcJsrY iJREbp"
+    className="sc-dcJsrY bMGVhE"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"

@@ -162,6 +162,8 @@ const Form = (props: FormProps) => {
 					<StyledButton type="submit">Run Simulations</StyledButton>
 				</>
 			) : (
+				// Show this if results are displaying
+				// User can toggle off this collapse feature
 				<CollapsedForm>
 					<StyledButton onClick={() => setIsCollapsed(false)}>
 						Expand Form
@@ -180,7 +182,7 @@ const StyledForm = styled("form")`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	width: 100%;
@@ -215,7 +217,7 @@ const StyledInputGroup = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-	width: 100%;
+	width: 80%;
 	font-size: 0.875rem;
 	padding: 6px 8px;
 	border-radius: 8px;
@@ -275,10 +277,13 @@ const CollapsedForm = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 75;
 	padding: ${spacing.paddingSmall};
 	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	border-radius: ${spacing.borderRadius};
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	@media (max-width: 320px) {
+		height: 20px;
+	}
 `;

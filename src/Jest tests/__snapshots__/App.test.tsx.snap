@@ -2,7 +2,7 @@
 
 exports[`[3] Matches snapshot from 1.29.2023 1`] = `
 <div
-  className="sc-eldPxv fANIae App"
+  className="sc-fPXMVe kLbkjt App"
   data-testid="app"
 >
   <header
@@ -18,7 +18,13 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         }
       }
     >
-      Risk Battleodds Calculator
+      <div>
+        Risk Battleodds Calculator 
+        <img
+          className="sc-eldPxv fmVEHI"
+          src="/risk-favicon.png"
+        />
+      </div>
     </h1>
     <div
       className="sc-cPiKLX iujfqc"
@@ -99,17 +105,17 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
     </div>
   </header>
   <main
-    className="sc-fPXMVe jGWnRo"
+    className="sc-gFqAkR fuFGnE"
   >
     <form
-      className="sc-gsFSXq ifViNs"
+      className="sc-gsFSXq fdGnTB"
       onSubmit={[Function]}
     >
       <div
         className="sc-kAyceB cvELUB"
       >
         <h2>
-          Battle Odds
+          Battle Outcomes Calculator
         </h2>
       </div>
       <div
@@ -119,10 +125,10 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
           htmlFor="attackers"
         >
-          Attackers
+          Attacking Troops
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dZtvbU css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -145,7 +151,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
           htmlFor="defenders"
         >
-          Defenders
+          Defending Troops
           <svg
             aria-hidden={true}
             aria-label="Comma-separated list of defenders (e.g., 10,5,5)"
@@ -168,7 +174,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           </svg>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dZtvbU css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -214,7 +220,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           </svg>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dZtvbU css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -231,7 +237,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </div>
       </div>
       <div
-        className="sc-dhKdcB gMKPna"
+        className="sc-dhKdcB cFVwEv"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
