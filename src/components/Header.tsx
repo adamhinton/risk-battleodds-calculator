@@ -138,8 +138,8 @@ function DarkModeToggleButton(isDark: boolean, setIsDark: Function) {
 }
 
 const Logo = styled.img`
-	width: 50px;
-	height: 50px;
+	width: 35px;
+	height: 35px;
 
 	display: block;
 	margin: 0 auto;
