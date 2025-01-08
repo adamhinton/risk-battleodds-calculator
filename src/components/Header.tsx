@@ -24,7 +24,9 @@ const Header = (headerProps: HeaderProps) => {
 				data-testid="title"
 				style={{ ...typography.h4 }}
 			>
-				Risk Battleodds Calculator
+				<div>
+					Risk Battleodds Calculator <Logo src="/risk-favicon.png" />
+				</div>
 			</Typography>
 			<StyledLinkContainer data-testid="links">
 				<StyledLink
@@ -134,3 +136,11 @@ function DarkModeToggleButton(isDark: boolean, setIsDark: Function) {
 		/>
 	);
 }
+
+const Logo = styled.img`
+	width: 50px;
+	height: 50px;
+
+	display: block;
+	margin: 0 auto;
+`;
