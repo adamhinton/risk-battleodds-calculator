@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Form from "./components/Form";
 import ResultsDisplay from "./components/ResultsDisplay";
 import { Results } from "./utils/generateResults";
 import Form from "./components/Form";
@@ -115,7 +114,7 @@ const StyledApp = styled("div")`
 
 const StyledMain = styled("main")`
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	margin-top: 20px;
 	flex-direction: column;
 	width: 100%;

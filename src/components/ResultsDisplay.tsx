@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Results } from "../utils/generateResults";
 import { spacing, typography } from "../utils/styles";
-import { useTheme } from "@mui/material/styles";
 
 type ResultsDisplayProps = {
 	results: Results;
@@ -60,7 +59,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					style={{ ...typography.body }}
 					data-testid="results-avg-attackers-left"
 				>
-					{results.averageAttackersLeft!.toFixed(1)}
+					{averageAttackersLeft!.toFixed(1)}
 				</StyledResultValue>
 			</StyledResultItem>
 
@@ -72,7 +71,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					style={{ ...typography.body }}
 					data-testid="results-avg-defenders-left"
 				>
-					{results.averageDefendersLeft!.toFixed(1)}
+					{averageDefendersLeft!.toFixed(1)}
 				</StyledResultValue>
 			</StyledResultItem>
 		</StyledResultsDisplay>

@@ -48,6 +48,7 @@ const Form = (props: FormProps) => {
 
 	return (
 		<StyledForm
+			isCollapsed
 			onSubmit={(e) => {
 				e.preventDefault();
 				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
@@ -76,13 +77,13 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<StyledHeader>
-				<h2>Battle Odds</h2>
+				<h2>Battle Outcomes Calculator</h2>
 			</StyledHeader>
 
 			{!isCollapsed ? (
 				<>
 					<StyledInputGroup>
-						<InputLabel htmlFor="attackers">Attackers</InputLabel>
+						<InputLabel htmlFor="attackers">Attacking Troops</InputLabel>
 						<StyledInput
 							id="attackers"
 							type="number"
@@ -94,7 +95,7 @@ const Form = (props: FormProps) => {
 
 					<StyledInputGroup>
 						<InputLabel htmlFor="defenders">
-							Defenders
+							Defending Troops
 							<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
 								<QuestionMarkIcon />
 							</Tooltip>
@@ -162,6 +163,8 @@ const Form = (props: FormProps) => {
 					<StyledButton type="submit">Run Simulations</StyledButton>
 				</>
 			) : (
+				// Show this if results are displaying
+				// User can toggle off this collapse feature
 				<CollapsedForm>
 					<StyledButton onClick={() => setIsCollapsed(false)}>
 						Expand Form
@@ -176,11 +179,15 @@ const Form = (props: FormProps) => {
 
 export default Form;
 
-const StyledForm = styled("form")`
+type StyledComponentFormProps = {
+	isCollapsed: boolean;
+};
+
+const StyledForm = styled.form<StyledComponentFormProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	width: 100%;
@@ -192,9 +199,13 @@ const StyledForm = styled("form")`
 `;
 
 const StyledHeader = styled.div`
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	text-align: center;
+	height: 65px;
+	@media (max-width: 320px) {
+		font-size: 0.75rem;
+	}
 `;
 
 const StyledInputGroup = styled.div`
@@ -215,7 +226,8 @@ const StyledInputGroup = styled.div`
 `;
 
 const StyledInput = styled(Input)`
-	width: 100%;
+	width: 80%;
+	height: 35px;
 	font-size: 0.875rem;
 	padding: 6px 8px;
 	border-radius: 8px;
@@ -229,7 +241,7 @@ const StyledInput = styled(Input)`
 `;
 
 const StyledSliderGroup = styled.div`
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	label {
@@ -268,17 +280,19 @@ const StyledButton = styled(Button)`
 
 const StyledFormControlLabel = styled(FormControlLabel)`
 	width: 100%;
-	margin-top: 12px;
 `;
 
 const CollapsedForm = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 75;
 	padding: ${spacing.paddingSmall};
 	background-color: ${({ theme }) => theme.customTheming.formBGC};
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	border-radius: ${spacing.borderRadius};
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	@media (max-width: 320px) {
+		height: 20px;
+	}
 `;

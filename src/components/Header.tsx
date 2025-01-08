@@ -5,7 +5,6 @@ import styled from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { spacing, typography } from "../utils/styles";
-import { useTheme } from "@mui/material/styles";
 
 type HeaderProps = {
 	isDark: boolean;
@@ -14,7 +13,6 @@ type HeaderProps = {
 
 const Header = (headerProps: HeaderProps) => {
 	const { isDark, setIsDark } = headerProps;
-	const theme = useTheme();
 
 	return (
 		<StyledAppBar position="static">
@@ -24,7 +22,9 @@ const Header = (headerProps: HeaderProps) => {
 				data-testid="title"
 				style={{ ...typography.h4 }}
 			>
-				Risk Battleodds Calculator
+				<div>
+					Risk Battleodds Calculator <Logo src="/risk-favicon.png" />
+				</div>
 			</Typography>
 			<StyledLinkContainer data-testid="links">
 				<StyledLink
@@ -82,6 +82,9 @@ const StyledAppBar = styled(AppBar)`
 			align-items: center;
 			padding: ${spacing.paddingSmall};
 		}
+		@media (max-width: 320px) {
+			position: relative;
+		}
 	}
 `;
 
@@ -134,3 +137,11 @@ function DarkModeToggleButton(isDark: boolean, setIsDark: Function) {
 		/>
 	);
 }
+
+const Logo = styled.img`
+	width: 35px;
+	height: 35px;
+
+	display: block;
+	margin: 0 auto;
+`;
