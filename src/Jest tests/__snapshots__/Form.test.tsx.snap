@@ -2,56 +2,32 @@
 
 exports[`[3] Matches screenshot from 1.29.2023 1`] = `
 <form
-  className="sc-aXZVg cdoTnS"
+  className="sc-aXZVg kOyJVi"
   onSubmit={[Function]}
 >
   <div
-    className="sc-gEvEer fJpida"
+    className="sc-gEvEer MBnNw"
   >
-    <h2
-      className="sc-eqUAAy dUZjhb"
-    >
-      Inputs
+    <h2>
+      Battle Odds
     </h2>
   </div>
   <div
-    className="sc-fqkvVR bJtQQc"
+    className="sc-eqUAAy cynqKa"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="attackers"
     >
-      Attackers:
+      Attackers
     </label>
-    <svg
-      aria-hidden={true}
-      aria-label="Number of attackers..."
-      aria-labelledby={null}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-mui-internal-clone-element={true}
-      data-testid="QuestionMarkIcon"
-      focusable="false"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
-      />
-    </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY jfGUsK css-q0jhri-MuiInputBase-root-MuiInput-root"
-      data-testid="attackers-input"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
         className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
         id="attackers"
-        min="1"
         name="attackerCount"
         onAnimationStart={[Function]}
         onBlur={[Function]}
@@ -63,44 +39,41 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-fqkvVR bJtQQc"
+    className="sc-eqUAAy cynqKa"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="defenders"
     >
-      Defenders:
+      Defenders
+      <svg
+        aria-hidden={true}
+        aria-label="Comma-separated list of defenders (e.g., 10,5,5)"
+        aria-labelledby={null}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-mui-internal-clone-element={true}
+        data-testid="QuestionMarkIcon"
+        focusable="false"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+        />
+      </svg>
     </label>
-    <svg
-      aria-hidden={true}
-      aria-label="Number of defenders..."
-      aria-labelledby={null}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-mui-internal-clone-element={true}
-      data-testid="QuestionMarkIcon"
-      focusable="false"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
-      />
-    </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-iGgWBj jfGUsK hKpVec css-q0jhri-MuiInputBase-root-MuiInput-root"
-      data-testid="defenders-input"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
         className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
         id="defenders"
-        max={10000}
-        min={1}
         name="defenderCount"
         onAnimationStart={[Function]}
         onBlur={[Function]}
@@ -112,66 +85,131 @@ exports[`[3] Matches screenshot from 1.29.2023 1`] = `
     </div>
   </div>
   <div
-    className="sc-fqkvVR bJtQQc"
+    className="sc-eqUAAy cynqKa"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="stop-at"
     >
-      Stop At:
+      Stop At
+      <svg
+        aria-hidden={true}
+        aria-label="Stop at this number of attackers left"
+        aria-labelledby={null}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-mui-internal-clone-element={true}
+        data-testid="QuestionMarkIcon"
+        focusable="false"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+        />
+      </svg>
     </label>
-    <svg
-      aria-hidden={true}
-      aria-label="Stop when you have this many attackers left. If unsure, input 2."
-      aria-labelledby={null}
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-      data-mui-internal-clone-element={true}
-      data-testid="QuestionMarkIcon"
-      focusable="false"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
-      />
-    </svg>
     <div
-      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-dcJsrY sc-gsFSXq jfGUsK cUPqRT css-q0jhri-MuiInputBase-root-MuiInput-root"
-      data-testid="stop-at-input"
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-fqkvVR kEsCGW css-q0jhri-MuiInputBase-root-MuiInput-root"
       onClick={[Function]}
     >
       <input
         className="MuiInputBase-input MuiInput-input css-1x51dt5-MuiInputBase-input-MuiInput-input"
         id="stop-at"
-        min="0"
         name="stopAt"
         onAnimationStart={[Function]}
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         type="number"
-        value={2}
+        value={3}
       />
     </div>
   </div>
   <div
-    className="sc-kAyceB hyiRUB"
+    className="sc-dcJsrY iJREbp"
   >
     <label
       className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-9npbnl-MuiFormLabel-root-MuiInputLabel-root"
       htmlFor="simulations"
     >
-      Number of Simulations:
+      Simulations
+      <svg
+        aria-hidden={true}
+        aria-label="Number of simulations to run (max 10k)"
+        aria-labelledby={null}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-mui-internal-clone-element={true}
+        data-testid="QuestionMarkIcon"
+        focusable="false"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M11.07 12.85c.77-1.39 2.25-2.21 3.11-3.44.91-1.29.4-3.7-2.18-3.7-1.69 0-2.52 1.28-2.87 2.34L6.54 6.96C7.25 4.83 9.18 3 11.99 3c2.35 0 3.96 1.07 4.78 2.41.7 1.15 1.11 3.3.03 4.9-1.2 1.77-2.35 2.31-2.97 3.45-.25.46-.35.76-.35 2.24h-2.89c-.01-.78-.13-2.05.48-3.15zM14 20c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
+        />
+      </svg>
     </label>
   </div>
+  <label
+    className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd sc-kAyceB eUYRIA css-j204z7-MuiFormControlLabel-root"
+  >
+    <span
+      className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+      onBlur={[Function]}
+      onContextMenu={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={null}
+    >
+      <input
+        checked={true}
+        className="PrivateSwitchBase-input css-1m9pwf3"
+        data-indeterminate={false}
+        onChange={[Function]}
+        required={false}
+        type="checkbox"
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="CheckBoxIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      </svg>
+      <span
+        className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </span>
+    <span
+      className="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+    >
+      Hide form after running simulations
+    </span>
+  </label>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium sc-jXbUNg jXRgyX css-sghohy-MuiButtonBase-root-MuiButton-root"
-    data-testid="submit-btn"
+    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium sc-gsFSXq hIkKGW css-1e6y48t-MuiButtonBase-root-MuiButton-root"
     disabled={false}
     onBlur={[Function]}
     onContextMenu={[Function]}

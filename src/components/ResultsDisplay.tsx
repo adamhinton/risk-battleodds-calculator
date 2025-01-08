@@ -26,7 +26,7 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 	return (
 		<StyledResultsDisplay data-testid="results-display">
 			<StyledHeader>
-				<StyledHeaderText style={{ ...typography.h2 }}>
+				<StyledHeaderText style={{ ...typography.h2 }} data-testid="results-h2">
 					Simulation Results
 				</StyledHeaderText>
 			</StyledHeader>
@@ -35,21 +35,21 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 					Attacker Wins:
 				</StyledResultLabel>
 				<StyledResultValue
+					data-testid="results-attacker-occupies"
 					style={{ ...typography.body }}
-					data-testid="attacker-wins"
 				>
-					{attackerOccupiesPercent.toFixed(2) + "%"}
+					{attackerOccupiesPercent.toFixed(1) + "%"}
 				</StyledResultValue>
 			</StyledResultItem>
 			<StyledResultItem>
 				<StyledResultLabel style={{ ...typography.body }}>
-					Defender Wins:
+					Defender Holds:
 				</StyledResultLabel>
 				<StyledResultValue
 					style={{ ...typography.body }}
-					data-testid="defender-wins"
+					data-testid="results-defenderholds"
 				>
-					{defenderHoldsPercent.toFixed(2) + "%"}
+					{defenderHoldsPercent.toFixed(1) + "%"}
 				</StyledResultValue>
 			</StyledResultItem>
 			<StyledResultItem>
@@ -58,9 +58,9 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 				</StyledResultLabel>
 				<StyledResultValue
 					style={{ ...typography.body }}
-					data-testid="average-attackers"
+					data-testid="results-avg-attackers-left"
 				>
-					{results.averageAttackersLeft!.toFixed(2)}
+					{results.averageAttackersLeft!.toFixed(1)}
 				</StyledResultValue>
 			</StyledResultItem>
 
@@ -70,9 +70,9 @@ const ResultsDisplay = (resultsProps: ResultsDisplayProps) => {
 				</StyledResultLabel>
 				<StyledResultValue
 					style={{ ...typography.body }}
-					data-testid="average-defenders"
+					data-testid="results-avg-defenders-left"
 				>
-					{results.averageDefendersLeft!.toFixed(2)}
+					{results.averageDefendersLeft!.toFixed(1)}
 				</StyledResultValue>
 			</StyledResultItem>
 		</StyledResultsDisplay>
