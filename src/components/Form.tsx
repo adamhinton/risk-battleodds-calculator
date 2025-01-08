@@ -48,6 +48,7 @@ const Form = (props: FormProps) => {
 
 	return (
 		<StyledForm
+			isCollapsed
 			onSubmit={(e) => {
 				e.preventDefault();
 				const defenderValidationRegex = /^\s*\d+(\s*,\s*\d+)*\s*$/;
@@ -178,7 +179,11 @@ const Form = (props: FormProps) => {
 
 export default Form;
 
-const StyledForm = styled("form")`
+type StyledComponentFormProps = {
+	isCollapsed: boolean;
+};
+
+const StyledForm = styled.form<StyledComponentFormProps>`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -194,9 +199,13 @@ const StyledForm = styled("form")`
 `;
 
 const StyledHeader = styled.div`
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 	color: ${({ theme }) => theme.customTheming.formTextColor};
 	text-align: center;
+	height: 65px;
+	@media (max-width: 320px) {
+		font-size: 0.75rem;
+	}
 `;
 
 const StyledInputGroup = styled.div`
@@ -218,6 +227,7 @@ const StyledInputGroup = styled.div`
 
 const StyledInput = styled(Input)`
 	width: 80%;
+	height: 35px;
 	font-size: 0.875rem;
 	padding: 6px 8px;
 	border-radius: 8px;
@@ -270,7 +280,6 @@ const StyledButton = styled(Button)`
 
 const StyledFormControlLabel = styled(FormControlLabel)`
 	width: 100%;
-	margin-top: 12px;
 `;
 
 const CollapsedForm = styled.div`

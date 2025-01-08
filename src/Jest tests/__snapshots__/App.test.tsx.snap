@@ -112,7 +112,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="sc-kAyceB cvELUB"
+        className="sc-kAyceB cqDIOQ"
       >
         <h2>
           Battle Outcomes Calculator
@@ -128,7 +128,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           Attacking Troops
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dJkBOO css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -174,7 +174,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           </svg>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dJkBOO css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -220,7 +220,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
           </svg>
         </label>
         <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg gztXOB css-q0jhri-MuiInputBase-root-MuiInput-root"
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary sc-jXbUNg dJkBOO css-q0jhri-MuiInputBase-root-MuiInput-root"
           onClick={[Function]}
         >
           <input
@@ -267,7 +267,7 @@ exports[`[3] Matches snapshot from 1.29.2023 1`] = `
         </label>
       </div>
       <label
-        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd sc-jlZhew fyLxfV css-j204z7-MuiFormControlLabel-root"
+        className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd sc-jlZhew shYkk css-j204z7-MuiFormControlLabel-root"
       >
         <span
           className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
