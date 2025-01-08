@@ -86,6 +86,7 @@ const StyledAppBar = styled(AppBar)`
 		}
 		@media (max-width: 320px) {
 			position: relative;
+		}
 	}
 `;
 
