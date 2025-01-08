@@ -115,7 +115,7 @@ const StyledApp = styled("div")`
 
 const StyledMain = styled("main")`
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	margin-top: 20px;
 	flex-direction: column;
 	width: 100%;
