@@ -24,8 +24,8 @@ test("[2] Renders three user input fields as expected", () => {
 			<Form setResults={fakeSetState} />
 		</ThemeProvider>
 	);
-	const attackerInput = screen.getByLabelText("Attackers:");
-	const defenderInput = screen.getByLabelText("Defenders:");
+	const attackerInput = screen.getByLabelText("Attackers");
+	const defenderInput = screen.getByLabelText("Defenders");
 
 	expect(attackerInput).toBeVisible();
 	expect(defenderInput).toBeVisible();

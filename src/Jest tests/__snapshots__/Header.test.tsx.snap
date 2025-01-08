@@ -2,20 +2,26 @@
 
 exports[`[3] Matches snapshot from 3.17.23 1`] = `
 <header
-  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-aXZVg cnWGfF css-hip9hq-MuiPaper-root-MuiAppBar-root"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-aXZVg koGbKC css-hip9hq-MuiPaper-root-MuiAppBar-root"
 >
   <h1
     className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
     data-testid="title"
+    style={
+      Object {
+        "fontSize": "1.2rem",
+        "fontWeight": 600,
+      }
+    }
   >
     Risk Battleodds Calculator
   </h1>
   <div
-    className="sc-gEvEer gPgOJw"
+    className="sc-gEvEer kITQyr"
     data-testid="links"
   >
     <a
-      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR gqMdNS css-1bhi0za-MuiTypography-root-MuiLink-root"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR dFUCFC css-1bhi0za-MuiTypography-root-MuiLink-root"
       href="https://github.com/adamhinton/risk-battleodds-calculator"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -24,7 +30,7 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       Source Code
     </a>
     <a
-      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR gqMdNS css-1bhi0za-MuiTypography-root-MuiLink-root"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR dFUCFC css-1bhi0za-MuiTypography-root-MuiLink-root"
       href="https://www.linkedin.com/in/adam-hinton/"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -33,7 +39,7 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       LinkedIn
     </a>
     <a
-      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR gqMdNS css-1bhi0za-MuiTypography-root-MuiLink-root"
+      className="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways sc-fqkvVR dFUCFC css-1bhi0za-MuiTypography-root-MuiLink-root"
       href="https://www.dicebreaker.com/games/risk/how-to/how-to-play-risk-board-game#:~:text=In%20Risk%2C%20players%20are%20competing,attack%20and%20capture%20neighbouring%20territories"
       onBlur={[Function]}
       onFocus={[Function]}
@@ -43,6 +49,11 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
   </div>
   <p
     className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    style={
+      Object {
+        "fontSize": "0.8rem",
+      }
+    }
   >
     For the classic board game 
     <b>
@@ -50,11 +61,17 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
     </b>
   </p>
   <div
-    className="sc-eqUAAy JWBSO"
+    className="sc-eqUAAy jcRzML"
   >
     <h2
       className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
       data-testid="author"
+      style={
+        Object {
+          "fontSize": "1rem",
+          "fontWeight": 600,
+        }
+      }
     >
       Author: Adam Hinton
     </h2>
@@ -64,6 +81,11 @@ exports[`[3] Matches snapshot from 3.17.23 1`] = `
       data-testid="LightModeIcon"
       focusable="false"
       onClick={[Function]}
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
       viewBox="0 0 24 24"
     >
       <path
