@@ -84,6 +84,8 @@ const StyledAppBar = styled(AppBar)`
 			align-items: center;
 			padding: ${spacing.paddingSmall};
 		}
+		@media (max-width: 320px) {
+			position: relative;
 	}
 `;
 

@@ -2,7 +2,7 @@
 
 exports[`[3] Matches snapshot from 3.17.23 1`] = `
 <header
-  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-aXZVg koGbKC css-hip9hq-MuiPaper-root-MuiAppBar-root"
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic sc-aXZVg cFJRhF css-hip9hq-MuiPaper-root-MuiAppBar-root"
 >
   <h1
     className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
