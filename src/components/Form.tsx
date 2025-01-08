@@ -76,13 +76,13 @@ const Form = (props: FormProps) => {
 			}}
 		>
 			<StyledHeader>
-				<h2>Battle Odds</h2>
+				<h2>Battle Outcomes Calculator</h2>
 			</StyledHeader>
 
 			{!isCollapsed ? (
 				<>
 					<StyledInputGroup>
-						<InputLabel htmlFor="attackers">Attackers</InputLabel>
+						<InputLabel htmlFor="attackers">Attacking Troops</InputLabel>
 						<StyledInput
 							id="attackers"
 							type="number"
@@ -94,7 +94,7 @@ const Form = (props: FormProps) => {
 
 					<StyledInputGroup>
 						<InputLabel htmlFor="defenders">
-							Defenders
+							Defending Troops
 							<Tooltip title="Comma-separated list of defenders (e.g., 10,5,5)">
 								<QuestionMarkIcon />
 							</Tooltip>
@@ -229,7 +229,7 @@ const StyledInput = styled(Input)`
 `;
 
 const StyledSliderGroup = styled.div`
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	label {
